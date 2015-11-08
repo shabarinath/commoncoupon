@@ -215,6 +215,13 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.0.1</version>
 		</dependency>
+		
+		<!-- RestClient Dependency --> 
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.8</version>
+		</dependency>
 	
 		<!-- Test -->
 		<dependency>
