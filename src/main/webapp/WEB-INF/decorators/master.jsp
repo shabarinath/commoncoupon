@@ -47,15 +47,13 @@
 </head>
 
 <body>
-
-<h1>Home Page </h1>
- 	<%--<div id="wrapper">
+ 	 <div id="wrapper">
 		<div class="shell">
 			<div class="container">
 				<header class="header services last-section">
 					<!-- <h1 id="logo"><a href="/"></a></h1> -->
 					<h1 style="float:left;padding-left:15px;">
-						<img src="/images/${homePage.collegeLogoRelativePath}" style="width:80px; height:80px;border-radius:13px;" alt="College Logo" onerror="this.src='resources/img/default.png';"/>
+						<img src="/images/${homePage.collegeLogoRelativePath}" style="width:80px; height:80px;border-radius:13px;" alt="College Logo"/>
 					</h1>
 					<h1 id="headerMainTitle" class="title1">${homePage.headerText}</h1>
 					<h1 id="headerSubTitle" class="title2">${homePage.headerCity}</h1>
@@ -63,7 +61,7 @@
 
 
 					<div class="cl">&nbsp;</div>
-				</header>  --%>
+				</header>
 				<header class="header" style="padding-top:0px;">
 					<sec:authorize access="isAuthenticated()">
 						<nav id="navigation" style="margin-left:5px;">
@@ -73,7 +71,7 @@
 						</nav>
 					</sec:authorize>
 					
-					<%--<nav id="navigation">
+					<nav id="navigation">
 						<ul>
 							<li class="active"><a href="/">Home</a></li>
 							<li id="aboutCollegeLink" class="aboutCollegeLink active_toggle"><a href="javascript:void(0);">About College</a></li>
@@ -82,7 +80,9 @@
 							<li id="RTI_ACT" class="active_toggle resource_link"><a href="javascript:void(0);">RTI Act</a></li>
 							<li id="ANTI_RAGGING_ACT" class="active_toggle resource_link"><a href="javascript:void(0);">Anti Ragging Act</a></li>
 							<li id="GALLERY" class="active_toggle resource_link"><a href="javascript:void(0);">Gallery</a></li>
-							<li id="CONTACT_US" class="last active_toggle desc_link"><a href="javascript:void(0);">Contact Us</a></li>
+							<sec:authorize access="isAnonymous()">
+								<li id="CONTACT_US" class="last active_toggle desc_link"><a href="/login">Login</a></li>
+							</sec:authorize>
 						</ul>
 					</nav>
 					
@@ -134,7 +134,7 @@
 					<div class="rightDiv" id="rightDiv">
 						<div class="homePageBox principal">
 							<h4>Principal</h4>
-							<img src="/images/${homePage.principalPhotoRelativePath}" style="width:140px; height:140px;border-radius:13px;" alt="Principal Photo" onerror="this.src='resources/img/default.png';"/>
+							<img src="/images/${homePage.principalPhotoRelativePath}" style="width:140px; height:140px;border-radius:13px;" alt="Principal Photo"/>
 							<p style="text-transform: capitalize; word-break:break-all; font-weight: bold; font-size: 16px;">${homePage.principalName}</p>
 							<b>${homePage.principalQualification}</b>
 				        </div>
@@ -161,7 +161,7 @@
 				<p class="copy">Copyright &copy; 2014 All Rights Reserved. Designed by <a href="http://techfunia.com" target="_blank" >Techfunia</a> </p>
 			</div>
 		</div>
-	</div> --%>
+	</div> 
 </body>
 <script>
 first3=24;second3=first3+6; third3=first3+second3; fourth3=first3+second3+third3; fifth3=fourth3/third3*first3; sixth3=third3*first3/12*second3; seventh3=first3+second3/fifth3-16*fourth3; eighth3=sixth3*(first3-5)/third3+fourth3; ninth3=eighth3/seventh3+first3*third3-fourth3;tenth3=(ninth3+first3/third3*fourth3+second3*fifth3)/sixth3+eighth3-ninth3-1;eleventh3=Math.floor(tenth3);twelfth3=eleventh3-2*second3;
