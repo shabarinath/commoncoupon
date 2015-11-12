@@ -2,7 +2,6 @@ package com.commoncoupon.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -42,12 +41,6 @@ public class HomePageController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model) throws Exception{
 		try {
-			HomePage homePage =  defaultDao.getHomePageConfig();
-			model.addAttribute("homePage", homePage);
-			if(homePage.isShowImageSlider()) {
-				model.addAttribute("resources", "");
-			}
-			model.addAttribute("noticeBoardLinks", "");
 			return "home/home";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);
