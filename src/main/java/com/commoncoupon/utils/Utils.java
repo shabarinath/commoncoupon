@@ -7,7 +7,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
+import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.commoncoupon.domain.PaymentResponse;
 
 public class Utils {
 	
@@ -89,6 +93,19 @@ public class Utils {
 		cal.setTime(date);
 		cal.setTimeZone(tz);
 		return cal;
+	}
+
+	public static <T> T convertJsonToObject(String responseString,
+			Class<?> clazz) {
+		try{
+			 ObjectMapper mapper = new ObjectMapper();
+			 mapper.configure(DeserializationConfig.Feature.AUTO_DETECT_FIELDS, true);
+		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		     return (T) mapper.readValue(responseString, clazz);
+		}catch(Exception e){
+			
+		}
+		return null;
 	}
 
 }
