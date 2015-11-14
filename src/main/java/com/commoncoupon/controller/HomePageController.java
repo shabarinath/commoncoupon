@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.dao.DefaultDao;
 import com.commoncoupon.domain.HomePage;
+import com.commoncoupon.domain.PaymentResponse;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.AdminService;
 import com.commoncoupon.utils.PaymentGatewayClient;
@@ -41,8 +42,8 @@ public class HomePageController {
 		try {
 			//TODO: For testing
 			/*PaymentGatewayClient pgClient = PaymentGatewayClient.getInstance();
-			String response = pgClient.postDetailsForPayment(new User());
-			System.out.println("Resonse: "+response);*/
+			PaymentResponse response = pgClient.postDetailsForPayment(new User());
+			System.out.println("Resonse: "+response.getPaymentRequest().getLongUrl());*/
 			return "home/home";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);
