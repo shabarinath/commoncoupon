@@ -193,6 +193,13 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
+		
+		<!-- RestClient Dependency --> 
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.8</version>
+		</dependency>
 		            
 		<!--  Sitemesh -->
         <dependency>
@@ -216,13 +223,6 @@
 			<version>2.0.1</version>
 		</dependency>
 		
-		<!-- RestClient Dependency --> 
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-server</artifactId>
-			<version>1.8</version>
-		</dependency>
-	
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -230,11 +230,6 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.opentok.api</groupId>
-			<artifactId>opentok-java-sdk</artifactId>
-			<version>[0.91.54,)</version>
-		</dependency>         
 	</dependencies>
 	<build>
 		<plugins>
