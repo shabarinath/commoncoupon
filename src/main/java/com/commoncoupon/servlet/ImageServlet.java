@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.commoncoupon.service.Configuration;
 
 @SuppressWarnings("serial")
 public class ImageServlet extends HttpServlet {
@@ -40,7 +37,7 @@ public class ImageServlet extends HttpServlet {
 			response.setHeader("Cache-Control", "no-cache");
 			response.setContentType("image/gif");
 			outStream = response.getOutputStream();
-			File file = new File(Configuration.Images_Dir_Path, URLDecoder.decode((request.getRequestURI().split("\\/", 3))[2], "UTF-8"));
+			File file = null;//new File(Configuration.Images_Dir_Path, URLDecoder.decode((request.getRequestURI().split("\\/", 3))[2], "UTF-8"));
 			if(file.exists()){
 				fin = new FileInputStream(file);
 				byte b[] = new byte[1024];

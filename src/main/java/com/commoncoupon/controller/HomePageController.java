@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.dao.DefaultDao;
 import com.commoncoupon.domain.HomePage;
+import com.commoncoupon.domain.User;
 import com.commoncoupon.service.AdminService;
-import com.commoncoupon.service.Configuration;
+import com.commoncoupon.utils.PaymentGatewayClient;
 import com.commoncoupon.utils.SecurityUtils;
 import com.commoncoupon.utils.Utils;
 
@@ -28,9 +29,6 @@ public class HomePageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomePageController.class);
 	
-	public static final String Header_Logo_Dir_Path = Configuration.Header_Logo_Dir_Path;
-	
-	public static final String Principal_Photo_Dir_Path = Configuration.Principal_Photo_Dir_Path;
 	
 	@Autowired
 	private AdminService adminService;
@@ -41,6 +39,10 @@ public class HomePageController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model) throws Exception{
 		try {
+			//TODO: For testing
+			/*PaymentGatewayClient pgClient = PaymentGatewayClient.getInstance();
+			String response = pgClient.postDetailsForPayment(new User());
+			System.out.println("Resonse: "+response);*/
 			return "home/home";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);
@@ -91,14 +93,14 @@ public class HomePageController {
 				homePage.setCustomStyle((CustomStyle)defaultDao.get(CustomStyle.class, homePage.getCustomStyle().getId()));
 			}*/
 			
-			if(homePage.getCollegeLogo() != null && !Utils.isEmpty(homePage.getCollegeLogo().getOriginalFilename())) {
+			/*if(homePage.getCollegeLogo() != null && !Utils.isEmpty(homePage.getCollegeLogo().getOriginalFilename())) {
 				String collegeLogoName = Utils.saveFileToFilesDir(homePage.getCollegeLogo(), Header_Logo_Dir_Path);
 				homePage.setCollegeLogoName(collegeLogoName);
 			}
 			if(homePage.getPrincipalPhoto() != null && !Utils.isEmpty(homePage.getPrincipalPhoto().getOriginalFilename())) {
 				String principalPhotoName = Utils.saveFileToFilesDir(homePage.getPrincipalPhoto(), Principal_Photo_Dir_Path);
 				homePage.setPrincipalPhotoName(principalPhotoName);
-			}
+			}*/
 			adminService.saveHomePageConfig(homePage);
 			return "redirect:/";
 		} catch (IOException e) {

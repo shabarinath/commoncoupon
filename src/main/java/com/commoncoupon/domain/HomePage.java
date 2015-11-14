@@ -2,18 +2,13 @@ package com.commoncoupon.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import org.springframework.web.multipart.MultipartFile;
-
-import com.commoncoupon.service.Configuration;
 
 @Entity
 @Table(name="home_page_configs")
@@ -152,7 +147,7 @@ public class HomePage {
 			this.principalPhotoName = principalPhotoName;
 		}
 
-		@Transient
+		/*@Transient
 		public String getCollegeLogoRelativePath() {
 			return Configuration.Header_Logo_Dir_Name + "/" + collegeLogoName;
 		}
@@ -160,7 +155,7 @@ public class HomePage {
 		@Transient
 		public String getPrincipalPhotoRelativePath() {
 			return Configuration.Principal_Photo_Dir_Name + "/" + principalPhotoName;
-		}
+		}*/
 
 		public String getPrincipalName() {
 			return principalName;
