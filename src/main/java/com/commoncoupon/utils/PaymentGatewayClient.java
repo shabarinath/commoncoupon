@@ -1,5 +1,8 @@
 package com.commoncoupon.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.commoncoupon.domain.PaymentResponse;
 import com.commoncoupon.domain.User;
 import com.sun.jersey.api.client.Client;
@@ -7,6 +10,8 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 public class PaymentGatewayClient {
+	
+	private static final Logger logger = LoggerFactory.getLogger(PaymentGatewayClient.class);
 	
 	private static WebResource webResource;
 	private static PaymentGatewayClient pgClient;
@@ -24,7 +29,7 @@ public class PaymentGatewayClient {
 				pgClient = new PaymentGatewayClient();
 			}
 		}catch(Exception e){
-			
+			logger.error("Exception occured while getting paymentgateway instance reason: ", e);
 		}
 		return pgClient;
 	}
@@ -41,7 +46,7 @@ public class PaymentGatewayClient {
 			response=  Clientresponse.getEntity(String.class);
 			resp = (PaymentResponse)Utils.convertJsonToObject(response, PaymentResponse.class);
 		}catch(Exception e) {
-			
+			logger.error("Exception occured while posting paymentdetails reason: ", e);
 		}
 		return resp;
 	}

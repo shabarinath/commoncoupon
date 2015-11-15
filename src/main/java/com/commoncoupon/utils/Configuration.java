@@ -5,8 +5,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Configuration {
 
+	private static final Logger logger = LoggerFactory.getLogger(Configuration.class);
 
 	public static final String PAYMENT_GATEWAY_KEY = "payment.key";
 	public static final String PAYMENT_GATEWAY_TOKEN = "payment.token";
@@ -27,7 +31,7 @@ public class Configuration {
 				System.out.println("----------------------Properties loaded--------------------------");
 			}
 		} catch (Exception e) {
-			System.out.println("Exception " + e);
+			logger.error("Exception occured while loading properties from file reason: ", e);
 		}
 	}
 
@@ -39,7 +43,7 @@ public class Configuration {
 				property = property.trim();
 			}
 		} catch(Exception e){
-			
+			logger.error("Exception occured while getting property reason: ", e);
 		}
 		return property;
 	}
@@ -49,7 +53,7 @@ public class Configuration {
 		try {
 			key = getProperty(PAYMENT_GATEWAY_KEY);
 		} catch (Exception e) {
-
+			logger.error("Exception occured while getting property reason: ", e);
 		}
 		return key;
 	}
@@ -59,7 +63,7 @@ public class Configuration {
 		try {
 			token = getProperty(PAYMENT_GATEWAY_TOKEN);
 		} catch (Exception e) {
-
+			logger.error("Exception occured while getting property reason: ", e);
 		}
 		return token;
 	}
@@ -69,7 +73,7 @@ public class Configuration {
 		try {
 			uri = getProperty(WEB_SERVICE_URI);
 		} catch (Exception e) {
-
+			logger.error("Exception occured while getting property reason: ", e);
 		}
 		return uri;
 	}

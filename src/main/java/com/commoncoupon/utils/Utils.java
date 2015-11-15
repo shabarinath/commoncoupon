@@ -9,11 +9,13 @@ import java.util.TimeZone;
 
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.commoncoupon.domain.PaymentResponse;
-
 public class Utils {
+	
+	private static final Logger logger = LoggerFactory.getLogger(Utils.class);
 	
 	public static boolean isEmpty(String param) {
 		if(param == null)
@@ -95,6 +97,7 @@ public class Utils {
 		return cal;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> T convertJsonToObject(String responseString,
 			Class<?> clazz) {
 		try{
@@ -103,7 +106,7 @@ public class Utils {
 		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 		     return (T) mapper.readValue(responseString, clazz);
 		}catch(Exception e){
-			
+			logger.error("Exception occured while converting json to object reason: ", e);
 		}
 		return null;
 	}
