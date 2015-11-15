@@ -3,7 +3,7 @@ package com.commoncoupon.utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.commoncoupon.domain.PaymentResponse;
+import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.User;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -34,8 +34,8 @@ public class PaymentGatewayClient {
 		return pgClient;
 	}
 	
-	public PaymentResponse postDetailsForPayment(User user) {
-		PaymentResponse resp = null;
+	public PaymentRequestResponse postDetailsForPayment(User user) {
+		PaymentRequestResponse resp = null;
 		String response = "";
 		try {
 			String input = "{\"amount\":10,\"purpose\":\"Test purpose\",\"buyer_name\": \"Shabarinath Volam\",\"email\":\"volamshabarinath@gmail.com\",\"phone\":\"9573072270\",\"redirect_url\":\"http://www.google.com\", \"send_sms\":\"True\" }";
@@ -44,7 +44,7 @@ public class PaymentGatewayClient {
 					.header("X-Auth-Token", Configuration.getProperty("payment.token")).type("application/json")
 			   .post(ClientResponse.class, input);
 			response=  Clientresponse.getEntity(String.class);
-			resp = (PaymentResponse)Utils.convertJsonToObject(response, PaymentResponse.class);
+			resp = (PaymentRequestResponse)Utils.convertJsonToObject(response, PaymentRequestResponse.class);
 		}catch(Exception e) {
 			logger.error("Exception occured while posting paymentdetails reason: ", e);
 		}

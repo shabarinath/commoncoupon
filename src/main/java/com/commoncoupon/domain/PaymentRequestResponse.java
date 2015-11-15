@@ -5,7 +5,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PaymentResponse {
+public class PaymentRequestResponse {
 	@JsonProperty("payment_request")
 	private PaymentRequest paymentRequest;
 	
