@@ -1,6 +1,7 @@
 package com.commoncoupon.service;
 
 import com.commoncoupon.domain.HomePage;
+import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.User;
 
 
@@ -31,5 +32,8 @@ public interface AdminService {
 	public User getUser(long id) throws Exception;
 
 	public void saveOrUpdateUser(User user) throws Exception;
+
+	public PaymentRequestResponse savePaymentRequestResponse(
+			PaymentRequestResponse requestResponseObj) throws Exception;
 
 }

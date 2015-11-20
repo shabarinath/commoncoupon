@@ -1,8 +1,8 @@
-package com.commoncoupon.domain;
+package com.commoncoupon.bean;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 
-public class PaymentRequest {
+public class PaymentRequestBean {
 	
 	@JsonProperty("id")
 	private String id;

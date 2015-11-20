@@ -77,6 +77,40 @@ INSERT INTO `users` VALUES (1,'admin','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `payment_request_response`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_request_response` (
+  `id` bigint(100) NOT NULL AUTO_INCREMENT,
+  `payment_id` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `buyer_name` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `purpose` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `send_sms` varchar(255) DEFAULT NULL,
+  `send_email` varchar(255) DEFAULT NULL,
+  `sms_status` varchar(255) DEFAULT NULL,
+  `email_status` varchar(255) DEFAULT NULL,
+  `short_url` varchar(255) DEFAULT NULL,
+  `long_url` varchar(255) DEFAULT NULL,
+  `redirect_url` varchar(255) DEFAULT NULL,
+  `webhook` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL,
+  `modified_at` varchar(255) DEFAULT NULL,
+  `allow_repeated_payments` tinyint(1) NOT NULL DEFAULT '0',
+  `is_success` varchar(25) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_paymentId` (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

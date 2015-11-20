@@ -3,7 +3,7 @@ package com.commoncoupon.utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.bean.PaymentRequestResponseBean;
 import com.commoncoupon.domain.User;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -34,17 +34,17 @@ public class PaymentGatewayClient {
 		return pgClient;
 	}
 	
-	public PaymentRequestResponse postDetailsForPayment(User user) {
-		PaymentRequestResponse resp = null;
+	public PaymentRequestResponseBean createPaymentLink(User user) {
+		PaymentRequestResponseBean resp = null;
 		String response = "";
 		try {
-			String input = "{\"amount\":10,\"purpose\":\"Test purpose\",\"buyer_name\": \"Shabarinath Volam\",\"email\":\"volamshabarinath@gmail.com\",\"phone\":\"9573072270\",\"redirect_url\":\"http://www.google.com\", \"send_sms\":\"True\" }";
+			String input = "{\"amount\":10,\"purpose\":\"Test purpose\",\"buyer_name\": \"Shabarinath Volam\",\"email\":\"volamshabarinath@gmail.com\",\"phone\":\"9573072270\",\"redirect_url\":\"http://www.google.com\", \"send_sms\":\"False\" }";
 			/*response = "{     \"payment_request\": {         \"id\": \"97313625e5ef40b0883678d8b014adb0\",         \"phone\": \"+919573072270\",         \"email\": \"volamshabarinath@gmail.com\",         \"buyer_name\": \"Shabarinath Volam\",         \"amount\": \"10\",         \"purpose\": \"Test purpose\",         \"status\": \"Pending\",         \"send_sms\": true,         \"send_email\": false,         \"sms_status\": \"Pending\",         \"email_status\": null,         \"shorturl\": null,         \"longurl\": \"https://www.instamojo.com/@shabarinath/97313625e5ef40b0883678d8b014adb0\",         \"redirect_url\": \"http://www.google.com\",         \"webhook\": null,         \"created_at\": \"2015-11-14T17:51:09.111Z\",         \"modified_at\": \"2015-11-14T17:51:09.111Z\",         \"allow_repeated_payments\": true     },     \"success\": true }   ";*/
 			ClientResponse Clientresponse = webResource.header("X-Api-Key", Configuration.getProperty("payment.key"))
 					.header("X-Auth-Token", Configuration.getProperty("payment.token")).type("application/json")
 			   .post(ClientResponse.class, input);
 			response=  Clientresponse.getEntity(String.class);
-			resp = (PaymentRequestResponse)Utils.convertJsonToObject(response, PaymentRequestResponse.class);
+			resp = (PaymentRequestResponseBean)Utils.convertJsonToObject(response, PaymentRequestResponseBean.class);
 		}catch(Exception e) {
 			logger.error("Exception occured while posting paymentdetails reason: ", e);
 		}

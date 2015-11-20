@@ -13,6 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.commoncoupon.bean.PaymentRequestBean;
+import com.commoncoupon.bean.PaymentRequestResponseBean;
+import com.commoncoupon.domain.PaymentRequestResponse;
+
 public class Utils {
 	
 	private static final Logger logger = LoggerFactory.getLogger(Utils.class);
@@ -107,6 +111,37 @@ public class Utils {
 		     return (T) mapper.readValue(responseString, clazz);
 		}catch(Exception e){
 			logger.error("Exception occured while converting json to object reason: ", e);
+		}
+		return null;
+	}
+
+	public static PaymentRequestResponse setPaymentRequestResponseToObj(PaymentRequestResponseBean paymentRequestResponseBean) {
+		try{
+			if(paymentRequestResponseBean != null) {
+				PaymentRequestResponse paymentResponse = new PaymentRequestResponse();
+				PaymentRequestBean paymentRequest = paymentRequestResponseBean.getPaymentRequest();
+				paymentResponse.setPaymentId(paymentRequest.getId());
+				paymentResponse.setPhone(paymentRequest.getPhone());
+				paymentResponse.setEmail(paymentRequest.getEmail());
+				paymentResponse.setBuyerName(paymentRequest.getBuyerName());
+				paymentResponse.setAmount(paymentRequest.getAmount());
+				paymentResponse.setPurpose(paymentRequest.getPurpose());
+				paymentResponse.setStatus(paymentRequest.getStatus());
+				paymentResponse.setSendSms(paymentRequest.getSendSms());
+				paymentResponse.setSendEmail(paymentRequest.getSendEmail());
+				paymentResponse.setSmsStatus(paymentRequest.getSmsStatus());
+				paymentResponse.setEmailStatus(paymentRequest.getEmailStatus());
+				paymentResponse.setShortUrl(paymentRequest.getShortUrl());
+				paymentResponse.setLongUrl(paymentRequest.getLongUrl());
+				paymentResponse.setRedirectUrl(paymentRequest.getRedirectUrl());
+				paymentResponse.setCreatedAt(paymentRequest.getCreatedAt());
+				paymentResponse.setModifiedAt(paymentRequest.getModifiedAt());
+				paymentResponse.setAllowRepeatedPayments(Boolean.parseBoolean(paymentRequest.getAllowRepeatedPayments()));
+				paymentResponse.setIsSuccess(paymentRequestResponseBean.getIsSuccess());
+				return paymentResponse;
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while setting properties to POJO reason: ", e);
 		}
 		return null;
 	}
