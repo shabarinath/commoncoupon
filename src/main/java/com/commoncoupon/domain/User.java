@@ -3,18 +3,21 @@ package com.commoncoupon.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.IndexColumn;
 
 
 @Entity
@@ -53,6 +56,32 @@ public class User {
 	
 	@Transient
 	private transient String confirmPassword;
+	
+	/**
+	 * Amount present in user wallet
+	 *
+	 * <p>
+	 *   <b>Note:</b> amount by default should be zero
+	 * </p>
+	 */
+	@Column(name="amount",nullable=false)
+	private long amount;
+	
+	/**
+	 * Method saves all success payments against user
+	 *
+	 * <p>
+	 *   <b>Note:</b> We get email for success payments response get user by email id and set payments to user
+	 *   <b>Reference:</b>https://www.instamojo.com/developers/request-a-payment-api/#toc-webhook
+	 * </p>
+	 */
+	@OneToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="payment_user_mapping", joinColumns = { 
+        @JoinColumn(name="user_id", nullable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="payment_id", nullable=false, updatable=false) 
+    })
+	@IndexColumn(name = "list_index")
+	List<PaymentSuccessResponse> successPayments = new ArrayList<PaymentSuccessResponse>();
 	
 	public long getId() {
 		return id;
@@ -133,6 +162,22 @@ public class User {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	public long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(long amount) {
+		this.amount = amount;
+	}
+
+	public List<PaymentSuccessResponse> getSuccessPayments() {
+		return successPayments;
+	}
+
+	public void setSuccessPayments(List<PaymentSuccessResponse> successPayments) {
+		this.successPayments = successPayments;
 	}
 	
 }

@@ -1,12 +1,24 @@
 package com.commoncoupon.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-
+/**
+ * Class which saves all requests that are made to create payment requests
+ *
+ * <p>
+ *   <b>Description:</b> When user clicks on pay from our website we create a link to payment
+ *   gateway where he needs to be redirected after payment link creation we get this as response.
+ *   <b>Reference:</b>https://www.instamojo.com/developers/request-a-payment-api/#toc-create-new-payment-request
+ * </p>
+ */
 @Entity
 @Table(name="payment_request_response")
 public class PaymentRequestResponse {
@@ -53,6 +65,9 @@ public class PaymentRequestResponse {
 	private boolean allowRepeatedPayments;
 	@Column(name="is_success")
 	private String isSuccess;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="created_time")
+	private Date createdTime;
 	
 	public long getId() {
 		return id;
@@ -173,5 +188,11 @@ public class PaymentRequestResponse {
 	}
 	public void setIsSuccess(String isSuccess) {
 		this.isSuccess = isSuccess;
+	}
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
 	}
 }

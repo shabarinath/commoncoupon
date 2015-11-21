@@ -60,6 +60,7 @@ CREATE TABLE `users` (
   `account_locked` tinyint(1) NOT NULL DEFAULT '0',
   `account_expired` tinyint(1) NOT NULL DEFAULT '0',
   `credentials_expired` tinyint(1) NOT NULL DEFAULT '0',
+   amount bigint(100) default 0,
   `type` varchar(31) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_username` (`username`)
@@ -72,7 +73,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,'ADMIN');
+INSERT INTO `users` VALUES (1,'admin','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,0,'ADMIN');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -106,9 +107,20 @@ CREATE TABLE `payment_request_response` (
   `modified_at` varchar(255) DEFAULT NULL,
   `allow_repeated_payments` tinyint(1) NOT NULL DEFAULT '0',
   `is_success` varchar(25) NOT NULL DEFAULT '0',
+  created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_paymentId` (`payment_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `payment_user_mapping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_user_mapping` (
+  `user_id` bigint(20) NOT NULL,
+  `payment_id` bigint(20) NOT NULL,
+   list_index int(10)
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
