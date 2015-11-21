@@ -4,11 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+/**
+ * @author SHABARINATH
+ * 21-Nov-2015 2:07:15 pm 2015 
+ */
 
 /**
  * Class which saves all requests that are made to create payment requests
@@ -19,14 +22,11 @@ import javax.persistence.TemporalType;
  *   <b>Reference:</b>https://www.instamojo.com/developers/request-a-payment-api/#toc-create-new-payment-request
  * </p>
  */
+@SuppressWarnings("serial")
 @Entity
 @Table(name="payment_request_response")
-public class PaymentRequestResponse {
+public class PaymentRequestResponse extends Persistent {
 	
-	@Id
-	@GeneratedValue
-	@Column(name="id", nullable=false)
-	private long id;
 	@Column(name="payment_id")
 	private String paymentId;
 	@Column(name="phone")
@@ -69,12 +69,6 @@ public class PaymentRequestResponse {
 	@Column(name="created_time")
 	private Date createdTime;
 	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getPaymentId() {
 		return paymentId;
 	}

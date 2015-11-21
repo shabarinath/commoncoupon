@@ -9,8 +9,6 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
@@ -19,16 +17,16 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.IndexColumn;
 
+/**
+ * @author SHABARINATH
+ * 06-Nov-2015 11:02:15 pm 2015 
+ */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="users")
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
-public class User {
-	
-	@Id
-	@GeneratedValue
-	@Column(name="id")
-	private long id;
+public class User extends Persistent{
 	
 	@Column(name="username",nullable=false)
 	private String username; 
@@ -82,15 +80,6 @@ public class User {
     })
 	@IndexColumn(name = "list_index")
 	List<PaymentSuccessResponse> successPayments = new ArrayList<PaymentSuccessResponse>();
-	
-	public long getId() {
-		return id;
-	}
-	
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	
 	public String getUsername() {
 		return username;

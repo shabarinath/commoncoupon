@@ -8,6 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * @author SHABARINATH
+ * 20-Nov-2015 2:02:15 am 2015 
+ */
+
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue(value = "othercoupon")
 public class OtherCoupon extends Coupon {

@@ -7,23 +7,23 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+/**
+ * @author SHABARINATH
+ * 21-Nov-2015 3:02:15 pm 2015 
+ */
+
+@SuppressWarnings("serial")
 @Entity
 @Table(name="coupon")
 @DiscriminatorColumn(name = "class_code", discriminatorType = DiscriminatorType.STRING)
-public class Coupon {
+public class Coupon extends Persistent {
 
-	@Id
-	@GeneratedValue
-	@Column(name="id", nullable=false)
-	private long id;
 	@Column(name="coupon_id")
 	private String couponId;  //Generate rand string as alphanumeric
 	@Column(name="email_id")
@@ -37,12 +37,6 @@ public class Coupon {
 	@Column(name="created_on")
 	private Date createdOn;
 
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
 	public String getCouponId() {
 		return couponId;
 	}

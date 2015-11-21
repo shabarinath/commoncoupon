@@ -2,23 +2,22 @@ package com.commoncoupon.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * @author SHABARINATH
+ * 06-Nov-2015 3:02:15 pm 2015 
+ */
+
+@SuppressWarnings("serial")
 @Entity
 @Table(name="home_page_configs")
-public class HomePage {
+public class HomePage extends Persistent {
 	
-		@Id
-		@GeneratedValue
-		@Column(name="id", nullable=false)
-		private long id;
-		
 		@Version
 	    @Column(name="version", nullable=false)
 		private  long version;
@@ -58,14 +57,6 @@ public class HomePage {
 		
 		@Transient
 		private MultipartFile principalPhoto;
-		
-		public long getId() {
-			return id;
-		}
-
-		public void setId(long id) {
-			this.id = id;
-		}
 		
 		public long getVersion() {
 			return version;
