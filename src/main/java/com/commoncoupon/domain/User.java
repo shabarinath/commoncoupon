@@ -28,11 +28,17 @@ import org.hibernate.annotations.IndexColumn;
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
 public class User extends Persistent{
 	
-	@Column(name="username",nullable=false)
-	private String username; 
+	@Column(name="first_name",nullable=false)
+	private String firstName; 
+	
+	@Column(name="last_name",nullable=false)
+	private String lastName;
 	
 	@Column(name="password",nullable=false)
 	private String password;
+	
+	@Column(name="email",nullable=false)
+	private String email;
 	
 	@Column(name="active",nullable=false)
 	private boolean active=true;
@@ -90,14 +96,6 @@ public class User extends Persistent{
 	@IndexColumn(name = "list_index")
 	List<Coupon> coupons = new ArrayList<Coupon>();
 	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -184,6 +182,30 @@ public class User extends Persistent{
 
 	public void setCoupons(List<Coupon> coupons) {
 		this.coupons = coupons;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

@@ -25,4 +25,13 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@Override
+	public User getUserByEmail(String email) {
+		@SuppressWarnings("unchecked")
+		List<User> users = hibernateTemplate.find("from User user where user.email=?",new Object[]{email});
+		if(users.size()>0)
+			return users.get(0);
+		return null;
+	}
+
 }

@@ -18,13 +18,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private UserDao userDao;
 	private Assembler assembler;
 
+	/*
+	 * (non-Javadoc)
+	 * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
+	 * Modifiy this method to change login whether user needs to login using username or email
+	 */
 	@Transactional(readOnly = true)
-	public UserDetails loadUserByUsername(String username)
+	public UserDetails loadUserByUsername(String email)
 			throws UsernameNotFoundException, DataAccessException {
 		User userEntity = null;
 		try {
 			
-			userEntity	= userDao.findByUsername(username);
+			userEntity	= userDao.getUserByEmail(email);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

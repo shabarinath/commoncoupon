@@ -267,7 +267,7 @@ FOOTER
 	<!--CONTENT-->
     <div class="content">
 	<!--USERNAME-->
-	<input name="j_username" placeholder="Username" id="username" type="text" class="input username" /><!--END USERNAME-->
+	<input name="j_username" placeholder="Eamil" id="username" type="text" class="input username" /><!--END USERNAME-->
     <!--PASSWORD-->
 	<input  name="j_password" placeholder="Password" type="password" id="password" class="input password"/><!--END PASSWORD-->
     </div>
