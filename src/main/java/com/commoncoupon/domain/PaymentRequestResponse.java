@@ -31,10 +31,10 @@ public class PaymentRequestResponse extends Persistent {
 	private String paymentId;
 	@Column(name="phone")
 	private String phone;
-	@Column(name="email")
-	private String email;
-	@Column(name="buyer_name")
-	private String buyerName;
+	@Column(name="sender_email")  
+	private String senderEmail;
+	@Column(name="sender_name")
+	private String senderName;
 	@Column(name="amount")
 	private String amount;
 	@Column(name="purpose")
@@ -80,18 +80,6 @@ public class PaymentRequestResponse extends Persistent {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getBuyerName() {
-		return buyerName;
-	}
-	public void setBuyerName(String buyerName) {
-		this.buyerName = buyerName;
 	}
 	public String getAmount() {
 		return amount;
@@ -188,5 +176,17 @@ public class PaymentRequestResponse extends Persistent {
 	}
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
+	}
+	public String getSenderEmail() {
+		return senderEmail;
+	}
+	public void setSenderEmail(String senderEmail) {
+		this.senderEmail = senderEmail;
+	}
+	public String getSenderName() {
+		return senderName;
+	}
+	public void setSenderName(String senderName) {
+		this.senderName = senderName;
 	}
 }

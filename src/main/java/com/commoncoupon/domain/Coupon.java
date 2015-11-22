@@ -26,13 +26,16 @@ public class Coupon extends Persistent {
 
 	@Column(name="coupon_id")
 	private String couponId;  //Generate rand string as alphanumeric
-	@Column(name="email_id")
-	private String emailId; 
+	@Column(name="password")
+	private String password;
 	@Column(name="status")
 	private boolean status; //Set whether email or sms sent or not 
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="user_id", nullable=false)
-	private User user;
+	@JoinColumn(name="sender_id", nullable=false)
+	private User sender;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="recipient_id", nullable=false)
+	private User recipient;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
@@ -42,12 +45,6 @@ public class Coupon extends Persistent {
 	}
 	public void setCouponId(String couponId) {
 		this.couponId = couponId;
-	}
-	public String getEmailId() {
-		return emailId;
-	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
 	}
 	public boolean isStatus() {
 		return status;
@@ -61,10 +58,22 @@ public class Coupon extends Persistent {
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
-	public User getUser() {
-		return user;
+	public User getSender() {
+		return sender;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+	public User getRecipient() {
+		return recipient;
+	}
+	public void setRecipient(User recipient) {
+		this.recipient = recipient;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

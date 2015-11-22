@@ -90,8 +90,8 @@ CREATE TABLE `payment_request_response` (
   `id` bigint(100) NOT NULL AUTO_INCREMENT,
   `payment_id` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `buyer_name` varchar(255) DEFAULT NULL,
+  `sender_email` varchar(100) DEFAULT NULL,
+  `sender_name` varchar(255) DEFAULT NULL,
   `amount` varchar(255) DEFAULT NULL,
   `purpose` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
@@ -117,8 +117,17 @@ DROP TABLE IF EXISTS `payment_user_mapping`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment_user_mapping` (
-  `user_id` bigint(20) NOT NULL,
+  `sender_id` bigint(20) NOT NULL,
   `payment_id` bigint(20) NOT NULL,
+   list_index int(10)
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `user_coupon_mapping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_coupon_mapping` (
+  `user_id` bigint(20) NOT NULL,
+  `coupon_id` bigint(20) NOT NULL,
    list_index int(10)
 ) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;

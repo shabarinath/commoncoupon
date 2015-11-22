@@ -122,8 +122,8 @@ public class Utils {
 				PaymentRequestBean paymentRequest = paymentRequestResponseBean.getPaymentRequest();
 				paymentResponse.setPaymentId(paymentRequest.getId());
 				paymentResponse.setPhone(paymentRequest.getPhone());
-				paymentResponse.setEmail(paymentRequest.getEmail());
-				paymentResponse.setBuyerName(paymentRequest.getBuyerName());
+				paymentResponse.setSenderEmail(paymentRequest.getEmail());
+				paymentResponse.setSenderName(paymentRequest.getBuyerName());
 				paymentResponse.setAmount(paymentRequest.getAmount());
 				paymentResponse.setPurpose(paymentRequest.getPurpose());
 				paymentResponse.setStatus(paymentRequest.getStatus());

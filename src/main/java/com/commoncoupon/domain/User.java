@@ -75,11 +75,20 @@ public class User extends Persistent{
 	 */
 	@OneToMany(fetch=FetchType.LAZY)
     @JoinTable(name="payment_user_mapping", joinColumns = { 
-        @JoinColumn(name="user_id", nullable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="sender_id", nullable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="payment_id", nullable=false, updatable=false) 
     })
 	@IndexColumn(name = "list_index")
 	List<PaymentSuccessResponse> successPayments = new ArrayList<PaymentSuccessResponse>();
+	
+	
+	@OneToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="user_coupon_mapping", joinColumns = { 
+        @JoinColumn(name="user_id", nullable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="coupon_id", nullable=false, updatable=false) 
+    })
+	@IndexColumn(name = "list_index")
+	List<Coupon> coupons = new ArrayList<Coupon>();
 	
 	public String getUsername() {
 		return username;
@@ -167,6 +176,14 @@ public class User extends Persistent{
 
 	public void setSuccessPayments(List<PaymentSuccessResponse> successPayments) {
 		this.successPayments = successPayments;
+	}
+
+	public List<Coupon> getCoupons() {
+		return coupons;
+	}
+
+	public void setCoupons(List<Coupon> coupons) {
+		this.coupons = coupons;
 	}
 	
 }
