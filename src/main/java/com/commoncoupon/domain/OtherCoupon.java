@@ -1,12 +1,8 @@
 package com.commoncoupon.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  * @author SHABARINATH
@@ -20,18 +16,19 @@ public class OtherCoupon extends Coupon {
 	
 	@Column(name="company_name")
 	private String companyName;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="created_time")
-	private Date createdTime;
 
 	public String getCompanyName() {
 		return companyName;
 	}
-
+	
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+	
+	/*@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="created_time")
+	private Date createdTime;
+
 
 	public Date getCreatedTime() {
 		return createdTime;
@@ -39,5 +36,5 @@ public class OtherCoupon extends Coupon {
 
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
-	}
+	}*/
 }

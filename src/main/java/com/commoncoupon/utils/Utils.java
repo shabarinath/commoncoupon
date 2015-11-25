@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.TimeZone;
 
 import org.codehaus.jackson.map.DeserializationConfig;
@@ -142,6 +143,18 @@ public class Utils {
 			}
 		}catch(Exception e) {
 			logger.error("Exception occured while setting properties to POJO reason: ", e);
+		}
+		return null;
+	}
+
+	public static String generateCouponCode() {
+		try{
+			final long MAX_NUMBER_YOU_WANT_TO_HAVE = 9999999999999999L;
+			final long MIN_NUMBER_YOU_WANT_TO_HAVE = 1000000000000000L;
+			Long actual = Long.valueOf(Math.abs(Float.valueOf(new Random().nextFloat() * (MAX_NUMBER_YOU_WANT_TO_HAVE - MIN_NUMBER_YOU_WANT_TO_HAVE)).longValue()));
+			return String.valueOf(actual);
+		}catch(Exception e){
+			logger.error("Exception occured while generating coupon code reason: ", e);
 		}
 		return null;
 	}

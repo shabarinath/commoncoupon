@@ -15,18 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.commoncoupon.bean.PaymentRequestResponseBean;
 import com.commoncoupon.dao.DefaultDao;
+import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.HomePage;
-import com.commoncoupon.domain.PaymentRequestResponse;
-import com.commoncoupon.domain.User;
 import com.commoncoupon.service.AdminService;
-import com.commoncoupon.utils.PaymentGatewayClient;
 import com.commoncoupon.utils.SecurityUtils;
 import com.commoncoupon.utils.Utils;
 
 @Controller
-@SessionAttributes("homePage")
+@SessionAttributes("coupon")
 public class HomePageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomePageController.class);
@@ -47,6 +44,8 @@ public class HomePageController {
 			PaymentRequestResponse requestResponseObj = Utils.setPaymentRequestResponseToObj(paymentRequestResponseBean);
 			adminService.savePaymentRequestResponse(requestResponseObj);*/
 			/*System.out.println("Resonse: "+paymentRequestResponse.getPaymentRequest().getLongUrl());*/
+			Coupon coupon = new Coupon();
+			model.addAttribute("coupon", coupon);
 			return "home/home";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);

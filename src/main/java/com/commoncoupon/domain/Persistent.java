@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Version;
 
 /**
  * @author SHABARINATH
@@ -21,6 +22,10 @@ public class Persistent implements Serializable {
     @GeneratedValue
 	@Column(name="id", nullable=false)
 	private long id;
+	
+	@Version
+    @Column(name="version", nullable=false)
+	private long version;
 
 	public long getId() {
 		return id;
@@ -28,5 +33,13 @@ public class Persistent implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public long getVersion() {
+		return version;
+	}
+
+	public void setVersion(long version) {
+		this.version = version;
 	}
 }

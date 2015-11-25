@@ -2,6 +2,7 @@ package com.commoncoupon.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -24,18 +25,18 @@ import javax.persistence.TemporalType;
 @DiscriminatorColumn(name = "class_code", discriminatorType = DiscriminatorType.STRING)
 public class Coupon extends Persistent {
 
-	@Column(name="coupon_id")
+	@Column(name="coupon_id", nullable=false)
 	private String couponId;  //Generate rand string as alphanumeric
-	@Column(name="password")
+	@Column(name="password", nullable=false)
 	private String password;
 	@Column(name="status")
 	private boolean status; //Set whether email or sms sent or not 
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="sender_id", nullable=false)
-	private User sender;
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="recipient_id", nullable=false)
-	private User recipient;
+	private Sender sender;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="recipient_id")
+	private Recipient recipient;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
@@ -58,16 +59,16 @@ public class Coupon extends Persistent {
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
-	public User getSender() {
+	public Sender getSender() {
 		return sender;
 	}
-	public void setSender(User sender) {
+	public void setSender(Sender sender) {
 		this.sender = sender;
 	}
-	public User getRecipient() {
+	public Recipient getRecipient() {
 		return recipient;
 	}
-	public void setRecipient(User recipient) {
+	public void setRecipient(Recipient recipient) {
 		this.recipient = recipient;
 	}
 	public String getPassword() {

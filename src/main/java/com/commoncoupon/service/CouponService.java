@@ -1,5 +1,6 @@
 package com.commoncoupon.service;
 
+import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 
 /**
@@ -10,5 +11,9 @@ import com.commoncoupon.domain.Coupon;
 public interface CouponService {
 
 	public Coupon getCoupon(long id) throws Exception;
+
+	public void saveCoupon(Coupon coupon) throws Exception;
+
+	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception;
 }
 

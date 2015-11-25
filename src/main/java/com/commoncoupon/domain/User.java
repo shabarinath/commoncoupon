@@ -28,16 +28,16 @@ import org.hibernate.annotations.IndexColumn;
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
 public class User extends Persistent{
 	
-	@Column(name="first_name",nullable=false)
+	@Column(name="first_name")
 	private String firstName; 
 	
-	@Column(name="last_name",nullable=false)
+	@Column(name="last_name")
 	private String lastName;
 	
-	@Column(name="password",nullable=false)
+	@Column(name="password")
 	private String password;
 	
-	@Column(name="email",nullable=false)
+	@Column(name="email")
 	private String email;
 	
 	@Column(name="active",nullable=false)
@@ -51,6 +51,9 @@ public class User extends Persistent{
 	
 	@Column(name="account_locked",nullable=false)
 	private boolean accountLocked = false;
+	
+	@Column(name="mobile_number")
+	private String mobileNumber; 
 	
 	@OneToMany(mappedBy="user",fetch=FetchType.EAGER,cascade={CascadeType.ALL,CascadeType.MERGE})
 	private List<UserRole> userRoles = new ArrayList<UserRole>();
@@ -206,6 +209,14 @@ public class User extends Persistent{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	
 }

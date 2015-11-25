@@ -4,16 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.commoncoupon.dao.UserDao;
+import com.commoncoupon.domain.Recipient;
+import com.commoncoupon.domain.Sender;
 import com.commoncoupon.domain.User;
 
 @Service("userDetailsService")
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserService {
 
 	private UserDao userDao;
 	private Assembler assembler;
@@ -63,4 +64,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		this.assembler = assembler;
 	}
 
+	@Override
+	public void saveSender(Sender sender) throws Exception {
+		userDao.saveSender(sender);
+	}
+
+	@Override
+	public void saveRecipient(Recipient recipient) throws Exception {
+		userDao.saveRecipient(recipient);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Object get(@SuppressWarnings("rawtypes") Class clazz, long id) throws Exception {
+		return userDao.get(clazz, id);
+	}
+
+	@Override
+	public User getUserByEmail(String email) throws Exception {
+		return userDao.getUserByEmail(email);
+	}
 }

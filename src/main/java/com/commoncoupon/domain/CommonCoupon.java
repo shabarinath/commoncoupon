@@ -13,8 +13,16 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue(value = "commoncoupon")
 public class CommonCoupon extends Coupon {
-	
 	@Column(name="is_redeemed", columnDefinition="false")
 	private boolean isRedeemed;
+	
+	public boolean isRedeemed() {
+		return isRedeemed;
+	}
+
+	public void setRedeemed(boolean isRedeemed) {
+		this.isRedeemed = isRedeemed;
+	}
+
 	
 }

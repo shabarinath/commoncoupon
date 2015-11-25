@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.persistence.Version;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,10 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name="home_page_configs")
 public class HomePage extends Persistent {
-	
-		@Version
-	    @Column(name="version", nullable=false)
-		private  long version;
 		
 		@Column(name="about_college")
 		private String aboutCollege;
@@ -58,14 +53,6 @@ public class HomePage extends Persistent {
 		@Transient
 		private MultipartFile principalPhoto;
 		
-		public long getVersion() {
-			return version;
-		}
-		
-		public void setVersion(long version) {
-			this.version = version;
-		}
-
 		public String getAboutCollege() {
 			return aboutCollege;
 		}

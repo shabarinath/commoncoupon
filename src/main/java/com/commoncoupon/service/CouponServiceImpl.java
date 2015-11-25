@@ -1,6 +1,7 @@
 package com.commoncoupon.service;
 
 import com.commoncoupon.dao.CouponDao;
+import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 
 
@@ -25,6 +26,16 @@ public class CouponServiceImpl implements CouponService {
 	public Coupon getCoupon(long id) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void saveCoupon(Coupon coupon) throws Exception {
+		couponDao.saveCoupon(coupon);
+	}
+
+	@Override
+	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception {
+		couponDao.saveCommonCoupon(commonCoupon);
 	}
 	
 }
