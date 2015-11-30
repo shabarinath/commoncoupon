@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.dao.DefaultDao;
+import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.HomePage;
 import com.commoncoupon.service.AdminService;
@@ -23,7 +24,7 @@ import com.commoncoupon.utils.SecurityUtils;
 import com.commoncoupon.utils.Utils;
 
 @Controller
-@SessionAttributes("coupon")
+@SessionAttributes("commonCoupon")
 public class HomePageController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomePageController.class);
@@ -38,14 +39,8 @@ public class HomePageController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model) throws Exception{
 		try {
-			//TODO: For testing
-			/*PaymentGatewayClient pgClient = PaymentGatewayClient.getInstance();
-			PaymentRequestResponseBean paymentRequestResponseBean = pgClient.createPaymentLink(new User());
-			PaymentRequestResponse requestResponseObj = Utils.setPaymentRequestResponseToObj(paymentRequestResponseBean);
-			adminService.savePaymentRequestResponse(requestResponseObj);*/
-			/*System.out.println("Resonse: "+paymentRequestResponse.getPaymentRequest().getLongUrl());*/
-			Coupon coupon = new Coupon();
-			model.addAttribute("coupon", coupon);
+			CommonCoupon commonCoupon = new CommonCoupon();
+			model.addAttribute("commonCoupon", commonCoupon);
 			return "home/home";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);

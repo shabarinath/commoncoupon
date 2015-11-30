@@ -33,10 +33,12 @@ public class Coupon extends Persistent {
 	private boolean status; //Set whether email or sms sent or not 
 	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="sender_id", nullable=false)
-	private Sender sender;
+	private User sender;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="recipient_id")
-	private Recipient recipient;
+	private User recipient;
+	@Column(name="amount")
+	private long amount;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
@@ -59,22 +61,28 @@ public class Coupon extends Persistent {
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
-	public Sender getSender() {
-		return sender;
-	}
-	public void setSender(Sender sender) {
-		this.sender = sender;
-	}
-	public Recipient getRecipient() {
-		return recipient;
-	}
-	public void setRecipient(Recipient recipient) {
-		this.recipient = recipient;
-	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public long getAmount() {
+		return amount;
+	}
+	public void setAmount(long amount) {
+		this.amount = amount;
+	}
+	public User getSender() {
+		return sender;
+	}
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+	public User getRecipient() {
+		return recipient;
+	}
+	public void setRecipient(User recipient) {
+		this.recipient = recipient;
 	}
 }

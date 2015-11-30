@@ -34,8 +34,14 @@ public class CouponServiceImpl implements CouponService {
 	}
 
 	@Override
-	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception {
+	public void saveOrUpdateCommonCoupon(CommonCoupon commonCoupon) throws Exception {
 		couponDao.saveCommonCoupon(commonCoupon);
+	}
+
+	@Override
+	public CommonCoupon getCouponByPaymentRequestId(String paymentRequestId)
+			throws Exception {
+		return couponDao.getCommonCouponByPaymentRequestId(paymentRequestId);
 	}
 	
 }

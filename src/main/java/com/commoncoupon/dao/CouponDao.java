@@ -12,7 +12,9 @@ public interface CouponDao {
 
 	public void saveCoupon(Coupon coupon) throws Exception;
 
-	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception;;
+	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception;
+
+	public CommonCoupon getCommonCouponByPaymentRequestId(String paymentRequestId) throws Exception;
 
 }
 

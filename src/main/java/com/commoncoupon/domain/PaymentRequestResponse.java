@@ -27,8 +27,8 @@ import javax.persistence.TemporalType;
 @Table(name="payment_request_response")
 public class PaymentRequestResponse extends Persistent {
 	
-	@Column(name="payment_id")
-	private String paymentId;
+	@Column(name="payment_request_id")
+	private String paymentRequestId;
 	@Column(name="phone")
 	private String phone;
 	@Column(name="sender_email")  
@@ -69,12 +69,6 @@ public class PaymentRequestResponse extends Persistent {
 	@Column(name="created_time")
 	private Date createdTime;
 	
-	public String getPaymentId() {
-		return paymentId;
-	}
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
-	}
 	public String getPhone() {
 		return phone;
 	}
@@ -188,5 +182,11 @@ public class PaymentRequestResponse extends Persistent {
 	}
 	public void setSenderName(String senderName) {
 		this.senderName = senderName;
+	}
+	public String getPaymentRequestId() {
+		return paymentRequestId;
+	}
+	public void setPaymentRequestId(String paymentRequestId) {
+		this.paymentRequestId = paymentRequestId;
 	}
 }

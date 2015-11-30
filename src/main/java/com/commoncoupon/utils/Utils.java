@@ -121,7 +121,7 @@ public class Utils {
 			if(paymentRequestResponseBean != null) {
 				PaymentRequestResponse paymentResponse = new PaymentRequestResponse();
 				PaymentRequestBean paymentRequest = paymentRequestResponseBean.getPaymentRequest();
-				paymentResponse.setPaymentId(paymentRequest.getId());
+				paymentResponse.setPaymentRequestId(paymentRequest.getId());
 				paymentResponse.setPhone(paymentRequest.getPhone());
 				paymentResponse.setSenderEmail(paymentRequest.getEmail());
 				paymentResponse.setSenderName(paymentRequest.getBuyerName());

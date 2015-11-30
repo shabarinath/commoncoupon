@@ -1,4 +1,4 @@
-package com.commoncoupon.controller;
+/*package com.commoncoupon.controller;
 
 import javax.ws.rs.Consumes;
 
@@ -18,10 +18,11 @@ public class WebHookService {
 	@Consumes("application/x-www-form-urlencoded")
 	public @ResponseBody void receiveJson(@ModelAttribute PaymentSuccessResponseBean paymentSuccessResponse) throws Exception {
 		//Request would be like amount=10&buyerEmail="volamshabarinath@gmail.com"
-		System.out.println("Entered..........."+paymentSuccessResponse.getAmount());
+		System.out.println("Entered..........."+paymentSuccessResponse.getPaymentSuccessBean()[0]);
 	}
 }
 
 
 
     
+*/

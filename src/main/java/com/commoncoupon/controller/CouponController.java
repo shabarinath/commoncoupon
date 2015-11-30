@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.domain.CommonCoupon;
-import com.commoncoupon.domain.Recipient;
-import com.commoncoupon.domain.Sender;
+import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.PaymentStatus;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.CouponService;
+import com.commoncoupon.service.PaymentService;
 import com.commoncoupon.service.UserService;
+import com.commoncoupon.utils.PaymentUtil;
 import com.commoncoupon.utils.Utils;
 
 /**
@@ -25,7 +27,7 @@ import com.commoncoupon.utils.Utils;
  */
 
 @Controller
-@SessionAttributes("CommonCoupon")
+@SessionAttributes("commonCoupon")
 public class CouponController {
 	private static final Logger logger = LoggerFactory.getLogger(CouponController.class);
 	
@@ -35,53 +37,86 @@ public class CouponController {
 	@Autowired
 	private UserService userDetailsService;
 	
+	@Autowired
+	private PaymentService paymentService;
+	
 	@RequestMapping(value = "/saveCoupon", method = RequestMethod.POST)
 	public String saveCoupon(@ModelAttribute CommonCoupon commonCoupon, BindingResult result, Model model) throws Exception {
+		PaymentRequestResponse paymentRequestDetails = null;
 		try {
 			if (validateFormData(commonCoupon, result)) {
 				return "home/home";
 			}
-			
-
-			String couponCode = Utils.generateCouponCode();
-			commonCoupon.setCouponId(couponCode);
-			commonCoupon.setPassword("change.me");//TODO:set it dynamically
-			commonCoupon.setRedeemed(false);
-			commonCoupon.setStatus(false);
-			Sender senderFromDb = (Sender) userDetailsService.getUserByEmail(commonCoupon.getSender().getEmail());
-			if(senderFromDb == null) {
-				/*
-				 * Creating sender and receiver(recipient is optional) users when coupon is created 
-				 */
+			User sender = userDetailsService.getUserByEmail(commonCoupon.getSender().getEmail());
+			if(sender == null) {
+				 /** Creating sender and receiver(recipient is optional) users when coupon is created */
 				//Creating Sender here
-				Sender sender = new Sender();
+				sender = new User();
 				sender.setFirstName(commonCoupon.getSender().getFirstName());
 				sender.setLastName(commonCoupon.getSender().getLastName());
 				sender.setEmail(commonCoupon.getSender().getEmail());
 				sender.setMobileNumber(commonCoupon.getSender().getMobileNumber());
 				PasswordEncoder passEn = new PasswordEncoder();
-				sender.setPassword(passEn.encodePassword("change.me", null));
+				sender.setPassword(passEn.encodePassword("change.me", null)); //TODO: Generate random password here
 				commonCoupon.setSender(sender);
 			} else {
-				commonCoupon.setSender(senderFromDb);
+				commonCoupon.setSender(sender);
 			}
-			if(commonCoupon.getRecipient() != null && commonCoupon.getRecipient().getEmail() != null) {
-				Recipient recipientFromDb = (Recipient) userDetailsService.getUserByEmail(commonCoupon.getSender().getEmail());
+			paymentRequestDetails = PaymentUtil.generatePaymentRequest(commonCoupon);
+			if(paymentRequestDetails == null || (paymentRequestDetails.getLongUrl() == null 
+					&& paymentRequestDetails.getLongUrl().length() < 0)) {
+				return "error/errorPage"; //TODO: Create error page here
+			}
+			paymentService.savePaymentRequest(paymentRequestDetails);
+			commonCoupon.setPaymentRequestId(paymentRequestDetails.getPaymentRequestId());
+			String couponCode = Utils.generateCouponCode();
+			commonCoupon.setCouponId(couponCode);
+			commonCoupon.setPaymentStatus(PaymentStatus.NOT_INITIATED); //Update this once transaction is success
+			commonCoupon.setPassword("change.me");//TODO: Generate randam password here
+			commonCoupon.setRedeemed(false);
+			commonCoupon.setStatus(false);
+			if(commonCoupon.getRecipient() != null && commonCoupon.getRecipient().getEmail() != null 
+			&& !(commonCoupon.getSender().getEmail().equalsIgnoreCase(commonCoupon.getRecipient().getEmail()))) {
+				User recipientFromDb =  userDetailsService.getUserByEmail(commonCoupon.getRecipient().getEmail());
 				if(recipientFromDb == null) {
 					//Creating Recipient here
-					Recipient recipient = new Recipient();
+					User recipient = new User();
 					recipient.setEmail(commonCoupon.getRecipient().getEmail());
 					commonCoupon.setRecipient(recipient);
 				} else {
 					commonCoupon.setRecipient(recipientFromDb);
 				}
 			}
-			couponService.saveCommonCoupon(commonCoupon);
+			couponService.saveOrUpdateCommonCoupon(commonCoupon);
+			model.addAttribute("coupon", commonCoupon);
+			model.addAttribute("redirectUrl", paymentRequestDetails.getLongUrl());
+			return "misc/redirect";
 		} catch(Exception e) {
 			logger.error("Exception occured while saving coupon reason: "+e);
 		}
-		return "home/success";
+		return null;
 	}
+	
+	/*@RequestMapping(value="/saveTransactionDetails", method = RequestMethod.GET)
+	public String saveTransactionDetails(Model model, @RequestParam  String paymentRequestId, @RequestParam String paymentId) 
+			throws Exception {
+		try {
+			if(paymentRequestId != null && paymentRequestId.length() > 0 && paymentId != null && paymentId.length() > 0) {
+				return "error/errorPage";
+			}
+			CommonCoupon couponFromDb = couponService.getCouponByPaymentRequestId(paymentRequestId);
+			couponFromDb.setPaymentStatus(PaymentStatus.SUCCESS);
+			couponService.saveOrUpdateCommonCoupon(couponFromDb);
+			
+			//Invoking payment details api from Instamojo and saving details to our DB
+			PaymentGatewayClient paymentGatewayClient = PaymentGatewayClient.getInstance();
+			PaymentSuccessResponseBean paymentRequestResponseBean = paymentGatewayClient.getPaymentDetails(paymentRequestId);
+			
+		}catch(Exception e) {
+			logger.error("Exception occured while saving transaction details reason: ", e);
+		}
+		return null;
+	}*/
 	
 	private boolean validateFormData(CommonCoupon commonCoupon, BindingResult result) {
 		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
@@ -96,6 +131,16 @@ public class CouponController {
 		if(Utils.isEmpty(commonCoupon.getSender().getMobileNumber())) {
 			result.rejectValue("sender.mobileNumber","","Cannot be Empty !!");
 		} 
+		if(commonCoupon.getAmount() <= 0 || commonCoupon.getAmount() > 5000) {
+			result.rejectValue("amount","","Enter vaild amount !!");
+		}
+		//TODO: Need to implement this functionality to save coupon when sender and
+		//buyer emails are same
+		if(!Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
+			if(commonCoupon.getRecipient().getEmail().equalsIgnoreCase(commonCoupon.getSender().getEmail())) {
+				result.rejectValue("recipient.email","","Sender and recipient mail cannot be same !!");
+			}
+		}
 		return (result.hasFieldErrors() || result.hasErrors());
 	}
 }

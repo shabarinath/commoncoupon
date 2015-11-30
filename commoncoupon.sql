@@ -93,7 +93,7 @@ DROP TABLE IF EXISTS `payment_request_response`;
 CREATE TABLE `payment_request_response` (
   `id` bigint(100) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL DEFAULT 0,
-  `payment_id` varchar(255) DEFAULT NULL,
+  `payment_request_id` varchar(255) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `sender_email` varchar(100) DEFAULT NULL,
   `sender_name` varchar(255) DEFAULT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE `payment_request_response` (
   `is_success` varchar(25) NOT NULL DEFAULT '0',
   created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_paymentId` (`payment_id`)
+  UNIQUE KEY `uk_paymentId` (`payment_request_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
@@ -150,7 +150,10 @@ CREATE TABLE `coupon` (
    status tinyint(1) NOT NULL DEFAULT '0',
   `sender_id` bigint(20) NOT NULL,
   `recipient_id` bigint(20),
+  `amount` bigint(20),
   company_name varchar(255),
+  payment_status varchar(255) NOT NULL DEFAULT 'NOT_INITIATED',
+  payment_request_id varchar(255) NOT NULL,
   is_redeemed  tinyint(1) NOT NULL DEFAULT '0',
   `created_on`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),

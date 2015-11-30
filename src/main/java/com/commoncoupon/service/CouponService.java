@@ -14,6 +14,9 @@ public interface CouponService {
 
 	public void saveCoupon(Coupon coupon) throws Exception;
 
-	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception;
+	public void saveOrUpdateCommonCoupon(CommonCoupon commonCoupon) throws Exception;
+
+	public CommonCoupon getCouponByPaymentRequestId(
+			String paymentRequestId) throws Exception;
 }
 
