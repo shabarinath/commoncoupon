@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp"%>
 <div class="homePageBox">   
-    <form:form  commandName="coupon" id="couponForm" name="couponForm" class="form-horizontal" method="post" action="/saveCoupon">
+    <form:form  commandName="commonCoupon" id="couponForm" name="couponForm" class="form-horizontal" method="post" action="/saveCoupon">
 	<legend>Amount: </legend>
 	<div style="">	
 		<div class="control-group">

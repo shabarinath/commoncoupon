@@ -75,8 +75,14 @@ public class CouponController {
 			commonCoupon.setPassword("change.me");//TODO: Generate randam password here
 			commonCoupon.setRedeemed(false);
 			commonCoupon.setStatus(false);
-			if(commonCoupon.getRecipient() != null && commonCoupon.getRecipient().getEmail() != null 
-			&& !(commonCoupon.getSender().getEmail().equalsIgnoreCase(commonCoupon.getRecipient().getEmail()))) {
+			if(!Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
+				//This block is to handle case where sender and recipient emails are same
+				if(commonCoupon.getRecipient().getEmail().equalsIgnoreCase(commonCoupon.getSender().getEmail())) {
+					commonCoupon.setRecipient(sender);
+				}
+			}
+			if(commonCoupon.getRecipient() != null && commonCoupon.getRecipient().getEmail() != null
+			&& !(commonCoupon.getRecipient().getEmail().equalsIgnoreCase(commonCoupon.getSender().getEmail()))) {
 				User recipientFromDb =  userDetailsService.getUserByEmail(commonCoupon.getRecipient().getEmail());
 				if(recipientFromDb == null) {
 					//Creating Recipient here
@@ -133,13 +139,6 @@ public class CouponController {
 		} 
 		if(commonCoupon.getAmount() <= 0 || commonCoupon.getAmount() > 5000) {
 			result.rejectValue("amount","","Enter vaild amount !!");
-		}
-		//TODO: Need to implement this functionality to save coupon when sender and
-		//buyer emails are same
-		if(!Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
-			if(commonCoupon.getRecipient().getEmail().equalsIgnoreCase(commonCoupon.getSender().getEmail())) {
-				result.rejectValue("recipient.email","","Sender and recipient mail cannot be same !!");
-			}
 		}
 		return (result.hasFieldErrors() || result.hasErrors());
 	}
