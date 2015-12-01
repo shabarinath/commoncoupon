@@ -1,6 +1,7 @@
 package com.commoncoupon.service;
 
 import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 /**
  * @author SHABARINATH
@@ -10,6 +11,8 @@ import com.commoncoupon.domain.PaymentRequestResponse;
 public interface PaymentService {
 
 	void savePaymentRequest(PaymentRequestResponse paymentRequestDetails) throws Exception ;
+
+	void saveTransactionDetails(Transaction transactionDetails) throws Exception ; 
 
 }
 

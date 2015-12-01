@@ -16,7 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.commoncoupon.bean.PaymentRequestBean;
 import com.commoncoupon.bean.PaymentRequestResponseBean;
+import com.commoncoupon.bean.PaymentSuccessBean;
+import com.commoncoupon.bean.PaymentSuccessResponseBean;
 import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 public class Utils {
 	
@@ -108,7 +111,7 @@ public class Utils {
 		try{
 			 ObjectMapper mapper = new ObjectMapper();
 			 mapper.configure(DeserializationConfig.Feature.AUTO_DETECT_FIELDS, true);
-		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		     return (T) mapper.readValue(responseString, clazz);
 		}catch(Exception e){
 			logger.error("Exception occured while converting json to object reason: ", e);
@@ -155,6 +158,31 @@ public class Utils {
 			return String.valueOf(actual);
 		}catch(Exception e){
 			logger.error("Exception occured while generating coupon code reason: ", e);
+		}
+		return null;
+	}
+
+	public static Transaction setBeanPropsToTransactionDetailsToObj(
+			PaymentSuccessResponseBean paymentCompletionResponseBean, String paymentRequestId) {
+		try {
+			if(paymentCompletionResponseBean != null) {
+				Transaction transactionObj = new Transaction();
+				PaymentSuccessBean  paymentSuccessBean = paymentCompletionResponseBean.getPaymentSuccessBean();
+				transactionObj.setAmount(paymentSuccessBean.getAmount());
+				transactionObj.setBuyerEmail(paymentSuccessBean.getBuyerEmail());
+				transactionObj.setBuyerName(paymentSuccessBean.getBuyerName());
+				transactionObj.setBuyerPhone(paymentSuccessBean.getBuyerPhone());
+				transactionObj.setTransactionCreateTime(paymentSuccessBean.getCreatedAt());
+				transactionObj.setCurrency(paymentSuccessBean.getCurrency());
+				transactionObj.setFees(paymentSuccessBean.getPaymentGateWayFees());
+				transactionObj.setPaymentId(paymentSuccessBean.getPaymentId());
+				transactionObj.setStatus(paymentSuccessBean.getStatus()); //Credit
+				transactionObj.setSuccess(Boolean.parseBoolean(paymentCompletionResponseBean.getIsSuccess()));
+				transactionObj.setPaymentRequestId(paymentRequestId);
+				return transactionObj;
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while setting bean properties to obj reason: ", e);
 		}
 		return null;
 	}

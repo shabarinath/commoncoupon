@@ -160,6 +160,29 @@ CREATE TABLE `coupon` (
   UNIQUE KEY `uk_couponId` (`coupon_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaction` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `amount` bigint(20),
+  buyer_email varchar(255),
+  buyer_name varchar(255),
+  buyer_phone varchar(255),
+  currency varchar(255),
+  fees varchar(255),
+  payment_id varchar(255),
+  status varchar(255),
+  transaction_create_time  varchar(255),
+  payment_request_id varchar(255) NOT NULL,
+  is_success varchar(50),
+  `created_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_paymentId` (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

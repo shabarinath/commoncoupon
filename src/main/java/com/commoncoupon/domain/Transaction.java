@@ -24,8 +24,8 @@ import javax.persistence.TemporalType;
  */
 @SuppressWarnings("serial")
 @Entity
-@Table(name="payment_success_response")
-public class PaymentSuccessResponse extends Persistent {
+@Table(name="transaction")
+public class Transaction extends Persistent {
 	
 	@Column(name="amount")
 	private String amount;
@@ -39,10 +39,6 @@ public class PaymentSuccessResponse extends Persistent {
 	private String currency;
 	@Column(name="fees")
 	private String fees;
-	@Column(name="long_url")
-	private String longUrl;
-	@Column(name="mac")
-	private String mac;
 	@Column(name="payment_id")
 	private String paymentId;
 	/**
@@ -52,12 +48,16 @@ public class PaymentSuccessResponse extends Persistent {
 	 */
 	@Column(name="payment_request_id")
 	private String paymentRequestId;
-	@Column(name="purpose")
-	private String purpose;
-	@Column(name="shortUrl")
-	private String shortUrl;
+	
 	@Column(name="status")
 	private String status;
+	
+	@Column(name="transaction_create_time")
+	private String transactionCreateTime;
+	
+	@Column(name="is_success")
+	private boolean success;
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_time")
 	private Date createdTime;
@@ -102,38 +102,6 @@ public class PaymentSuccessResponse extends Persistent {
 		this.fees = fees;
 	}
 
-	public String getLongUrl() {
-		return longUrl;
-	}
-
-	public void setLongUrl(String longUrl) {
-		this.longUrl = longUrl;
-	}
-
-	public String getMac() {
-		return mac;
-	}
-
-	public void setMac(String mac) {
-		this.mac = mac;
-	}
-
-	public String getPurpose() {
-		return purpose;
-	}
-
-	public void setPurpose(String purpose) {
-		this.purpose = purpose;
-	}
-
-	public String getShortUrl() {
-		return shortUrl;
-	}
-
-	public void setShortUrl(String shortUrl) {
-		this.shortUrl = shortUrl;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -172,5 +140,21 @@ public class PaymentSuccessResponse extends Persistent {
 
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
+	}
+
+	public String getTransactionCreateTime() {
+		return transactionCreateTime;
+	}
+
+	public void setTransactionCreateTime(String transactionCreateTime) {
+		this.transactionCreateTime = transactionCreateTime;
+	}
+
+	public boolean isSuccess() {
+		return success;
+	}
+
+	public void setSuccess(boolean success) {
+		this.success = success;
 	}
 }

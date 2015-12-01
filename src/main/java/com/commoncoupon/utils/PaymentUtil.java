@@ -5,8 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.commoncoupon.bean.PaymentRequestResponseBean;
+import com.commoncoupon.bean.PaymentSuccessResponseBean;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 /**
  * @author SHABARINATH
@@ -28,6 +30,22 @@ public class PaymentUtil {
 			return requestResponseObj;
 		}catch(Exception e) {
 			logger.error("Exception occured in generatePaymentRequest(): ", e);
+		}
+		return null;
+	}
+
+	public static Transaction getTransactionDetails(String paymentRequestId,
+			String paymentId) {
+		try {
+			PaymentGatewayClient pgClient = PaymentGatewayClient.getInstance();
+			PaymentSuccessResponseBean paymentCompletionResponseBean = pgClient.getPaymentDetails(paymentId);
+			Transaction transaction = Utils.setBeanPropsToTransactionDetailsToObj(paymentCompletionResponseBean, paymentRequestId);
+			if(transaction == null) {
+				throw new Exception("Transaction is null");
+			}
+			return transaction;
+		}catch(Exception e) {
+			logger.error("Exception occufred while generating transaction reason: ", e);
 		}
 		return null;
 	}

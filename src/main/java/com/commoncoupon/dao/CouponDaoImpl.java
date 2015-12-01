@@ -1,11 +1,12 @@
 package com.commoncoupon.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
-import com.commoncoupon.domain.PaymentStatus;
 
 /**
  * @author SHABARINATH
@@ -31,12 +32,15 @@ public class CouponDaoImpl implements CouponDao {
 		hibernateTemplate.saveOrUpdate(commonCoupon);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public CommonCoupon getCommonCouponByPaymentRequestId(String paymentRequestId)
 			throws Exception {
-		CommonCoupon commonCoupon = (CommonCoupon) hibernateTemplate.get("from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? AND commonCoupon.isRedeemed = ? AND"
-				+ "coupon.paymentStatus != ?",new Object[]{paymentRequestId, false, PaymentStatus.SUCCESS});
-		return commonCoupon;
+		//from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? AND commonCoupon.isRedeemed = ? AND coupon.paymentStatus != ?
+		List<CommonCoupon> commonCoupon = hibernateTemplate.find("from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? ", paymentRequestId/*, false, PaymentStatus.SUCCESS*/);
+		if(commonCoupon.size()>0)
+			return commonCoupon.get(0);
+		return null;
 	}
 }
 

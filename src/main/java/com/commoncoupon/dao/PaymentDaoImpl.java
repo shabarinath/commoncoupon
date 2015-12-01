@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 /**
  * @author SHABARINATH
@@ -28,6 +29,13 @@ public class PaymentDaoImpl implements PaymentDao {
 	public void savePaymentRequest(PaymentRequestResponse paymentRequestDetails)
 			throws Exception {
 		hibernateTemplate.saveOrUpdate(paymentRequestDetails);
+	}
+
+
+	@Override
+	public void saveTransactionDetails(Transaction transactionDetails)
+			throws Exception {
+		hibernateTemplate.saveOrUpdate(transactionDetails);
 	}
 
 }

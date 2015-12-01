@@ -2,6 +2,7 @@ package com.commoncoupon.service;
 
 import com.commoncoupon.dao.PaymentDao;
 import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 
 /**
@@ -25,6 +26,12 @@ public class PaymentServiceImpl implements PaymentService {
 	public void savePaymentRequest(PaymentRequestResponse paymentRequestDetails)
 			throws Exception {
 		paymentDao.savePaymentRequest(paymentRequestDetails);
+	}
+
+	@Override
+	public void saveTransactionDetails(Transaction transactionDetails)
+			throws Exception {
+		paymentDao.saveTransactionDetails(transactionDetails);
 	}
 }
 

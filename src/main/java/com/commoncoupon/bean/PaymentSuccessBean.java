@@ -17,6 +17,9 @@ public class PaymentSuccessBean {
 	
 	@JsonProperty("buyer_phone")
 	private String buyerPhone;
+	
+	@JsonProperty("buyer_email")
+	private String buyerEmail;
 
 	@JsonProperty("status")
 	private String status;
@@ -32,5 +35,77 @@ public class PaymentSuccessBean {
 	
 	@JsonProperty("created_at")
 	private String createdAt;
+
+	public String getPaymentId() {
+		return paymentId;
+	}
+
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId;
+	}
+
+	public String getBuyerName() {
+		return buyerName;
+	}
+
+	public void setBuyerName(String buyerName) {
+		this.buyerName = buyerName;
+	}
+
+	public String getBuyerPhone() {
+		return buyerPhone;
+	}
+
+	public void setBuyerPhone(String buyerPhone) {
+		this.buyerPhone = buyerPhone;
+	}
+
+	public String getBuyerEmail() {
+		return buyerEmail;
+	}
+
+	public void setBuyerEmail(String buyerEmail) {
+		this.buyerEmail = buyerEmail;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+
+	public String getPaymentGateWayFees() {
+		return paymentGateWayFees;
+	}
+
+	public void setPaymentGateWayFees(String paymentGateWayFees) {
+		this.paymentGateWayFees = paymentGateWayFees;
+	}
+
+	public String getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
 }
 

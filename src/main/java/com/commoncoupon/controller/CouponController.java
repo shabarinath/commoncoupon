@@ -9,11 +9,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.PaymentStatus;
+import com.commoncoupon.domain.Transaction;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.PaymentService;
@@ -103,11 +105,11 @@ public class CouponController {
 		return null;
 	}
 	
-	/*@RequestMapping(value="/saveTransactionDetails", method = RequestMethod.GET)
+	@RequestMapping(value="/saveTransactionDetails", method = RequestMethod.GET)
 	public String saveTransactionDetails(Model model, @RequestParam  String paymentRequestId, @RequestParam String paymentId) 
 			throws Exception {
 		try {
-			if(paymentRequestId != null && paymentRequestId.length() > 0 && paymentId != null && paymentId.length() > 0) {
+			if(paymentRequestId == null || paymentRequestId.length() == 0 || paymentId == null || paymentId.length() == 0) {
 				return "error/errorPage";
 			}
 			CommonCoupon couponFromDb = couponService.getCouponByPaymentRequestId(paymentRequestId);
@@ -115,14 +117,17 @@ public class CouponController {
 			couponService.saveOrUpdateCommonCoupon(couponFromDb);
 			
 			//Invoking payment details api from Instamojo and saving details to our DB
-			PaymentGatewayClient paymentGatewayClient = PaymentGatewayClient.getInstance();
-			PaymentSuccessResponseBean paymentRequestResponseBean = paymentGatewayClient.getPaymentDetails(paymentRequestId);
-			
+			Transaction transactionDetails = PaymentUtil.getTransactionDetails(paymentRequestId, paymentId);
+			if(transactionDetails == null) {
+				return "error/errorPage";
+			} 
+			paymentService.saveTransactionDetails(transactionDetails);
+			return "success/transactionSuccess"; //TODO: CREATE THIS PAGE
 		}catch(Exception e) {
 			logger.error("Exception occured while saving transaction details reason: ", e);
 		}
 		return null;
-	}*/
+	}
 	
 	private boolean validateFormData(CommonCoupon commonCoupon, BindingResult result) {
 		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
