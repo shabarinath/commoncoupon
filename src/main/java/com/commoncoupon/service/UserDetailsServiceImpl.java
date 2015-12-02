@@ -84,4 +84,9 @@ public class UserDetailsServiceImpl implements UserService {
 	public User getUserByEmail(String email) throws Exception {
 		return userDao.getUserByEmail(email);
 	}
+
+	@Override
+	public void saveUser(User userFromDb) throws Exception {
+		userDao.saveUser(userFromDb);
+	}
 }

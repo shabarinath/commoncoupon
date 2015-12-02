@@ -52,4 +52,9 @@ public class UserDaoImpl implements UserDao {
 		hibernateTemplate.saveOrUpdate(recipient);
 	}
 
+	@Override
+	public void saveUser(User user) throws Exception {
+		hibernateTemplate.saveOrUpdate(user);
+	}
+
 }

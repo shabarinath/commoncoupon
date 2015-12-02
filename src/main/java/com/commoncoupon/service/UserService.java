@@ -21,5 +21,7 @@ public interface UserService extends UserDetailsService {
 
 	User getUserByEmail(String email) throws Exception;
 
+	void saveUser(User userFromDb)  throws Exception;
+
 }
 

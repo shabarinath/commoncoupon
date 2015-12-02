@@ -82,7 +82,7 @@ public class User extends Persistent{
 	 *   <b>Reference:</b>https://www.instamojo.com/developers/request-a-payment-api/#toc-webhook
 	 * </p>
 	 */
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.EAGER)
     @JoinTable(name="payment_user_mapping", joinColumns = { 
         @JoinColumn(name="sender_id", nullable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="payment_id", nullable=false, updatable=false) 

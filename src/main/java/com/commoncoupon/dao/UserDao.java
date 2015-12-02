@@ -15,5 +15,7 @@ public interface UserDao {
 	public void saveRecipient(Recipient recipient) throws Exception;
 
 	public Object get(Class<Object> clazz, long id)  throws Exception;
+
+	public void saveUser(User userFromDb)  throws Exception;
 	
 }

@@ -1,5 +1,7 @@
 package com.commoncoupon.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,6 +107,12 @@ public class CouponController {
 		return null;
 	}
 	
+
+	/**
+	 * After successfull payment user will be redirected to this method
+	 * and here transaction details will be saved
+	 *
+	 */
 	@RequestMapping(value="/saveTransactionDetails", method = RequestMethod.GET)
 	public String saveTransactionDetails(Model model, @RequestParam  String paymentRequestId, @RequestParam String paymentId) 
 			throws Exception {
@@ -122,6 +130,14 @@ public class CouponController {
 				return "error/errorPage";
 			} 
 			paymentService.saveTransactionDetails(transactionDetails);
+			
+			//TODO: Check is it required
+			/*String buyerEmail = transactionDetails.getBuyerEmail();
+			User userFromDb = userDetailsService.getUserByEmail(buyerEmail);
+			List<Transaction> transactions = userFromDb.getSuccessPayments();
+			transactions.add(transactionDetails);
+			userFromDb.setSuccessPayments(transactions);
+			userDetailsService.saveUser(userFromDb);*/
 			return "success/transactionSuccess"; //TODO: CREATE THIS PAGE
 		}catch(Exception e) {
 			logger.error("Exception occured while saving transaction details reason: ", e);
