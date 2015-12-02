@@ -50,7 +50,7 @@
  $( document ).ready(function() {
 	$(window).parallaxmouse({
 		invert: true,
-		range: 400,
+		range: 100,
 		elms: [
 			{el: $('#star1'), rate: 0.2},
 			{el: $('#star2'), rate: 0.2},
