@@ -1,6 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp"%>
-<div class="homePageBox">   
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+	<div id="myCarousel" class="carousel slide carousel-div" data-ride="carousel">
+    </div>
+	<div class="header-angle-div">
+	</div>
+	<div class="height-15">
+	</div>
+	<div class="container center_box">
+		<div class="left_panel col-lg-12">
+			<!-- services panel -->
+			<div class="col-lg-12 dashboard separator"><span>Available Coupons</span></div>
+			<div class="col-lg-11 col-lg-offset-1">
+				<div class="col-lg-3  p_none serp_box"><span>Flip Kart</span></div>
+				<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
+				<div class="col-lg-3 p_none serp_box"><span>Sub way</span></div>
+				<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
+				<div class="col-lg-3 p_none serp_box"><span>Snap Deal</span></div>
+			</div><!-- / services panel -->
+			<!-- history panel -->
+			<div class="col-lg-12"><span>&nbsp;</span></div>
+			<div class="col-lg-11 col-lg-offset-1">
+				<div class="col-lg-3  p_none serp_box"><span>Kibana</span></div>
+				<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
+				<div class="col-lg-3 p_none serp_box"><span>Amazon</span></div>
+				<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
+				<div class="col-lg-3 p_none serp_box"><span>Ebay</span></div>
+			</div><!-- / history panel -->
+			<!-- updates panel -->
+			<div class="col-lg-12 p_none update_box hidden">
+				<blockquote>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+					<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+				</blockquote>
+			</div><!-- / updates panel -->
+		</div>
+	</div><!-- /.center_box -->
+  </body>
+</html>
+
+<%-- <div class="homePageBox">   
     <form:form  commandName="commonCoupon" id="couponForm" name="couponForm" class="form-horizontal" method="post" action="/saveCoupon">
 	<legend>Amount: </legend>
 	<div style="">	
@@ -82,4 +124,4 @@
            <a class="btn" href="/">Cancel</a>
        </div>
   </form:form>
-</div>
+</div> --%>

@@ -1,0 +1,186 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 470px;
+  
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+.carousel-div{
+	background-color: #cd1632;
+    background-image: url(http://livefront.com/img/logo/logo-bg-target.svg);
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: auto 143%;
+    padding-top: 7%;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  /* Bump up size of carousel content */
+  .carousel-caption p {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+	.featurette-heading {
+		margin-top: 120px;
+	}
+  
+	.custom-bootstrap-menu.navbar-default .navbar-brand {
+		color: rgba(255, 255, 255, 1);
+	}
+	.custom-bootstrap-menu.navbar-default {
+		font-size: 14px;
+		background-color: rgba(248, 248, 248, 0);
+		border-width: 1px;
+		border-radius: 4px;
+		border: none;
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+		color: rgba(255, 255, 255, 1);
+		background-color: rgba(248, 248, 248, 0);
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+	.custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+		color: rgba(158, 232, 153, 1);
+		background-color: rgba(248, 248, 248, 0.01);
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+	.custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+	.custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+		color: rgba(46, 201, 40, 1);
+		background-color: rgba(231, 231, 231, 0.01);
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-toggle {
+		border-color: #ddd;
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+	.custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+		background-color: #ddd;
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+		background-color: #888;
+	}
+	.custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+	.custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+		background-color: #888;
+	}
+}
+
+.navbar-nav > li > a {
+	line-height: 30px;
+}
+
