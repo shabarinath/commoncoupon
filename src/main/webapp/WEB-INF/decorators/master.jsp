@@ -56,9 +56,6 @@
 			<div class="header-bg">
 			</div>
 		</div>
-		<div class="middleDiv" id="middleDiv">
-			<decorator:body /> 
-		</div>
 		<div class="col-lg-12 footer">
 			<div class="col-lg-6 text_left p_none">
 				GiftYourLove &copy; GiftYourLove.com 2015
@@ -74,5 +71,7 @@
 		<script src="/resources/js/bootstrap.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
+		<decorator:body /> 
 	</body>
 </html>
