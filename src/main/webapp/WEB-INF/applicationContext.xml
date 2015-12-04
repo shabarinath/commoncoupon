@@ -41,6 +41,14 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+	<bean id="CouponDao" class="com.commoncoupon.dao.CouponDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="paymentDao" class="com.commoncoupon.dao.PaymentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
 	<!--  services  -->	
 	<bean id="userDetailsService" class="com.commoncoupon.service.UserDetailsServiceImpl" autowire="byType">
 		<property name="userDao" ref="userDao"/>
@@ -56,6 +64,14 @@
 			<ref bean="defaultDao" />
 		</property>
 	</bean>
+	
+	<bean id="CouponService" class="com.commoncoupon.service.CouponServiceImpl" autowire="byType">
+		<property name="CouponDao" ref="CouponDao"/>
+	</bean>	
+	
+	<bean id="paymentService" class="com.commoncoupon.service.PaymentServiceImpl" autowire="byType">
+		<property name="paymentDao" ref="paymentDao"/>
+	</bean>	
 	
 	<bean id="assembler" class="com.commoncoupon.service.Assembler" />
 	

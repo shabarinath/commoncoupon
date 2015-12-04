@@ -3,6 +3,7 @@ package com.commoncoupon.service;
 import com.commoncoupon.dao.AdminDao;
 import com.commoncoupon.dao.DefaultDao;
 import com.commoncoupon.domain.HomePage;
+import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.utils.SecurityUtils;
 
@@ -117,5 +118,12 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void saveOrUpdateUser(User user) throws Exception {
 		 adminDao.saveOrUpdateUser(user);
+	}
+
+	@Override
+	public PaymentRequestResponse savePaymentRequestResponse(
+			PaymentRequestResponse requestResponseObj) throws Exception {
+		adminDao.saveOrUpdate(requestResponseObj);
+		return (PaymentRequestResponse) adminDao.get(PaymentRequestResponse.class, requestResponseObj.getId());
 	}
 }

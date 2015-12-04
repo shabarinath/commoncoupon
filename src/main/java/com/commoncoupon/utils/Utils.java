@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.TimeZone;
 
 import org.codehaus.jackson.map.DeserializationConfig;
@@ -12,6 +13,13 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.commoncoupon.bean.PaymentRequestBean;
+import com.commoncoupon.bean.PaymentRequestResponseBean;
+import com.commoncoupon.bean.PaymentSuccessBean;
+import com.commoncoupon.bean.PaymentSuccessResponseBean;
+import com.commoncoupon.domain.PaymentRequestResponse;
+import com.commoncoupon.domain.Transaction;
 
 public class Utils {
 	
@@ -103,10 +111,78 @@ public class Utils {
 		try{
 			 ObjectMapper mapper = new ObjectMapper();
 			 mapper.configure(DeserializationConfig.Feature.AUTO_DETECT_FIELDS, true);
-		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, true);
+		     mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		     return (T) mapper.readValue(responseString, clazz);
 		}catch(Exception e){
 			logger.error("Exception occured while converting json to object reason: ", e);
+		}
+		return null;
+	}
+
+	public static PaymentRequestResponse setPaymentRequestResponseToObj(PaymentRequestResponseBean paymentRequestResponseBean) {
+		try{
+			if(paymentRequestResponseBean != null) {
+				PaymentRequestResponse paymentResponse = new PaymentRequestResponse();
+				PaymentRequestBean paymentRequest = paymentRequestResponseBean.getPaymentRequest();
+				paymentResponse.setPaymentRequestId(paymentRequest.getId());
+				paymentResponse.setPhone(paymentRequest.getPhone());
+				paymentResponse.setSenderEmail(paymentRequest.getEmail());
+				paymentResponse.setSenderName(paymentRequest.getBuyerName());
+				paymentResponse.setAmount(paymentRequest.getAmount());
+				paymentResponse.setPurpose(paymentRequest.getPurpose());
+				paymentResponse.setStatus(paymentRequest.getStatus());
+				paymentResponse.setSendSms(paymentRequest.getSendSms());
+				paymentResponse.setSendEmail(paymentRequest.getSendEmail());
+				paymentResponse.setSmsStatus(paymentRequest.getSmsStatus());
+				paymentResponse.setEmailStatus(paymentRequest.getEmailStatus());
+				paymentResponse.setShortUrl(paymentRequest.getShortUrl());
+				paymentResponse.setLongUrl(paymentRequest.getLongUrl());
+				paymentResponse.setRedirectUrl(paymentRequest.getRedirectUrl());
+				paymentResponse.setCreatedAt(paymentRequest.getCreatedAt());
+				paymentResponse.setModifiedAt(paymentRequest.getModifiedAt());
+				paymentResponse.setAllowRepeatedPayments(Boolean.parseBoolean(paymentRequest.getAllowRepeatedPayments()));
+				paymentResponse.setIsSuccess(paymentRequestResponseBean.getIsSuccess());
+				return paymentResponse;
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while setting properties to POJO reason: ", e);
+		}
+		return null;
+	}
+
+	public static String generateCouponCode() {
+		try{
+			final long MAX_NUMBER_YOU_WANT_TO_HAVE = 9999999999999999L;
+			final long MIN_NUMBER_YOU_WANT_TO_HAVE = 1000000000000000L;
+			Long actual = Long.valueOf(Math.abs(Float.valueOf(new Random().nextFloat() * (MAX_NUMBER_YOU_WANT_TO_HAVE - MIN_NUMBER_YOU_WANT_TO_HAVE)).longValue()));
+			return String.valueOf(actual);
+		}catch(Exception e){
+			logger.error("Exception occured while generating coupon code reason: ", e);
+		}
+		return null;
+	}
+
+	public static Transaction setBeanPropsToTransactionDetailsToObj(
+			PaymentSuccessResponseBean paymentCompletionResponseBean, String paymentRequestId) {
+		try {
+			if(paymentCompletionResponseBean != null) {
+				Transaction transactionObj = new Transaction();
+				PaymentSuccessBean  paymentSuccessBean = paymentCompletionResponseBean.getPaymentSuccessBean();
+				transactionObj.setAmount(paymentSuccessBean.getAmount());
+				transactionObj.setBuyerEmail(paymentSuccessBean.getBuyerEmail());
+				transactionObj.setBuyerName(paymentSuccessBean.getBuyerName());
+				transactionObj.setBuyerPhone(paymentSuccessBean.getBuyerPhone());
+				transactionObj.setTransactionCreateTime(paymentSuccessBean.getCreatedAt());
+				transactionObj.setCurrency(paymentSuccessBean.getCurrency());
+				transactionObj.setFees(paymentSuccessBean.getPaymentGateWayFees());
+				transactionObj.setPaymentId(paymentSuccessBean.getPaymentId());
+				transactionObj.setStatus(paymentSuccessBean.getStatus()); //Credit
+				transactionObj.setSuccess(Boolean.parseBoolean(paymentCompletionResponseBean.getIsSuccess()));
+				transactionObj.setPaymentRequestId(paymentRequestId);
+				return transactionObj;
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while setting bean properties to obj reason: ", e);
 		}
 		return null;
 	}

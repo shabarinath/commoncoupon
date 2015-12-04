@@ -3,94 +3,75 @@
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <!DOCTYPE HTML>
 <html>
-<head>
-    <link rel="icon" type="image/x-icon" href="<c:url value="/resources/img/favicon.ico"/>">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/flexslider.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/css/jquery.loadmask.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/css/magnific-popup.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/css/bjqs.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>">
-	<!--<link rel="stylesheet/less" type="text/css" href="/customStyles?_ajax=true"> -->
-	
-    <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.0.3.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery-ui-1.10.3.custom.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.history.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.flexslider-min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/functions.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.form.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/bootbox.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.loadmask.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/core.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/js/common.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/tinymce/tinymce.min.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/editor.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/bjqs-1.3.js"/>"></script>
-	<script type="text/javascript" src="<c:url value="/resources/js/less-1.3.0.min.js"/>"></script>
-    <decorator:head/>
-
-</head>
-
-<body>
- 	 <div id="wrapper">
-		<div class="shell">
-			<div class="container">
-				<header class="header services last-section">
-					<!-- <h1 id="logo"><a href="/"></a></h1> -->
-					<h1 style="float:left;padding-left:15px;">
-						<img src="" style="width:80px; height:80px;border-radius:13px;" alt="Header Logo"/>
-					</h1>
-					<h1 id="headerMainTitle" class="title1">Header Title</h1>
-					<hr style="background-color: #687A8D;margin:55px 0px 5PX 0;height:6px;border:0;">
-
-
-					<div class="cl">&nbsp;</div>
-				</header>
-				<header class="header" style="padding-top:0px;">
-					<sec:authorize access="isAuthenticated()">
-						<nav id="navigation" style="margin-left:5px;">
-							<ul>
-								<li><a style="border-radius: 5px;  border: 1px solid #D7E1E8 !important;" href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
-							</ul>
-						</nav>
-					</sec:authorize>
-					
-					<nav id="navigation">
-						<ul>							
-							<sec:authorize access="isAnonymous()">
-								<li class="active"><a href="/login">Login</a></li>
-							</sec:authorize>
-						</ul>
-					</nav>
-					
-					<div class="cl">&nbsp;</div>
-
-
-				</header>
-				<div class="main">
-					<div class="leftDiv">
-						<h1> Left Div</h1>
-						
-					</div>
-					
-					<div class="middleDiv" id="middleDiv">
-						<decorator:body /> 
-						
-					</div>
-					
-					<div class="rightDiv" id="rightDiv">
-						<h1>Right Div</h1>
-					</div>
-					<div class="cl">&nbsp;</div>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- Commenting out! Must be added later!! -->
+		<!-- <link rel="icon" href="../../favicon.ico">  -->
+		<title>GiftYourLove</title>
+		<!-- Bootstrap core CSS -->
+		<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/resources/css/app-main.css" rel="stylesheet">
+		<!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script src="/resources/js/ie-emulation-modes-warning.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<!-- Custom addons for this template -->
+		<link href="/resources/css/app-dashboard.css" rel="stylesheet">
+		<link href="/resources/css/app-carousel.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Pacifico|Fjalla+One|Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="navbar-wrapper visible-xs">
+			<nav class="custom-bootstrap-menu navbar navbar-default navbar-static-top">
+			  <div class="">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#">GiftYourLove</a>
 				</div>
-			</div>
-			<div class="footer">				
-				<p class="copy">Copyright &copy; 2014 All Rights Reserved. Designed by <a href="http://techfunia.com" target="_blank" >Techfunia</a> </p>
+				<div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav">
+						<li><a href="/" >Buy Our Exclusive Card</a>
+						</li>
+						<li><a href="/products">Redeem</a>
+						</li>
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+		</div>
+		<div class="nav navbar navbar-fixed-top hidden-xs">
+			<div class="header-bg">
 			</div>
 		</div>
-	</div> 
-</body>
+		<div class="col-lg-12 footer">
+			<div class="col-lg-6 text_left p_none">
+				GiftYourLove &copy; GiftYourLove.com 2015
+			</div>
+			<div class="col-lg-6 text_right p_none">
+				About Terms Of Use Privacy Policy
+			</div>
+		</div><!-- /.footer -->
+		  <!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/resources/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
+		<decorator:body /> 
+	</body>
 </html>

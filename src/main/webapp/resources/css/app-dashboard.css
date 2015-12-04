@@ -1,0 +1,148 @@
+/*************************************
+ Dashboard related classes reside here 
+ **************************************/
+ 
+ body {
+  background-image: url("../img/white_bg_with_pattern.png");
+  background-repeat: repeat;
+  background-size: 1277px 372px;
+  background-color: #fff;
+}
+ 
+ .navbar-inverse .navbar-nav > li > a {
+  color: #bdbcbd;
+}
+
+.navbar-inverse .navbar-brand {
+  color: #bdbcbd;
+}
+
+.navbar-brand {
+  float: left;
+  font-family: "Pacifico",cursive !important;
+  font-size: 1.5em;
+  height: 50px;
+  padding: 15px;
+}
+
+.navbar-nav{
+  font-family: "Roboto Condensed",sans-serif !important;
+}
+
+
+/** seperator global classes  starts*/
+.separator {
+    padding-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+.separator span {
+    background: #cd1632 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-family: "bello-pro",sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    margin: 0 auto;
+    min-width: 85px;
+    padding: 7px 11px 4px 9px;
+    position: relative;
+}
+.separator span::after {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #cd1632 transparent transparent;
+    border-image: none;
+    border-style: solid;
+    border-width: 10px;
+    bottom: -20px;
+    content: "";
+    display: block;
+    height: 0;
+    left: 50%;
+    margin-left: -11px;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+}
+.separator::before, .separator::after {
+    content: "";
+    display: block;
+    opacity: 0.3;
+    position: absolute;
+}
+.separator::before {
+    border-top: 1px solid #cd1632;
+    left: 0;
+    right: 0;
+    top: 15px;
+}
+/** seperator global ends starts*/
+
+.dashboard .separator{
+	width: 50%;
+}
+
+.dashboard.separator span::after{
+	margin-left: -18px;
+}
+
+.serp_box{
+	border: 1px solid rgb(177, 172, 160);
+	padding: 18px 18px 24px; 
+	text-align: center; 
+	font-size: 29px; 
+	font-family: 'Fjalla One', sans-serif;
+	cursor:pointer;
+}
+
+.dashboard_second_panel{
+	margin-top: 37px;
+}
+
+.update_box{
+	border-width: 1px 1px 1px medium;
+	border-style: solid solid solid none; 
+	-moz-border-top-colors: none; 
+	-moz-border-right-colors: none; 
+	-moz-border-bottom-colors: none; 
+	-moz-border-left-colors: none; 
+	border-image: none; 
+	border-color: rgb(228, 225, 218); 
+	margin-top: 8%;
+}
+
+.update_box blockquote{
+	border-color: #231F20;
+	font-family: "Source Sans Pro",sans-serif ! important;
+	margin-bottom: 0px;
+}
+
+.add_block{
+	min-width: 18%;
+	margin-top: 14px;
+	margin-left: 4%; 
+	border-color: #E0D9CB;
+}
+
+
+/**	Desktop header related classes starts here */
+.header-bg{
+	background-image: url("../img/plain-header.png");
+    height: 166px;
+    background-repeat: no-repeat;
+}
+
+.header-angle-div {
+	background-image: url("../img/triangle_div_with_arrow.png");
+	background-repeat: no-repeat;
+	height: 128px;
+	background-size: 100%;
+}
+/**	Desktop header related classes ends here */
+
+
+
+

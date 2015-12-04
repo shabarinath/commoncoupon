@@ -54,15 +54,20 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `first_name` varchar(255) ,
+  `last_name` varchar(255) ,
+  `email` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   `account_locked` tinyint(1) NOT NULL DEFAULT '0',
   `account_expired` tinyint(1) NOT NULL DEFAULT '0',
   `credentials_expired` tinyint(1) NOT NULL DEFAULT '0',
+   amount bigint(100) default 0,
+  `mobile_number` bigint(20),
   `type` varchar(31) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uk_username` (`username`)
+  UNIQUE KEY `uk_username` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -72,10 +77,111 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,'ADMIN');
+INSERT INTO `users` VALUES (1,0,'admin','admin','admin@admin.com','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,0,'9573027720','ADMIN');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `payment_request_response`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_request_response` (
+  `id` bigint(100) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `payment_request_id` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `sender_email` varchar(100) DEFAULT NULL,
+  `sender_name` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `purpose` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `send_sms` varchar(255) DEFAULT NULL,
+  `send_email` varchar(255) DEFAULT NULL,
+  `sms_status` varchar(255) DEFAULT NULL,
+  `email_status` varchar(255) DEFAULT NULL,
+  `short_url` varchar(255) DEFAULT NULL,
+  `long_url` varchar(255) DEFAULT NULL,
+  `redirect_url` varchar(255) DEFAULT NULL,
+  `webhook` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL,
+  `modified_at` varchar(255) DEFAULT NULL,
+  `allow_repeated_payments` tinyint(1) NOT NULL DEFAULT '0',
+  `is_success` varchar(25) NOT NULL DEFAULT '0',
+  created_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_paymentId` (`payment_request_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `payment_user_mapping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payment_user_mapping` (
+  `sender_id` bigint(20) NOT NULL,
+  `payment_id` bigint(20) NOT NULL,
+   list_index int(10)
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `user_coupon_mapping`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_coupon_mapping` (
+  `user_id` bigint(20) NOT NULL,
+  `coupon_id` bigint(20) NOT NULL,
+   list_index int(10)
+) ENGINE=InnoDB;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+DROP TABLE IF EXISTS `coupon`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coupon` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  class_code varchar(255) NOT NULL,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `coupon_id` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+   status tinyint(1) NOT NULL DEFAULT '0',
+  `sender_id` bigint(20) NOT NULL,
+  `recipient_id` bigint(20),
+  `amount` bigint(20),
+  company_name varchar(255),
+  payment_status varchar(255) NOT NULL DEFAULT 'NOT_INITIATED',
+  payment_request_id varchar(255) NOT NULL,
+  is_redeemed  tinyint(1) NOT NULL DEFAULT '0',
+  `created_on`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_couponId` (`coupon_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `transaction` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `amount` bigint(20),
+  buyer_email varchar(255),
+  buyer_name varchar(255),
+  buyer_phone varchar(255),
+  currency varchar(255),
+  fees varchar(255),
+  payment_id varchar(255),
+  status varchar(255),
+  transaction_create_time  varchar(255),
+  payment_request_id varchar(255) NOT NULL,
+  is_success varchar(50),
+  `created_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_paymentId` (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

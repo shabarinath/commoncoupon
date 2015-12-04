@@ -17,7 +17,7 @@ public class Assembler {
   @Transactional(readOnly = true)
   User buildUserFromUserEntity(com.commoncoupon.domain.User userEntity) {
 
-    String username = userEntity.getUsername();
+    String username = userEntity.getEmail();
     String password = userEntity.getPassword();
     boolean enabled = userEntity.getActive();
     // 

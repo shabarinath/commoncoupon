@@ -1,0 +1,217 @@
+/***********************************
+ customizing pre-defined selectors
+ ***********************************/
+body {
+  //background: #E1E3E4;
+  //background: #E1E3E4 url("https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz") repeat scroll 0% 0%;
+  background: #E1E3E4 url("http://acadgild.com/images/bg/fresher-bg.jpg");
+  background-size: cover;
+}
+
+input, textarea, select {
+  color: #313131;
+  font-size: 15px;
+}
+
+
+
+/*****************
+ btn-blue classes  
+ *****************/
+.btn-blue { 
+  color: #FFFFFF; 
+  background-color: #12A2AF; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-blue:hover, 
+.btn-blue:focus, 
+.btn-blue:active, 
+.btn-blue.active, 
+.open .dropdown-toggle.btn-blue { 
+  color: #FFFFFF; 
+  background-color: #21949E; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-blue:active, 
+.btn-blue.active, 
+.open .dropdown-toggle.btn-blue { 
+  background-image: none; 
+} 
+ 
+.btn-blue.disabled, 
+.btn-blue[disabled], 
+fieldset[disabled] .btn-blue, 
+.btn-blue.disabled:hover, 
+.btn-blue[disabled]:hover, 
+fieldset[disabled] .btn-blue:hover, 
+.btn-blue.disabled:focus, 
+.btn-blue[disabled]:focus, 
+fieldset[disabled] .btn-blue:focus, 
+.btn-blue.disabled:active, 
+.btn-blue[disabled]:active, 
+fieldset[disabled] .btn-blue:active, 
+.btn-blue.disabled.active, 
+.btn-blue[disabled].active, 
+fieldset[disabled] .btn-blue.active { 
+  background-color: #12A2AF; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-blue .badge { 
+  color: #12A2AF; 
+  background-color: #FFFFFF; 
+}
+
+
+
+ /**********************
+ btn-white-blue classes  
+ ***********************/
+.btn-white-blue { 
+  color: #12A2AF; 
+  background-color: #FFFFFF; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-white-blue:hover, 
+.btn-white-blue:focus, 
+.btn-white-blue:active, 
+.btn-white-blue.active, 
+.open .dropdown-toggle.btn-white-blue { 
+  color: #ffffff; 
+  background-color: #12A2AF; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-white-blue:active, 
+.btn-white-blue.active, 
+.open .dropdown-toggle.btn-white-blue { 
+  background-image: none; 
+} 
+ 
+.btn-white-blue.disabled, 
+.btn-white-blue[disabled], 
+fieldset[disabled] .btn-white-blue, 
+.btn-white-blue.disabled:hover, 
+.btn-white-blue[disabled]:hover, 
+fieldset[disabled] .btn-white-blue:hover, 
+.btn-white-blue.disabled:focus, 
+.btn-white-blue[disabled]:focus, 
+fieldset[disabled] .btn-white-blue:focus, 
+.btn-white-blue.disabled:active, 
+.btn-white-blue[disabled]:active, 
+fieldset[disabled] .btn-white-blue:active, 
+.btn-white-blue.disabled.active, 
+.btn-white-blue[disabled].active, 
+fieldset[disabled] .btn-white-blue.active { 
+  background-color: #FFFFFF; 
+  border-color: #12A2AF; 
+} 
+ 
+.btn-white-blue .badge { 
+  color: #FFFFFF; 
+  background-color: #12A2AF; 
+}
+
+
+
+/************************************************************************
+ Bootstrap Override Utilities - Global level : effects all over the site
+ ************************************************************************/
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn:active:focus, .btn:focus{
+	outline: medium none;
+    outline-offset: 0;
+}
+
+a:focus {
+  outline: medium none;
+  outline-offset: -2px;
+}
+
+
+
+/**********************
+ Common CSS Utilities  
+ **********************/
+.pull_left{
+	float: left;
+}
+
+.pull_right{
+	float: right;
+}
+
+.text_left{
+	text-align: left;
+}
+
+.text_right{
+	text-align: right;
+}
+
+.m_b_l{
+	margin-bottom: 20px;
+}
+
+.p_l_none{
+	padding-left: 0px;
+}
+
+.p_r_none{
+	padding-right: 0px;
+}
+
+.p_none{
+	padding: 0px;
+}
+
+.b{
+	font-weight: bold;
+}
+
+.col_centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.footer {
+	background: #12A2AF;
+	padding: 12px 10px;
+	color: #fff;
+	font-family: "Roboto Condensed",sans-serif !important;
+	height: 300px;
+}
+
+.text_input {
+  background: #f4f4f4 none repeat scroll 0 0;
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: block;
+  height: 40px;
+  padding: 0 15px;
+  transition: all 0.25s ease 0s;
+}
+
+.center_box {
+	min-height: 81.7vh;
+	height: auto;
+}
+
+.height-15{
+	height: 15px;
+}
+
+
+
+
+/***********************************
+* Font Faces
+***********************************/
+@font-face {
+    font-family:"bello-pro";
+    src: url("../fonts/Bello-Pro_6555.ttf") /* TTF file for CSS3 browsers */
+}
+

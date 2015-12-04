@@ -3,35 +3,42 @@ package com.commoncoupon.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.IndexColumn;
 
+/**
+ * @author SHABARINATH
+ * 06-Nov-2015 11:02:15 pm 2015 
+ */
+
+@SuppressWarnings("serial")
 @Entity
 @Table(name="users")
 @DiscriminatorColumn(name = "TYPE", discriminatorType = DiscriminatorType.STRING)
-public class User {
+public class User extends Persistent{
 	
-	@Id
-	@GeneratedValue
-	@Column(name="id")
-	private long id;
+	@Column(name="first_name")
+	private String firstName; 
 	
-	@Column(name="username",nullable=false)
-	private String username; 
+	@Column(name="last_name")
+	private String lastName;
 	
-	@Column(name="password",nullable=false)
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="email")
+	private String email;
 	
 	@Column(name="active",nullable=false)
 	private boolean active=true;
@@ -45,6 +52,9 @@ public class User {
 	@Column(name="account_locked",nullable=false)
 	private boolean accountLocked = false;
 	
+	@Column(name="mobile_number")
+	private String mobileNumber; 
+	
 	@OneToMany(mappedBy="user",fetch=FetchType.EAGER,cascade={CascadeType.ALL,CascadeType.MERGE})
 	private List<UserRole> userRoles = new ArrayList<UserRole>();
 	
@@ -54,23 +64,41 @@ public class User {
 	@Transient
 	private transient String confirmPassword;
 	
-	public long getId() {
-		return id;
-	}
+	/**
+	 * Amount present in user wallet
+	 *
+	 * <p>
+	 *   <b>Note:</b> amount by default should be zero
+	 * </p>
+	 */
+	@Column(name="amount",nullable=false)
+	private long amount;
 	
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	/**
+	 * Method saves all success payments against user
+	 *
+	 * <p>
+	 *   <b>Note:</b> We get email for success payments response get user by email id and set payments to user
+	 *   <b>Reference:</b>https://www.instamojo.com/developers/request-a-payment-api/#toc-webhook
+	 * </p>
+	 */
+	@OneToMany(fetch=FetchType.EAGER)
+    @JoinTable(name="payment_user_mapping", joinColumns = { 
+        @JoinColumn(name="sender_id", nullable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="payment_id", nullable=false, updatable=false) 
+    })
+	@IndexColumn(name = "list_index")
+	List<Transaction> successPayments = new ArrayList<Transaction>();
 	
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
+	
+	/*@OneToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="user_coupon_mapping", joinColumns = { 
+        @JoinColumn(name="user_id", nullable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="coupon_id", nullable=false, updatable=false) 
+    })
+	@IndexColumn(name = "list_index")
+	List<Coupon> coupons = new ArrayList<Coupon>();
+*/	
 	public String getPassword() {
 		return password;
 	}
@@ -133,6 +161,62 @@ public class User {
 
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
+	}
+
+	public long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(long amount) {
+		this.amount = amount;
+	}
+
+	public List<Transaction> getSuccessPayments() {
+		return successPayments;
+	}
+
+	public void setSuccessPayments(List<Transaction> successPayments) {
+		this.successPayments = successPayments;
+	}
+
+	/*public List<Coupon> getCoupons() {
+		return coupons;
+	}
+
+	public void setCoupons(List<Coupon> coupons) {
+		this.coupons = coupons;
+	}*/
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	
 }
