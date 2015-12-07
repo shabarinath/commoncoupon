@@ -49,6 +49,7 @@ public class CouponController {
 		PaymentRequestResponse paymentRequestDetails = null;
 		try {
 			if (validateFormData(commonCoupon, result)) {
+				model.addAttribute("errors", result.getAllErrors());
 				return "home/home";
 			}
 			User sender = userDetailsService.getUserByEmail(commonCoupon.getSender().getEmail());
@@ -146,9 +147,10 @@ public class CouponController {
 	}
 	
 	private boolean validateFormData(CommonCoupon commonCoupon, BindingResult result) {
-		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
-			result.rejectValue("sender.email","","Cannot be Empty !!");
-		} 
+		if(commonCoupon.getAmount() == null || 
+				commonCoupon.getAmount() <= 0 || commonCoupon.getAmount() > 5000) {
+			result.rejectValue("amount","","Enter vaild amount !!");
+		}
 		if(Utils.isEmpty(commonCoupon.getSender().getFirstName())) {
 			result.rejectValue("sender.firstName","","Cannot be Empty !!");
 		} 
@@ -158,9 +160,9 @@ public class CouponController {
 		if(Utils.isEmpty(commonCoupon.getSender().getMobileNumber())) {
 			result.rejectValue("sender.mobileNumber","","Cannot be Empty !!");
 		} 
-		if(commonCoupon.getAmount() <= 0 || commonCoupon.getAmount() > 5000) {
-			result.rejectValue("amount","","Enter vaild amount !!");
-		}
+		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
+			result.rejectValue("sender.email","","Cannot be Empty !!");
+		} 
 		return (result.hasFieldErrors() || result.hasErrors());
 	}
 }

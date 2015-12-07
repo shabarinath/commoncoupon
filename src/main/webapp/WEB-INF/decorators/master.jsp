@@ -54,8 +54,29 @@
 		</div>
 		<div class="nav navbar navbar-fixed-top hidden-xs">
 			<div class="header-bg">
+				<sec:authorize access="isAnonymous()">
+					<a href="/login">Login</a>
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<nav id="navigation" style="margin-left:5px;">
+						<ul>
+							<li><a style="border-radius: 5px;  border: 1px solid #D7E1E8 !important;" href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+						</ul>
+					</nav>
+				</sec:authorize>
 			</div>
 		</div>
+		  <!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="/resources/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		
+		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
+		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<decorator:body /> 
 		<div class="col-lg-12 footer">
 			<div class="col-lg-6 text_left p_none">
 				GiftYourLove &copy; GiftYourLove.com 2015
@@ -64,14 +85,5 @@
 				About Terms Of Use Privacy Policy
 			</div>
 		</div><!-- /.footer -->
-		  <!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="/resources/js/bootstrap.min.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
-		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
-		<decorator:body /> 
 	</body>
 </html>
