@@ -38,7 +38,7 @@ public class Coupon extends Persistent {
 	@JoinColumn(name="recipient_id")
 	private User recipient;
 	@Column(name="amount")
-	private long amount;
+	private Long amount;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
@@ -67,12 +67,6 @@ public class Coupon extends Persistent {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getAmount() {
-		return amount;
-	}
-	public void setAmount(long amount) {
-		this.amount = amount;
-	}
 	public User getSender() {
 		return sender;
 	}
@@ -84,5 +78,11 @@ public class Coupon extends Persistent {
 	}
 	public void setRecipient(User recipient) {
 		this.recipient = recipient;
+	}
+	public Long getAmount() {
+		return amount;
+	}
+	public void setAmount(Long amount) {
+		this.amount = amount;
 	}
 }
