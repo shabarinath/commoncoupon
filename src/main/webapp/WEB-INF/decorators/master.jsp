@@ -55,12 +55,12 @@
 		<div class="nav navbar navbar-fixed-top hidden-xs">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
-					<a href="/login">Login</a>
+					<a class="btn floatright" href="/login">Login</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<nav id="navigation" style="margin-left:5px;">
 						<ul>
-							<li><a style="border-radius: 5px;  border: 1px solid #D7E1E8 !important;" href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+							<li><a class="btn floatright" href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
 						</ul>
 					</nav>
 				</sec:authorize>

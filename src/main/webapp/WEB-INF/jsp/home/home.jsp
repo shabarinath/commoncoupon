@@ -153,7 +153,6 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function(){
-	console.log("test");
 	if(animating) return false;
 	animating = true;
 	
@@ -189,7 +188,6 @@ $(".next").click(function(){
 });
 
 $(".previous").click(function(){
-console.log("previous");
 	if(animating) return false;
 	animating = true;
 	console.log("previous123");
