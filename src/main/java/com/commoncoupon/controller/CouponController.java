@@ -1,7 +1,5 @@
 package com.commoncoupon.controller;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +63,9 @@ public class CouponController {
 				sender.setPassword(passEn.encodePassword("change.me", null)); //TODO: Generate random password here
 				commonCoupon.setSender(sender);
 			} else {
+				sender.setFirstName(commonCoupon.getSender().getFirstName());
+				sender.setLastName(commonCoupon.getSender().getLastName());
+				sender.setMobileNumber(commonCoupon.getSender().getMobileNumber());
 				commonCoupon.setSender(sender);
 			}
 			paymentRequestDetails = PaymentUtil.generatePaymentRequest(commonCoupon);
@@ -147,9 +148,11 @@ public class CouponController {
 	}
 	
 	private boolean validateFormData(CommonCoupon commonCoupon, BindingResult result) {
-		if(commonCoupon.getAmount() == null || 
-				commonCoupon.getAmount() <= 0 || commonCoupon.getAmount() > 5000) {
-			result.rejectValue("amount","","Enter vaild amount !!");
+		if(commonCoupon.getAmount() == null) {
+			result.rejectValue("amount","","Cannot be Empty !!");
+		}
+		if(commonCoupon.getAmount() != null && commonCoupon.getAmount() < 9 || commonCoupon.getAmount() > 5000) {
+			result.rejectValue("amount","","Enter between 9 and 5000");
 		}
 		if(Utils.isEmpty(commonCoupon.getSender().getFirstName())) {
 			result.rejectValue("sender.firstName","","Cannot be Empty !!");

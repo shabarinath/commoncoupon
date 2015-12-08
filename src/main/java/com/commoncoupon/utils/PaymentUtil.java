@@ -4,11 +4,13 @@ import org.mortbay.log.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.commoncoupon.bean.PaymentRequestBean;
 import com.commoncoupon.bean.PaymentRequestResponseBean;
 import com.commoncoupon.bean.PaymentSuccessResponseBean;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.Transaction;
+import com.commoncoupon.domain.User;
 
 /**
  * @author SHABARINATH
@@ -46,6 +48,27 @@ public class PaymentUtil {
 			return transaction;
 		}catch(Exception e) {
 			logger.error("Exception occufred while generating transaction reason: ", e);
+		}
+		return null;
+	}
+
+	public static PaymentRequestBean preparePaymentBean(
+			CommonCoupon commonCoupon) {
+		try {
+			if(commonCoupon != null) {
+				User sender = commonCoupon.getSender();
+				PaymentRequestBean paymentBean = new PaymentRequestBean();
+				paymentBean.setAmount(String.valueOf(commonCoupon.getAmount()));
+				paymentBean.setBuyerName(sender.getFirstName().concat(sender.getLastName()));
+				paymentBean.setEmail(sender.getEmail());
+				paymentBean.setPhone(sender.getMobileNumber());
+				paymentBean.setPurpose("Payment For Gift Card");
+				paymentBean.setRedirectUrl(Configuration.getProperty("payment.gateway.redirect.url"));
+				paymentBean.setAllowRepeatedPayments("False");
+				return paymentBean;
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while preparing payment bean reason: ", e);
 		}
 		return null;
 	}

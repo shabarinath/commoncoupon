@@ -10,6 +10,7 @@ import java.util.TimeZone;
 
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
@@ -118,7 +119,19 @@ public class Utils {
 		}
 		return null;
 	}
-
+	
+	public static String convertObjectToJson(PaymentRequestBean requestBean) {
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+			String jsonString = mapper.writeValueAsString(requestBean);
+			return jsonString;
+		} catch(Exception e) {
+			logger.error("Exception occured while converting object to Json reason: ", e);
+		}
+		return null;
+	}
+	
 	public static PaymentRequestResponse setPaymentRequestResponseToObj(PaymentRequestResponseBean paymentRequestResponseBean) {
 		try{
 			if(paymentRequestResponseBean != null) {
