@@ -69,7 +69,7 @@ public class PaymentGatewayClient {
 			ClientResponse Clientresponse = webResource.header("X-Api-Key", Configuration.getProperty("payment.key"))
 					.header("X-Auth-Token", Configuration.getProperty("payment.token")).type("application/json")
 			   .post(ClientResponse.class, jsonRequest);
-			logger.info("Client Response: "+Clientresponse.getEntity(String.class));
+			/*logger.info("Client Response: "+Clientresponse.getEntity(String.class));*/
 			if (!(Clientresponse.getStatus() == 201 || Clientresponse.getStatus() == 200)) {
 				throw new RuntimeException("Failed : HTTP error code : " + Clientresponse.getStatus());
 			}
