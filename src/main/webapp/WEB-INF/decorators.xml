@@ -6,7 +6,6 @@
     </decorator>
     <excludes>
         <pattern>*ajax*</pattern>
-        <pattern>/login*</pattern>
         <pattern>/changePassword*</pattern>
     </excludes>
 </decorators>

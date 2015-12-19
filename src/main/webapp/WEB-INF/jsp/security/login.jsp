@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp"%>
-
-<head>
-
-<style type="text/css">
+<!-- <style type="text/css">
 
 $(document).ready(function() {
 	$(".username").focus(function() {
@@ -244,8 +241,7 @@ FOOTER
 	position: relative;
 	bottom: -1px;
 }
-</style>
-</head>
+</style>-->
 <!--WRAPPER-->
 <div id="wrapper">
 		<c:if test="${not empty error}">
@@ -285,5 +281,4 @@ FOOTER
 </div>
 <!--END WRAPPER-->
 
-</body>
-</html>
+
