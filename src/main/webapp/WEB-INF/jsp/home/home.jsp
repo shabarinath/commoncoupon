@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp"%>
 <div id="wrapper" class="carousel slide carousel-div" data-ride="carousel">
 	<img id="star1" class="parallax top star1" src="/resources/img/header_banner/star1.png"/>
