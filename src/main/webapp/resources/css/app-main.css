@@ -244,3 +244,8 @@ a.btn{
 .floatright {
 	float:right;
 }
+
+.removeButtonBorder {
+	border: 0; 
+	background: transparent;
+}
