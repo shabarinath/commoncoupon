@@ -151,7 +151,10 @@ public class CouponController {
 		if(commonCoupon.getAmount() == null) {
 			result.rejectValue("amount","","Cannot be Empty !!");
 		}
-		if(commonCoupon.getAmount() != null && commonCoupon.getAmount() < 9 || commonCoupon.getAmount() > 5000) {
+		if(commonCoupon.getAmount() == null) {
+			result.rejectValue("amount","","Cannot be Empty !!");
+		}
+		if(commonCoupon.getAmount() != null && (commonCoupon.getAmount() < 9 || commonCoupon.getAmount() > 5000)) {
 			result.rejectValue("amount","","Enter between 9 and 5000");
 		}
 		if(Utils.isEmpty(commonCoupon.getSender().getFirstName())) {

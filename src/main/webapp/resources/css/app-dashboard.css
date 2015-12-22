@@ -19,7 +19,7 @@
 
 .navbar-brand {
   float: left;
-  font-family: "Pacifico",cursive !important;
+  font-family: "bello-pro",cursive !important;
   font-size: 1.5em;
   height: 50px;
   padding: 15px;
@@ -116,8 +116,8 @@
 
 .update_box blockquote{
 	border-color: #231F20;
-	font-family: "Source Sans Pro",sans-serif ! important;
 	margin-bottom: 0px;
+	font-size: 18px;
 }
 
 .add_block{
@@ -143,6 +143,164 @@
 }
 /**	Desktop header related classes ends here */
 
+.how_it_works_panel {
+	background: #12A2AF;
+	padding: 12px 10px;
+	color: #fff;
+	font-family: "Roboto Condensed",sans-serif !important;
+	min-height: 450px;
+}
+
+.how_it_works {
+	//font-family: "bello-pro",sans-serif;
+	font-family: 'Frijole', cursive;
+    font-size: 24px;
+    padding: 15px;
+    text-align: center;
+}
+
+.major_footer_panel {
+	padding: 40px 10px 17px 10px;
+	font-size: 16px;
+	font-family: "Roboto Condensed",sans-serif !important;
+	min-height: 150px;
+	color: #969393;
+	background: #201F1F none repeat scroll 0px 0px;
+}
+
+.major_footer_panel_menu_list_ul  > li{
+	padding-right:5px;
+	width: 90px;
+}
+
+.major_footer_panel_social_icon_list_ul {
+	padding-top: 15px;
+}
+
+.major_footer_panel_social_icon_list_ul > li {
+	padding-right:5px;
+}
+
+.major_footer_panel_social_icon_list_ul > li.icons {
+	font-size: 27px;
+}
+
+.mini_footer_panel  {
+	background: #040404;
+	padding: 12px 10px;
+	color: #C49E5C;
+	font-family: "Roboto Condensed",sans-serif !important;
+}
+
+.buy_ecard_panel{
+	//background: red none repeat scroll 0% 0%; 
+	min-height: 200px; 
+	margin-top: 4%; 
+	color: rgb(255, 255, 255);
+}
+
+.buy_ecard_panel_blinking_text{
+    font-family: 'Frijole', cursive;
+	font-size: 32px;
+    font-weight: 500;
+	color: #D5D5D5;
+	line-height: 25px;
+}
 
 
+/** common css for all leafs */
+.fa-arrow-circle-o-right, .fa-arrow-circle-o-left{
+	cursor: pointer;
+}
+
+.buy_ecard_panel_form{
+    font-size: 20px;
+    font-weight: 500;
+	//background: rgba(242, 94, 94, 0.3) none repeat scroll 0% 0%;
+	background : rgba(254, 52, 52, 0.3) none repeat scroll 0% 0%;
+	margin-top: 7%;
+	min-height: 235px;
+	border-radius: 2px;
+	//font-family: 'Frijole', cursive;
+	font-family: 'GoodDog', cursive;
+	padding: 4px 20px;
+}
+
+.buy_ecard_panel_form .form_number_display {
+	text-align:right; 
+	font-size: 23px;
+}
+
+/** Leaf 1 css */
+.buy_ecard_panel_form .form_leaf_1 {
+	font-size: 40px;
+}
+
+.buy_ecard_panel_form .form_leaf_1 .next_arrow {
+	text-align: right; 
+	color: rgb(255, 255, 255); 
+	font-size: 43px; 
+	line-height: 1px;
+	//color: rgba(213, 213, 213, 0.68);
+	color: #fff;
+}
+
+/** Leaf 2 css */
+.buy_ecard_panel_form .form_leaf_2 {
+	font-size: 40px;
+}
+
+.buy_ecard_panel_form .form_leaf_2 .give_ur_details{
+	line-height: 1px;
+}
+
+.buy_ecard_panel_form .form_leaf_2 .next_arrow {
+	text-align: right; 
+	padding-top: 56px;
+	line-height: 1px;
+}
+
+/** Leaf 3 css */
+.buy_ecard_panel_form .form_leaf_3 {
+	font-size: 40px;
+}
+
+.buy_ecard_panel_form .form_leaf_3 .give_ur_details{
+	line-height: 1px;
+}
+
+.buy_ecard_panel_form .form_leaf_3 .next_arrow {
+	text-align: right; 
+	line-height: 1px;
+}
+
+
+
+/** Custom text box */
+.cus_text_box {
+	font-size: 25px;
+}
+
+.cus_text_box .input-group-addon{
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+	padding: 6px 0;
+}
+
+.cus_text_box .form-control{
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #fff;
+	background: transparent;
+	color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+	box-shadow: none;
+	height: 43px;
+}
 

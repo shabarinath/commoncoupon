@@ -27,7 +27,7 @@
 		<!-- Custom addons for this template -->
 		<link href="/resources/css/app-dashboard.css" rel="stylesheet">
 		<link href="/resources/css/app-carousel.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Pacifico|Fjalla+One|Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Fjalla+One|Frijole' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div class="navbar-wrapper visible-xs">
@@ -78,14 +78,47 @@
 		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<decorator:body /> 
-		<div class="col-lg-12 footer">
-			<div class="col-lg-6 text_left p_none">
-				GiftYourLove &copy; GiftYourLove.com 2015
+		<div class="major_footer_panel">
+		<div class="text_center p_none container">
+			<div class="col-lg-12 p_none">
+				<div class="col-lg-8 p_none">
+					<ul class="list-inline major_footer_panel_menu_list_ul">
+					  <li>Home</li>
+					  <li>About Us</li>
+					  <li>Contact Us</li>
+					  <li>Members</li>
+					  <li>Donate</li>
+					  <li>My Account</li>
+					  <li>Press</li>
+					</ul>
+					<ul class="list-inline major_footer_panel_social_icon_list_ul">
+					  <li style="width: 90px;">Connect</li>
+					  <li class="icons"><i class="fa fa-facebook-official"></i></li>
+					  <li class="icons"><i class="fa fa-flickr"></i></li>
+					  <li class="icons"><i class="fa fa-foursquare"></i></li>
+					  <li class="icons"><i class="fa fa-google-plus-square"></i></li>
+					  <li class="icons"><i class="fa fa-instagram"></i></li>
+					  <li class="icons"><i class="fa fa-pinterest"></i></li>
+					</ul>
+				</div>
+				<div class="col-lg-4 p_none">
+					sdfeg
+				</div>
 			</div>
-			<div class="col-lg-6 text_right p_none">
-				About Terms Of Use Privacy Policy
+		</div>
+	</div><!-- ./major_footer_panel -->
+	<div class="mini_footer_panel">
+		<div class="text_center p_none container">
+			<div class="col-lg-12 p_none">
+				<div class="col-lg-6 text_left p_none">
+					GiftYourLove &copy; GiftYourLove.com 2015
+				</div>
+				<div class="col-lg-6 text_right p_none">
+					About Terms Of Use Privacy Policy
+				</div>
 			</div>
-		</div><!-- /.footer -->
+		</div>
+	</div><!-- ./mini_footer_panel -->
 		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 		    	<div class="modal-content">

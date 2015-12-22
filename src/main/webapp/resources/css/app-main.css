@@ -176,13 +176,6 @@ a:focus {
     margin: 0 auto;
 }
 
-.footer {
-	background: #12A2AF;
-	padding: 12px 10px;
-	color: #fff;
-	font-family: "Roboto Condensed",sans-serif !important;
-	height: 300px;
-}
 
 .text_input {
   background: #f4f4f4 none repeat scroll 0 0;
@@ -215,164 +208,23 @@ a:focus {
     src: url("../fonts/Bello-Pro_6555.ttf") /* TTF file for CSS3 browsers */
 }
 
+@font-face {
+    font-family:"belligerent";
+    src: url("../fonts/belligerent.ttf") /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+    font-family:"GoodDog";
+    src: url("../fonts/GoodDog.otf") /* TTF file for CSS3 browsers */
+}
+
 .error {
 	color: red;
     font-weight: bolder;
 }
 
-/*********************************
-* Home page banner form
-*********************************/
-.content-wrapper {
-		background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-		border-radius: 5px;
-		border-top: medium none thistle;
-		display: inline-block;
-		height: auto;
-		margin-left: 426px;
-		min-height: auto;
-		padding: 0 12px 0 28px;
-		position: relative;
-		vertical-align: top;
-		width: 510px;
-	}
-
-	.glowing-border { 
-		outline: none;
-		border-color: #9ecaed;
-		box-shadow: 0 0 10px #9ecaed;
-	}
-
-/*basic reset*/
-* {margin: 0; padding: 0;}
-
-/*form styles*/
-#msform {
-	width: 400px;
-	margin: -10% auto;
-	text-align: center;
-	position: relative;
-}
-#msform fieldset {
-	background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
-	
-	box-sizing: border-box;
-	width: 80%;
-	 margin: -17px 12%;
-	outline: none;
-	border-color: #9ecaed;
-	box-shadow: 0 0 10px #9ecaed;
-	/*stacking fieldsets above each other*/
-	position: absolute;
-}
-/*Hide all except first fieldset*/
-#msform fieldset:not(:first-of-type) {
-	display: none;
-}
-/*inputs*/
-#msform input, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
-}
-/*buttons*/
-#msform .action-button {
-	width: 100px;
-	background: #27AE60;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
-}
-#msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
-}
-/*headings*/
-.fs-title {
-	color: #919bac;
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-.fs-subtitle {
-	font-weight: normal;
-	font-size: 13px;
-	color: #666;
-	margin-bottom: 20px;
-}
-/*progressbar*/
-#progressbar {
-	margin-bottom: 30px;
-	overflow: hidden;
-	/*CSS counters to number the steps*/
-	counter-reset: step;
-}
-#progressbar li {
-	list-style-type: none;
-	color: white;
-	text-transform: uppercase;
-	font-size: 9px;
-	width: 33.33%;
-	float: left;
-	position: relative;
-}
-#progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
-}
-/*progressbar connectors*/
-#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
-}
-#progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	content: none; 
-}
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
-	color: white;
-}
-
 .errorInput {
-  border: 1px solid #000
-  width: 200px;
-  padding: 20px;
-  font-size: 20px;
-  color:red;
-  border-radius: 2px;
-  border-color:red !important;
-  border-width: medium !important;
+   border-color: red !important;
 }
 
 a.btn{
@@ -392,88 +244,3 @@ a.btn{
 .floatright {
 	float:right;
 }
-
-/*
-*  Styles for popups 
-*/
-.login_modal_footer{margin-top:5px;}
-.login_modal_header .modal-title {text-align: center;}
-.form-group{position: relative;}
-.form-group .login-field-icon {
-    font-size: 20px;
-    position: absolute;
-    right: 15px;
-    top: 3px;
-    transition: all 0.25s ease 0s;
-    padding-top: 2%;
-}
-.login-modal{
-    width:100%;
-    padding-bottom:20px;
-}
-.login_modal_header, .login_modal_footer {
-	background: #cd1632 !important;
-	color:#fff;
-}
-.modal-register-btn{
-	margin: 4% 33% 2% 33% ;
-	width:100%;
-}
-.login-modal input{
-	height:40px; 
-	box-shadow: none; 
-	border:1px solid #ddd;
-}
-.modal-body-left{
-	float:left; 
-	width:50%; 
-	padding-right:4%; 
-	border-right:4px solid #ddd;
-}
-.modal-body-right{
-	float:right; 
-	width:47%;
-}
-.login-link{
-	padding:0 20%;
-}
-.modal-social-icons{
-	padding:0 10%;
-}
-.facebook{
-	width:100%;
-	height:40px; 
-	padding-top:2%; 
-	margin-top:2%;
-}
-.modal-icons{
-	margin-left: -10px; 
-	margin-right: 20px;
-}
-.facebook, .facebook:hover{
-	background-color: #3b5999; 
-	border:2px solid #3b5999;
-	color:#fff;
-}
-#social-icons-conatainer{
-	position: relative;
-}
-#center-line{
-	position: absolute;  
-	right: 265.7px;
-	top: 80px;
-	background:#ddd;  
-	border: 4px solid #DDDDDD;
-	border-radius: 20px;
-}
-.modal-login-btn{
-	width:100%;
-	height:40px; 
-	margin-bottom:10px;
-}
-#modal-launcher{
-	margin: 30% 0 0 30%; 
-}
-
-
-
