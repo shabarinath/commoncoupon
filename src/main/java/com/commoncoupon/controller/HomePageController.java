@@ -48,6 +48,26 @@ public class HomePageController {
 		}
 	}
 	
+	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+	public String dashboard(Model model) throws Exception{
+		try {
+			return "home/dashboard";
+		} catch(Exception e) {
+			logger.error("Unable to load Home page.", e);
+			throw e;
+		}
+	}
+	
+	@RequestMapping(value = "/adminDashboard", method = RequestMethod.GET)
+	public String adminDashboard(Model model) throws Exception{
+		try {
+			return "home/adminDashboard";
+		} catch(Exception e) {
+			logger.error("Unable to load Home page.", e);
+			throw e;
+		}
+	}
+	
 	@RequestMapping(value = "/editHomePage", method = RequestMethod.GET)
 	public String getHomePage(Model model) throws Exception {
 		try {
