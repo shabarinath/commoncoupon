@@ -4,7 +4,6 @@
 body {
   //background: #E1E3E4;
   //background: #E1E3E4 url("https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz") repeat scroll 0% 0%;
-  background: #E1E3E4 url("http://acadgild.com/images/bg/fresher-bg.jpg");
   background-size: cover;
 }
 
@@ -165,6 +164,10 @@ a:focus {
 
 .p_none{
 	padding: 0px;
+}
+
+.m_none{
+	margin: 0 !important;
 }
 
 .b{

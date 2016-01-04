@@ -67,7 +67,7 @@
 				</sec:authorize>
 			</div>
 		</div>
-		  <!-- Bootstrap core JavaScript
+		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -78,47 +78,67 @@
 		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<decorator:body /> 
+		<div class="how_it_works_panel">
+			<div class="text_center p_none container">
+				<div class="col-lg-12 p_none how_it_works">
+					How It Works
+				</div>
+				<div class="col-lg-12 p_none">
+					Gift your Love provides website design &amp; development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want it to work so we can make it work for you.
+					Our customers and expertise span traditional brick & mortar, web-based, organizations & associations, government, real estate, events/venues, products, and service oriented businesses.
+					<br/>
+					Gift your Love provides website design &amp; development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want.
+					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want it to work so we can make it work for you.
+					Our customers and expertise span traditional brick.
+					<br/>
+					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want.
+					<br/>
+					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business.
+				</div>
+			</div>
+		</div><!-- /.how_it_works_panel  -->
+		
 		<div class="major_footer_panel">
-		<div class="text_center p_none container">
-			<div class="col-lg-12 p_none">
-				<div class="col-lg-8 p_none">
-					<ul class="list-inline major_footer_panel_menu_list_ul">
-					  <li>Home</li>
-					  <li>About Us</li>
-					  <li>Contact Us</li>
-					  <li>Members</li>
-					  <li>Donate</li>
-					  <li>My Account</li>
-					  <li>Press</li>
-					</ul>
-					<ul class="list-inline major_footer_panel_social_icon_list_ul">
-					  <li style="width: 90px;">Connect</li>
-					  <li class="icons"><i class="fa fa-facebook-official"></i></li>
-					  <li class="icons"><i class="fa fa-flickr"></i></li>
-					  <li class="icons"><i class="fa fa-foursquare"></i></li>
-					  <li class="icons"><i class="fa fa-google-plus-square"></i></li>
-					  <li class="icons"><i class="fa fa-instagram"></i></li>
-					  <li class="icons"><i class="fa fa-pinterest"></i></li>
-					</ul>
-				</div>
-				<div class="col-lg-4 p_none">
-					sdfeg
-				</div>
-			</div>
-		</div>
-	</div><!-- ./major_footer_panel -->
-	<div class="mini_footer_panel">
-		<div class="text_center p_none container">
-			<div class="col-lg-12 p_none">
-				<div class="col-lg-6 text_left p_none">
-					GiftYourLove &copy; GiftYourLove.com 2015
-				</div>
-				<div class="col-lg-6 text_right p_none">
-					About Terms Of Use Privacy Policy
+			<div class="text_center p_none container">
+				<div class="col-lg-12 p_none">
+					<div class="col-lg-8 p_none">
+						<ul class="list-inline major_footer_panel_menu_list_ul">
+						  <li>Home</li>
+						  <li>About Us</li>
+						  <li>Contact Us</li>
+						  <li>Members</li>
+						  <li>Donate</li>
+						  <li>My Account</li>
+						  <li>Press</li>
+						</ul>
+						<ul class="list-inline major_footer_panel_social_icon_list_ul">
+						  <li style="width: 90px;">Connect</li>
+						  <li class="icons"><i class="fa fa-facebook-official"></i></li>
+						  <li class="icons"><i class="fa fa-flickr"></i></li>
+						  <li class="icons"><i class="fa fa-foursquare"></i></li>
+						  <li class="icons"><i class="fa fa-google-plus-square"></i></li>
+						  <li class="icons"><i class="fa fa-instagram"></i></li>
+						  <li class="icons"><i class="fa fa-pinterest"></i></li>
+						</ul>
+					</div>
+					<div class="col-lg-4 p_none">
+						sdfeg
+					</div>
 				</div>
 			</div>
-		</div>
-	</div><!-- ./mini_footer_panel -->
-	<%@ include file="/WEB-INF/jsp/security/login.jsp"%>
+		</div><!-- ./major_footer_panel -->
+		<div class="mini_footer_panel">
+			<div class="text_center p_none container">
+				<div class="col-lg-12 p_none">
+					<div class="col-lg-6 text_left p_none">
+						GiftYourLove &copy; GiftYourLove.com 2015
+					</div>
+					<div class="col-lg-6 text_right p_none">
+						About Terms Of Use Privacy Policy
+					</div>
+				</div>
+			</div>
+		</div><!-- ./mini_footer_panel -->
+		<%@ include file="/WEB-INF/jsp/security/login.jsp"%>
 	</body>
 </html>
