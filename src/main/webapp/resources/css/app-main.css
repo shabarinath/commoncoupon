@@ -231,7 +231,7 @@ a:focus {
 }
 
 a.btn{
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     border-radius: 6px;
     box-shadow: none;
     color: #fff;
@@ -239,7 +239,7 @@ a.btn{
     line-height: normal;
     margin-right: 25px;
     margin-top: 10px;
-    padding: 14px 21px;
+    padding: 10px 21px;
     text-align: center;
     transition: all 0.5s ease-in 0s;
 }
