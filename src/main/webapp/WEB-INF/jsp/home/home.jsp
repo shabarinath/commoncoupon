@@ -5,9 +5,9 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-5 buy_ecard_panel">
 				<div class="col-xs-12 p_none buy_ecard_panel_blinking_text">
-					<span style="color: #12A2AF; font-size: 33px;">Easiest</span> 
+					<span style="color: #12A2AF; font-size: 32px;">Easiest</span> 
 					way to send 
-					<span style="font-size: 27px;"> e-gift, do it Now </span>
+					<span style="font-size: 26px;"> e-gift, do it Now </span>
 				</div>
 				<div class="col-xs-12 p_none buy_ecard_panel_form">
 					<div class="col-xs-12 p_none form_number_display">
