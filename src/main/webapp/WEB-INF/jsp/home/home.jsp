@@ -105,7 +105,9 @@
 								</div>
 							</div>
 							<div class="col-xs-4 p_none next_arrow">							
-								<i class="fa fa-arrow-circle-o-right" id="leaf_3_next_arrow"></i>
+								<button type="submit" class="removeButtonBorder" style="padding:0;">
+									<i class="fa fa-arrow-circle-o-right" id="leaf_3_next_arrow"></i>
+								</button>
 								<br/>
 								<i class="fa fa-arrow-circle-o-left"  id="leaf_3_previous_arrow"></i>
 								
