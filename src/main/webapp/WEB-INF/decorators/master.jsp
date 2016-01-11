@@ -78,26 +78,6 @@
 		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<decorator:body /> 
-		<div class="how_it_works_panel">
-			<div class="text_center p_none container">
-				<div class="col-lg-12 p_none how_it_works">
-					How It Works
-				</div>
-				<div class="col-lg-12 p_none">
-					Gift your Love provides website design &amp; development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want it to work so we can make it work for you.
-					Our customers and expertise span traditional brick & mortar, web-based, organizations & associations, government, real estate, events/venues, products, and service oriented businesses.
-					<br/>
-					Gift your Love provides website design &amp; development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want.
-					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want it to work so we can make it work for you.
-					Our customers and expertise span traditional brick.
-					<br/>
-					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business, your goals and your desired results. We then navigate our many services to create a custom package for you. We want to understand how you want.
-					<br/>
-					Gift your Love provides website design & development, graphic design & print services, social media, and services for established and emerging artists. Our approach is greater than selling business cards, trifold brochures, mailers, eCommerce or informational websites, we strive to understand your business.
-				</div>
-			</div>
-		</div><!-- /.how_it_works_panel  -->
-		
 		<div class="major_footer_panel">
 			<div class="text_center p_none container">
 				<div class="col-lg-12 p_none">

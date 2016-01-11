@@ -1,7 +1,9 @@
 package com.commoncoupon.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -17,9 +19,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.dao.DefaultDao;
 import com.commoncoupon.domain.CommonCoupon;
-import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.HomePage;
+import com.commoncoupon.domain.OtherCoupon;
 import com.commoncoupon.service.AdminService;
+import com.commoncoupon.service.CouponService;
 import com.commoncoupon.utils.SecurityUtils;
 import com.commoncoupon.utils.Utils;
 
@@ -36,6 +39,9 @@ public class HomePageController {
 	@Autowired
 	private DefaultDao defaultDao;
 	
+	@Autowired
+	private CouponService couponService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String homePage(Model model) throws Exception{
 		try {
@@ -51,6 +57,12 @@ public class HomePageController {
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model) throws Exception{
 		try {
+			List<String> supportedCoupons = new ArrayList<String>();
+			supportedCoupons.add("AMAZON");
+			supportedCoupons.add("FLIPKART");
+			supportedCoupons.add("MYNTRA");
+			supportedCoupons.add("SHOPCLUES");
+			model.addAttribute("supportedCoupons", supportedCoupons);
 			return "home/dashboard";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);

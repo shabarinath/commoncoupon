@@ -2,7 +2,8 @@ package com.commoncoupon.domain;
 
 public enum Role {
 	
-	ROLE_ADMIN("ROLE_ADMIN", "Admin");
+	ROLE_ADMIN("ROLE_ADMIN", "Admin"),
+	ROLE_USER("ROLE_USER", "User");
     
     private final String code;
 	private final String text;

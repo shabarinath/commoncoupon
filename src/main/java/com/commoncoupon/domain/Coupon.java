@@ -42,6 +42,8 @@ public class Coupon extends Persistent {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
+	@Column(name="expiry_date")
+	private Date expiryDate;
 
 	public String getCouponId() {
 		return couponId;
@@ -84,5 +86,11 @@ public class Coupon extends Persistent {
 	}
 	public void setAmount(Long amount) {
 		this.amount = amount;
+	}
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
 	}
 }

@@ -1,5 +1,7 @@
 package com.commoncoupon.controller;
 
+import java.util.Calendar;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +83,9 @@ public class CouponController {
 			commonCoupon.setPassword("change.me");//TODO: Generate randam password here
 			commonCoupon.setRedeemed(false);
 			commonCoupon.setStatus(false);
+			Calendar cal  = Calendar.getInstance();
+			cal.add(Calendar.YEAR, +1);
+			commonCoupon.setExpiryDate(cal.getTime());
 			if(!Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
 				//This block is to handle case where sender and recipient emails are same
 				if(commonCoupon.getRecipient().getEmail().equalsIgnoreCase(commonCoupon.getSender().getEmail())) {

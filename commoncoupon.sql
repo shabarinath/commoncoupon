@@ -157,6 +157,7 @@ CREATE TABLE `coupon` (
   payment_status varchar(255) NOT NULL DEFAULT 'NOT_INITIATED',
   payment_request_id varchar(255) NOT NULL,
   is_redeemed  tinyint(1) NOT NULL DEFAULT '0',
+  `expiry_date`  timestamp,
   `created_on`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_couponId` (`coupon_id`)
