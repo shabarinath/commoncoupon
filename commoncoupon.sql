@@ -79,7 +79,7 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,0,'admin','admin','admin@admin.com','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,0,'9573027720','ADMIN');
-INSERT INTO `users` VALUES (2,0,'user','user','user@user.com','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,0,'9573027720','USER');
+INSERT INTO `users` VALUES (2,0,'user','user','user@user.com','cfed2815f33f81ed7c13f8fc0ce28714',1,0,0,0,0,'9573027720','User');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
