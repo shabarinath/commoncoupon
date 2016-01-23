@@ -23,6 +23,7 @@ import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.PaymentService;
 import com.commoncoupon.service.UserService;
 import com.commoncoupon.utils.PaymentUtil;
+import com.commoncoupon.utils.RandomString;
 import com.commoncoupon.utils.Utils;
 
 /**
@@ -80,7 +81,7 @@ public class CouponController {
 			String couponCode = Utils.generateCouponCode();
 			commonCoupon.setCouponId(couponCode);
 			commonCoupon.setPaymentStatus(PaymentStatus.NOT_INITIATED); //Update this once transaction is success
-			commonCoupon.setPassword("change.me");//TODO: Generate randam password here
+			commonCoupon.setPassword(RandomString.generateCouponPassword());
 			commonCoupon.setRedeemed(false);
 			commonCoupon.setStatus(false);
 			Calendar cal  = Calendar.getInstance();

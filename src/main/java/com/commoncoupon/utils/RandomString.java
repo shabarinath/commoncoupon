@@ -1,5 +1,8 @@
 package com.commoncoupon.utils;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+
 abstract public class RandomString {
 	/** Minimum length for a decent string */
 	public static final int MIN_LENGTH = 15;
@@ -25,5 +28,10 @@ abstract public class RandomString {
 			sb.append(goodChar[r.nextInt(goodChar.length)]);
 		}
 		return sb.toString();
+	}
+	
+	public static String generateCouponPassword() {
+		SecureRandom random = new SecureRandom();
+		return new BigInteger(130, random).toString(32).substring(0, 16);
 	}
 }
