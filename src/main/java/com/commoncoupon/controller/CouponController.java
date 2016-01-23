@@ -99,6 +99,11 @@ public class CouponController {
 					//Creating Recipient here
 					User recipient = new User();
 					recipient.setEmail(commonCoupon.getRecipient().getEmail());
+					/*UserRole userRole = new UserRole();
+					userRole.setAuthority("userRole");
+					ArrayList<UserRole> userRoles = new ArrayList<UserRole>();
+					userRoles.add(userRole);
+					recipient.setUserRoles(userRoles);*/
 					commonCoupon.setRecipient(recipient);
 				} else {
 					commonCoupon.setRecipient(recipientFromDb);
@@ -174,7 +179,63 @@ public class CouponController {
 		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
 			result.rejectValue("sender.email","","Cannot be Empty !!");
 		} 
+		if (Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
+			result.rejectValue("recipient.email","","Cannot be Empty !!");
+		}
 		return (result.hasFieldErrors() || result.hasErrors());
 	}
+	
+	/*@RequestMapping(value = "/redeemCommonCoupon", method = RequestMethod.POST)
+	public String redeemCommonCoupon(@ModelAttribute CommonCoupon commonCoupon, BindingResult result, Model model) throws Exception {
+		try{
+			if(SecurityUtils.getLoggedInUser() == null) {
+				throw new Exception("Cannot redeem without login !!");
+			}
+			if (validateRedemptionForm(commonCoupon, result)) {
+				model.addAttribute("errors", result.getAllErrors());
+				return "home/dashboard";
+			}
+			String couponId = commonCoupon.getCouponId();
+			String password = commonCoupon.getPassword();
+			CommonCoupon couponFromDB = couponService.getUnRedeemedCoupon(couponId, password);
+			if(couponFromDB != null) {
+				long couponAmount = couponFromDB.getAmount();
+				couponFromDB.setRedeemed(Boolean.TRUE);
+				User currentLoggedInUser = userDetailsService.getUserById(AuthenticationContext.getCurrentUserId());
+				long userWalletAmount = currentLoggedInUser.getAmount();
+				userWalletAmount = userWalletAmount + couponAmount;
+				userDetailsService.saveUser(currentLoggedInUser);
+				couponService.saveOrUpdateCommonCoupon(couponFromDB);
+				model.addAttribute("walletAmount", userWalletAmount);
+				couponService.saveOrUpdateCommonCoupon(couponFromDB);
+				return "home/dashboard";
+			} else {
+				model.addAttribute("invalidCoupon", "Invalid Coupon Details !!!");
+				return "home/dashboard";
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured in redeemCommonCoupon method reason: ", e);
+		}
+		return null;
+	}
+	
+	@RequestMapping(value = "/redeemCommonCoupon", method = RequestMethod.POST)
+	public ModelAndView printWelcome(@ModelAttribute CommonCoupon commonCoupon, BindingResult result, Model model) {
+
+		ModelAndView mav = new ModelAndView("SubmitForm");
+		mav.addObject("message", "Hello World!!!");
+		return mav;
+
+	}
+	
+	private boolean validateRedemptionForm(CommonCoupon commonCoupon, BindingResult result) {
+		if(commonCoupon.getCouponId() == null || commonCoupon.getCouponId().length() <= 0) {
+			result.rejectValue("couponId","","Cannot be Empty !!");
+		}
+		if(commonCoupon.getPassword() == null || commonCoupon.getPassword().length() <= 0) {
+			result.rejectValue("password","","Cannot be Empty !!");
+		}
+		return (result.hasFieldErrors() || result.hasErrors());
+	}*/
 }
 

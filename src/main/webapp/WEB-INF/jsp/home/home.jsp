@@ -97,13 +97,15 @@
 							<div class="col-xs-12 p_none">
 								Give Recipient details
 							</div>
-							<div class="col-xs-8 p_none" style="margin-top: 20px;">
-								<div class="form-group cus_text_box">
-									<div class="input-group">
-										<form:input path="recipient.email" cssClass="form-control p_none" placeholder="Email"/>
+							<spring:bind path="recipient.email">
+								<div class="col-xs-8 p_none" style="margin-top: 20px;">
+									<div class="form-group cus_text_box">
+										<div class="input-group">
+											<form:input path="recipient.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
+										</div>
 									</div>
 								</div>
-							</div>
+							</spring:bind>
 							<div class="col-xs-4 p_none next_arrow">							
 								<button type="submit" class="removeButtonBorder" style="padding:0;">
 									<i class="fa fa-arrow-circle-o-right" id="leaf_3_next_arrow"></i>
