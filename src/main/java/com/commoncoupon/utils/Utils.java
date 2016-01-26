@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
 
@@ -21,6 +22,8 @@ import com.commoncoupon.bean.PaymentSuccessBean;
 import com.commoncoupon.bean.PaymentSuccessResponseBean;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.Transaction;
+import com.commoncoupon.mail.MailServiceLocator;
+import com.commoncoupon.mail.TemplateProcessor;
 
 public class Utils {
 	
@@ -198,6 +201,24 @@ public class Utils {
 			logger.error("Exception occured while setting bean properties to obj reason: ", e);
 		}
 		return null;
+	}
+
+	public static void sendMail(Map<String, Object> data, String... args) {
+		try {
+			if(args.length < 2) {
+				throw new Exception("Minimum info required to send mail");
+			}
+			String ftlFile  = args[0];
+			String recipientEmail = args[1];
+			String subject = args[2];
+			String url = "www.test.com";/*ServletUtil.getFullServerURL(request) + new StringBuffer().append("https://localhost/web/nonsecure/activateUser/").append(URLEncoder.encode(activationCode, "UTF-8"));*/
+			TemplateProcessor tmplProcess = new TemplateProcessor();	
+			String content = tmplProcess.process(ftlFile, data);
+			Object[] to = new Object[] { recipientEmail };
+			MailServiceLocator.getService("default").sendMessage(to, null, subject, content, "html");
+		}catch(Exception e) {
+			logger.error("Exception occured while sending mail reason: ", e);
+		}
 	}
 
 }
