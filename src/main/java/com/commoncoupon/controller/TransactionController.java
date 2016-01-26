@@ -52,14 +52,14 @@ public class TransactionController {
 				return "error/errorPage";
 			}
 			couponFromDb.setPaymentStatus(PaymentStatus.SUCCESS);
-			//couponService.saveOrUpdateCommonCoupon(couponFromDb);
+			couponService.saveOrUpdateCommonCoupon(couponFromDb);
 			
 			//Invoking payment details api from Instamojo and saving details to our DB
 			Transaction transactionDetails = PaymentUtil.getTransactionDetails(paymentRequestId, paymentId);
 			if(transactionDetails == null) {
 				return "error/errorPage";
 			} 
-			//paymentService.saveTransactionDetails(transactionDetails);
+			paymentService.saveTransactionDetails(transactionDetails);
 			
 			//Sending purchase mail to sender
 			Map<String, Object> senderData = new HashMap<String, Object>();
