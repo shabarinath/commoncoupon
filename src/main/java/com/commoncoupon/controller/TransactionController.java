@@ -45,11 +45,11 @@ public class TransactionController {
 	private String saveTransactionDetails(Model model, @RequestParam  String paymentRequestId, @RequestParam String paymentId) throws Exception {
 		try {
 			if(paymentRequestId == null || paymentRequestId.length() == 0 || paymentId == null || paymentId.length() == 0) {
-				return "error/errorPage";
+				return "error/error";
 			}
 			CommonCoupon couponFromDb = couponService.getUnPaidCommonCouponByPaymentRequestId(paymentRequestId);
 			if(couponFromDb == null) {
-				return "error/errorPage";
+				return "error/error";
 			}
 			couponFromDb.setPaymentStatus(PaymentStatus.SUCCESS);
 			couponService.saveOrUpdateCommonCoupon(couponFromDb);
@@ -57,7 +57,7 @@ public class TransactionController {
 			//Invoking payment details api from Instamojo and saving details to our DB
 			Transaction transactionDetails = PaymentUtil.getTransactionDetails(paymentRequestId, paymentId);
 			if(transactionDetails == null) {
-				return "error/errorPage";
+				return "error/error";
 			} 
 			paymentService.saveTransactionDetails(transactionDetails);
 			
@@ -80,7 +80,7 @@ public class TransactionController {
 		}catch(Exception e) {
 			logger.error("Exception occured while saving transaction details reason: "+e);
 		}
-		return paymentId;
+		return "coupon/couponPurchaseSuccess";
 	}
 }
 
