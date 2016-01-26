@@ -110,4 +110,11 @@
 	    <servlet-name>Jersey REST Service</servlet-name>
 	    <url-pattern>/commoncoupon/*</url-pattern>
 	</servlet-mapping>
+	<resource-ref>
+		<description>To Send Mails</description>
+		<res-ref-name>mail/Session</res-ref-name>
+		<res-type>javax.mail.Session</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
 </web-app>
