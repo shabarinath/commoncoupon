@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
+import com.commoncoupon.domain.PaymentStatus;
 
 /**
  * @author SHABARINATH
@@ -34,10 +35,20 @@ public class CouponDaoImpl implements CouponDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public CommonCoupon getCommonCouponByPaymentRequestId(String paymentRequestId)
+	public CommonCoupon getUnPaidCommonCouponByPaymentRequestId(String paymentRequestId)
 			throws Exception {
 		//from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? AND commonCoupon.isRedeemed = ? AND coupon.paymentStatus != ?
-		List<CommonCoupon> commonCoupon = hibernateTemplate.find("from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? ", paymentRequestId/*, false, PaymentStatus.SUCCESS*/);
+		List<CommonCoupon> commonCoupon = hibernateTemplate.find("from CommonCoupon commonCoupon WHERE commonCoupon.paymentRequestId = ? AND commonCoupon.paymentStatus = ?", paymentRequestId, PaymentStatus.NOT_INITIATED/*, false, PaymentStatus.SUCCESS*/);
+		if(commonCoupon.size()>0) 
+			return commonCoupon.get(0);
+		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public CommonCoupon getUnRedeemedCoupon(String couponId, String password)
+			throws Exception {
+		List<CommonCoupon> commonCoupon = hibernateTemplate.find("from CommonCoupon commonCoupon WHERE commonCoupon.couponId = ? AND commonCoupon.password = ? AND commonCoupon.isRedeemed = ? ", couponId, password, Boolean.FALSE);
 		if(commonCoupon.size()>0)
 			return commonCoupon.get(0);
 		return null;

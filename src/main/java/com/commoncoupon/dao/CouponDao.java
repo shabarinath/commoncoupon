@@ -14,7 +14,9 @@ public interface CouponDao {
 
 	public void saveCommonCoupon(CommonCoupon commonCoupon) throws Exception;
 
-	public CommonCoupon getCommonCouponByPaymentRequestId(String paymentRequestId) throws Exception;
+	public CommonCoupon getUnPaidCommonCouponByPaymentRequestId(String paymentRequestId) throws Exception;
+
+	public CommonCoupon getUnRedeemedCoupon(String couponId, String password)  throws Exception;
 
 }
 
