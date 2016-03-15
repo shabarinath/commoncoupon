@@ -23,5 +23,7 @@ public interface UserService extends UserDetailsService {
 
 	void saveUser(User userFromDb)  throws Exception;
 
+	User getUserById(long userId)  throws Exception;
+
 }
 

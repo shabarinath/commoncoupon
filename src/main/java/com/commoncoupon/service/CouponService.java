@@ -16,7 +16,9 @@ public interface CouponService {
 
 	public void saveOrUpdateCommonCoupon(CommonCoupon commonCoupon) throws Exception;
 
-	public CommonCoupon getCouponByPaymentRequestId(
+	public CommonCoupon getUnPaidCommonCouponByPaymentRequestId(
 			String paymentRequestId) throws Exception;
+
+	public CommonCoupon getUnRedeemedCoupon(String couponId, String password) throws Exception;
 }
 
