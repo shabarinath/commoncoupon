@@ -75,8 +75,9 @@
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		
 		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
-		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>	
+		<script src="/resources/js/jquery.form.js"></script>
+		<script src="/resources/js/core.js"></script>
 		<decorator:body /> 
 		<div class="major_footer_panel">
 			<div class="text_center p_none container">
