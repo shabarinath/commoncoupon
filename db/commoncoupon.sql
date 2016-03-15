@@ -157,10 +157,8 @@ CREATE TABLE `coupon` (
   payment_status varchar(255) NOT NULL DEFAULT 'NOT_INITIATED',
   payment_request_id varchar(255) NOT NULL,
   is_redeemed  tinyint(1) NOT NULL DEFAULT '0',
-  redeemed_by bigint(20) DEFAULT NULL,
   `created_on`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `expiry_date`  timestamp,
-  redeemed_at DATETIME DEFAULT NUL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_couponId` (`coupon_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

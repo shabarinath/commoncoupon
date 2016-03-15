@@ -17,7 +17,7 @@ public class GetPaymentDetailsCallTest {
 	
 			String response ="";
 			WebResource webResource = client
-			   .resource("https://www.instamojo.com/api/1.1/payments/MOJO5b14000J93750133");
+			   .resource("https://www.instamojo.com/api/1.1/payments/");
 	
 			ClientResponse clientresponse = webResource.header("X-Api-Key","986857b06df70bd2a66b816d337fa163" )
 					.header("X-Auth-Token", "3cfde5ea935b92cc0793d5c156857f7e").type("application/json") .get(ClientResponse.class);
