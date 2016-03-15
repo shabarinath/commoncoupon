@@ -2,6 +2,8 @@ package com.commoncoupon.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -176,6 +178,11 @@ public class Utils {
 			logger.error("Exception occured while generating coupon code reason: ", e);
 		}
 		return null;
+	}
+	
+	public static String generateCouponPassword() {
+		SecureRandom random = new SecureRandom();
+		return new BigInteger(130, random).toString(32);
 	}
 
 	public static Transaction setBeanPropsToTransactionDetailsToObj(
