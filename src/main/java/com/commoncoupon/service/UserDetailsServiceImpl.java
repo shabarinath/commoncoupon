@@ -74,7 +74,6 @@ public class UserDetailsServiceImpl implements UserService {
 		userDao.saveRecipient(recipient);
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public Object get(@SuppressWarnings("rawtypes") Class clazz, long id) throws Exception {
 		return userDao.get(clazz, id);
@@ -88,5 +87,10 @@ public class UserDetailsServiceImpl implements UserService {
 	@Override
 	public void saveUser(User userFromDb) throws Exception {
 		userDao.saveUser(userFromDb);
+	}
+
+	@Override
+	public User getUserById(long userId) throws Exception {
+		return (User) userDao.get(User.class, userId);
 	}
 }

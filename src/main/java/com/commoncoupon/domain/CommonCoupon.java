@@ -1,10 +1,18 @@
 package com.commoncoupon.domain;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * @author SHABARINATH
@@ -35,6 +43,14 @@ public class CommonCoupon extends Coupon {
 	@Column(name="payment_request_id", columnDefinition="false")
 	private String paymentRequestId;
 	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="redeemed_by")
+	private User redeemedBy;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="redeemed_at")
+	private Date redeemedAt;
+	
 	public String getPaymentRequestId() {
 		return paymentRequestId;
 	}
@@ -57,6 +73,22 @@ public class CommonCoupon extends Coupon {
 
 	public void setRedeemed(boolean isRedeemed) {
 		this.isRedeemed = isRedeemed;
+	}
+
+	public User getRedeemedBy() {
+		return redeemedBy;
+	}
+
+	public void setRedeemedBy(User redeemedBy) {
+		this.redeemedBy = redeemedBy;
+	}
+
+	public Date getRedeemedAt() {
+		return redeemedAt;
+	}
+
+	public void setRedeemedAt(Date redeemedAt) {
+		this.redeemedAt = redeemedAt;
 	}
 
 	

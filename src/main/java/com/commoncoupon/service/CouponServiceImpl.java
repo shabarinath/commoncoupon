@@ -39,9 +39,15 @@ public class CouponServiceImpl implements CouponService {
 	}
 
 	@Override
-	public CommonCoupon getCouponByPaymentRequestId(String paymentRequestId)
+	public CommonCoupon getUnPaidCommonCouponByPaymentRequestId(String paymentRequestId)
 			throws Exception {
-		return couponDao.getCommonCouponByPaymentRequestId(paymentRequestId);
+		return couponDao.getUnPaidCommonCouponByPaymentRequestId(paymentRequestId);
+	}
+
+	@Override
+	public CommonCoupon getUnRedeemedCoupon(String couponId, String password)
+			throws Exception {
+		return couponDao.getUnRedeemedCoupon(couponId, password);
 	}
 	
 }

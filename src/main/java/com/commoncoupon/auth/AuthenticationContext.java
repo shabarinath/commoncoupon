@@ -34,6 +34,18 @@ public final class AuthenticationContext {
 		return details != null ? details.getUserId() : 0;
 	}
 	
+	public static String getLoggedInUserEmail() {
+		try{
+			String userEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+			if(!userEmail.isEmpty()) {
+				return userEmail;
+			}
+		}catch (Exception e) {
+			logger.warn("Failed to load userdetails object" + e.getMessage());
+		}
+		return null;
+	}
+	
 	/**
 	 * @return current loggedin username
 	 */
