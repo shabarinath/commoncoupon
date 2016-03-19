@@ -9,9 +9,11 @@
 					way to send 
 					<span style="font-size: 26px;"> e-gift, do it Now </span> -->
 
-					<span style="color: #12A2AF; font-size: 32px;">Buy our exclusive</span> 
+					<span style="color: #12A2AF; font-size: 27px;">Buy our exclusive 
+						<span style="color:yellow;">All-in-one</span> 
+					</span> 
 					e-card & 
-					<span style="font-size: 26px;"> experience the magic </span>
+					<span style="font-size: 25px;"> experience the magic </span>
 
 				</div>
 				<div class="col-xs-12 p_none buy_ecard_panel_form">
@@ -29,7 +31,7 @@
 									<div class="form-group cus_text_box">
 										<div class="input-group">
 										  <div class="input-group-addon">Rs</div>									
-										  <form:input path="amount" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="Amount" value="${amount}"/>
+										  <form:input path="amount" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
 										</div>
 									</div>
 								</div>
@@ -143,7 +145,7 @@
 		<!-- history panel -->
 		<div class="col-lg-12"><span>&nbsp;</span></div>
 		<div class="col-lg-11 col-lg-offset-1">
-			<div class="col-lg-3  p_none serp_box"><span>Kibana</span></div>
+			<div class="col-lg-3  p_none serp_box"><span>BookMyShow</span></div>
 			<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
 			<div class="col-lg-3 p_none serp_box"><span>Amazon</span></div>
 			<div style="visibility: hidden;" class="col-lg-1 p_none serp_box "></div>
