@@ -56,7 +56,7 @@
 		<div class="nav navbar navbar-fixed-top hidden-xs">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
-					<a class="btn floatright" href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / Login</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<nav id="navigation" style="margin-left:5px;">
