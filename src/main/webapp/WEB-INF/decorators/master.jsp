@@ -53,10 +53,39 @@
 			  </div>
 			</nav>
 		</div>
-		<div class="nav navbar navbar-fixed-top hidden-xs">
+
+		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_after_scroll" style="display:none;">
+			<nav class="navbar navbar-default navbar-static-top">
+			  <div class="">
+				<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				  <a class="navbar-brand" href="#">GiftYourLove</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+				  <ul class="nav navbar-nav">
+						<li><a href="/" >Buy our exclusive e-card</a></li>
+						<li><a href="/products">Reedeem Coupon / Login</a></li>
+<li><a href="/products">Who we are</a></li>
+<li><a href="/products">How it works</a></li>
+				  </ul>
+				</div>
+			  </div>
+			</nav>
+		</div>
+
+		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
-					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / Login</a>
+					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
+					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
+					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
+				
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<nav id="navigation" style="margin-left:5px;">

@@ -221,6 +221,13 @@ a:focus {
     src: url("../fonts/GoodDog.otf") /* TTF file for CSS3 browsers */
 }
 
+@font-face {
+    font-family:"matrix-regular";
+    src: url("../fonts/MatrixRegularSmallCaps.ttf") /* TTF file for CSS3 browsers */
+}
+
+
+
 .error {
 	color: red;
     font-weight: bolder;
@@ -234,7 +241,7 @@ a.btn.trans-border{
 //    border: 1px solid #fff;
     border-radius: 6px;
     box-shadow: none;
-    color: rgb(213, 213, 213);
+    color: white;
     //font-weight: 700;
     line-height: normal;
     margin-right: 25px;
@@ -242,17 +249,21 @@ a.btn.trans-border{
   //  padding: 10px 21px;
     text-align: center;
     transition: all 0.5s ease-in 0s;
-	font-family: bello-pro;
+	font-family: matrix-regular;
     font-size: 23px;
 	background-image: none;
   //  box-shadow: 0 3px 5px #ffffff inset;
-	box-shadow: 0 5px 1px rgb(213, 213, 213) inset;
+	// box-shadow: 0px 3px 1px rgb(213, 213, 213) inset;
+	// box-shadow: 0px 3px 1px #fff inset;
     outline: 0 none;
+letter-spacing: 0.2rem;
 }
 
 a.btn.trans-border.focus, a.btn.trans-border:focus, a.btn.trans-border:hover {
-    color: #25A0AF;
-    text-decoration: none;
+   // color: #25A0AF;
+   // text-decoration: none;
+	
+
 }
 
 .floatright {

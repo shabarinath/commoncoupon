@@ -284,3 +284,15 @@ function ajax(id,options)
     };
     $.ajax(options);
 }
+
+
+$(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if(height > 350) {
+	$('#menu_before_scroll').hide();
+	$('#menu_after_scroll').show();
+    } else {
+		$('#menu_after_scroll').hide();
+	$('#menu_before_scroll').show();
+	}
+});
