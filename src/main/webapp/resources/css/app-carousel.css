@@ -237,3 +237,44 @@ body {
 	right: 10px;
 }
 
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-brand {
+	color: #FFF;
+margin-top: 7px;
+font-size: 25px;
+}
+#custom-after-scroll-bootstrap-menu.navbar-default {
+    font-size: 14px;
+    background-color: rgba(205, 22, 50, 1);
+    border-bottom-width: 1px;
+    border-bottom: none;
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>li>a {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(205, 22, 50, 1);
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(205, 22, 50, 1);
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(205, 22, 50, 1);
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle {
+    border-color: #cd1632;
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle:focus {
+    background-color: #cd1632;
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #cd1632;
+}
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #cd1632;
+}
+

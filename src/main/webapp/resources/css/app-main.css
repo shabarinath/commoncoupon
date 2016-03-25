@@ -262,8 +262,22 @@ letter-spacing: 0.2rem;
 a.btn.trans-border.focus, a.btn.trans-border:focus, a.btn.trans-border:hover {
    // color: #25A0AF;
    // text-decoration: none;
-	
+}
 
+a.btn.trans-border-after-scroll{
+	border-radius: 6px;
+	box-shadow: none;
+	color: #FFF;
+	line-height: normal;
+	margin-right: 20px;
+	margin-top: 1px;
+	text-align: center;
+	transition: all 0.5s ease-in 0s;
+	font-family: matrix-regular;
+	font-size: 23px;
+	background-image: none;
+	outline: 0px none;
+	letter-spacing: 0.2rem;
 }
 
 .floatright {

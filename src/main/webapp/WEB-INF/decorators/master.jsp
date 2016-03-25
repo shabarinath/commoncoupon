@@ -54,29 +54,27 @@
 			</nav>
 		</div>
 
-		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_after_scroll" style="display:none;">
-			<nav class="navbar navbar-default navbar-static-top">
-			  <div class="">
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
-				  <a class="navbar-brand" href="#">GiftYourLove</a>
-				</div>
-				<div id="navbar" class="navbar-collapse collapse">
-				  <ul class="nav navbar-nav">
-						<li><a href="/" >Buy our exclusive e-card</a></li>
-						<li><a href="/products">Reedeem Coupon / Login</a></li>
-<li><a href="/products">Who we are</a></li>
-<li><a href="/products">How it works</a></li>
-				  </ul>
-				</div>
-			  </div>
-			</nav>
+		
+
+
+		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" style="display:none;">
+		    <div class="container-fluid">
+			<div class="navbar-header"><a class="navbar-brand" href="#">GiftYourLove</a>
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+			    </button>
+			</div>
+			<div class="collapse navbar-collapse navbar-menubuilder">
+			    <ul class="nav navbar-nav navbar-right">
+			       <li><a class="btn trans-border-after-scroll" href="/" >Buy our exclusive e-card</a></li>
+				<li><a class="btn trans-border-after-scroll" href="/products">Reedeem Coupon / Login</a></li>
+			       <li><a class="btn trans-border-after-scroll" href="/products">Who we are</a></li>
+				<li><a class="btn trans-border-after-scroll" href="/products">How it works</a></li>
+			    </ul>
+			</div>
+		    </div>
 		</div>
+
+
 
 		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
 			<div class="header-bg">

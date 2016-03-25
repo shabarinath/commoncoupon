@@ -288,11 +288,11 @@ function ajax(id,options)
 
 $(window).scroll(function() {
     var height = $(window).scrollTop();
-    if(height > 350) {
+    if(height > 150) {
 	$('#menu_before_scroll').hide();
-	$('#menu_after_scroll').show();
+	$('#custom-after-scroll-bootstrap-menu').show();
     } else {
-		$('#menu_after_scroll').hide();
+		$('#custom-after-scroll-bootstrap-menu').hide();
 	$('#menu_before_scroll').show();
 	}
 });
