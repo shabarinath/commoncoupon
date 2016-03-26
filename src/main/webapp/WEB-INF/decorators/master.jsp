@@ -66,10 +66,22 @@
 			</div>
 			<div class="collapse navbar-collapse navbar-menubuilder">
 			    <ul class="nav navbar-nav navbar-right">
-			       <li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/" >Buy our exclusive e-card</a></li>
-				<li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">Reedeem Coupon / Login</a></li>
-			       <li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">Who we are</a></li>
-				<li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">How it works</a></li>
+			      <sec:authorize access="isAnonymous()">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
+				
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
+
+				</sec:authorize>
 			    </ul>
 			</div>
 		    </div>
@@ -82,16 +94,18 @@
 				<sec:authorize access="isAnonymous()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
 				
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
-					<nav id="navigation" style="margin-left:5px;">
-						<ul>
-							<li><a class="btn floatright" href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
-						</ul>
-					</nav>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
+
 				</sec:authorize>
 			</div>
 		</div>
