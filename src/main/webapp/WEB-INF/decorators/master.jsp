@@ -17,6 +17,7 @@
 		<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/resources/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/resources/css/app-main.css" rel="stylesheet">
+		<link href="/resources/css/hover.css" rel="stylesheet" media="all">
 		<!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="/resources/js/ie-emulation-modes-warning.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -65,10 +66,10 @@
 			</div>
 			<div class="collapse navbar-collapse navbar-menubuilder">
 			    <ul class="nav navbar-nav navbar-right">
-			       <li><a class="btn trans-border-after-scroll" href="/" >Buy our exclusive e-card</a></li>
-				<li><a class="btn trans-border-after-scroll" href="/products">Reedeem Coupon / Login</a></li>
-			       <li><a class="btn trans-border-after-scroll" href="/products">Who we are</a></li>
-				<li><a class="btn trans-border-after-scroll" href="/products">How it works</a></li>
+			       <li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/" >Buy our exclusive e-card</a></li>
+				<li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">Reedeem Coupon / Login</a></li>
+			       <li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">Who we are</a></li>
+				<li><a class="btn trans-border-after-scroll hvr-underline-from-left" href="/products">How it works</a></li>
 			    </ul>
 			</div>
 		    </div>
@@ -79,10 +80,10 @@
 		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
-					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
-					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
-					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
-					<a class="btn trans-border floatright" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
 				
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
