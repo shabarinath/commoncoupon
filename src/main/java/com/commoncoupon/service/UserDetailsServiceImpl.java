@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.commoncoupon.controller.PasswordEncoder;
 import com.commoncoupon.dao.UserDao;
 import com.commoncoupon.domain.Recipient;
 import com.commoncoupon.domain.Sender;
@@ -92,5 +93,14 @@ public class UserDetailsServiceImpl implements UserService {
 	@Override
 	public User getUserById(long userId) throws Exception {
 		return (User) userDao.get(User.class, userId);
+	}
+
+	@Override
+	public void registerUser(User user) throws Exception {
+		PasswordEncoder passwordEncoder = new PasswordEncoder();
+		String encodedPassword = passwordEncoder.encodePassword(user.getPassword(), null);
+		user.setPassword(encodedPassword);
+		user.setActive(Boolean.TRUE);
+		userDao.saveUser(user);
 	}
 }

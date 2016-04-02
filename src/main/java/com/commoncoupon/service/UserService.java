@@ -25,5 +25,7 @@ public interface UserService extends UserDetailsService {
 
 	User getUserById(long userId)  throws Exception;
 
+	void registerUser(User user) throws Exception;
+
 }
 

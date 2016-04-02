@@ -70,7 +70,7 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" id="login" onclick="openLoginForm();">Reedeem Coupon / 					Login</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
 				
 				</sec:authorize>
@@ -95,7 +95,7 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" id="login" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
 				
 				</sec:authorize>
@@ -162,6 +162,14 @@
 				</div>
 			</div>
 		</div><!-- ./mini_footer_panel -->
-		<%@ include file="/WEB-INF/jsp/security/login.jsp"%>
+		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		</div>
 	</body>
 </html>
+<script>
+	function openLoginForm() {		
+		doGet('/getLoginForm',{
+		renderTo:'login-modal'
+		});
+	}
+</script>
