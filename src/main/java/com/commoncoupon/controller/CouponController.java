@@ -1,6 +1,8 @@
 package com.commoncoupon.controller;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,7 @@ import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.PaymentStatus;
 import com.commoncoupon.domain.User;
+import com.commoncoupon.domain.UserRole;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.PaymentService;
 import com.commoncoupon.service.UserService;
@@ -62,6 +65,13 @@ public class CouponController {
 				sender.setMobileNumber(commonCoupon.getSender().getMobileNumber());
 				String randPassword = Utils.generateCouponPassword();
 				sender.setPassword(randPassword); 
+				sender.setActive(Boolean.TRUE);
+				UserRole userRole = new UserRole();
+				userRole.setAuthority("ROLE_USER");
+				userRole.setUser(sender);
+				List<UserRole> userRoles = new ArrayList<UserRole>();
+				userRoles.add(userRole);
+				sender.setUserRoles(userRoles);
 				commonCoupon.setSender(sender);
 			} else {
 				sender.setFirstName(commonCoupon.getSender().getFirstName());

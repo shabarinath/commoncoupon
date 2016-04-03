@@ -1,5 +1,8 @@
 package com.commoncoupon.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataAccessException;
@@ -13,6 +16,7 @@ import com.commoncoupon.dao.UserDao;
 import com.commoncoupon.domain.Recipient;
 import com.commoncoupon.domain.Sender;
 import com.commoncoupon.domain.User;
+import com.commoncoupon.domain.UserRole;
 
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserService {
@@ -101,6 +105,12 @@ public class UserDetailsServiceImpl implements UserService {
 		String encodedPassword = passwordEncoder.encodePassword(user.getPassword(), null);
 		user.setPassword(encodedPassword);
 		user.setActive(Boolean.TRUE);
+		UserRole userRole = new UserRole();
+		userRole.setAuthority("ROLE_USER");
+		userRole.setUser(user);
+		List<UserRole> userRoles = new ArrayList<UserRole>();
+		userRoles.add(userRole);
+		user.setUserRoles(userRoles);
 		userDao.saveUser(user);
 	}
 }

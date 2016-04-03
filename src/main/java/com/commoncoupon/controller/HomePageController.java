@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.commoncoupon.dao.DefaultDao;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.HomePage;
-import com.commoncoupon.domain.OtherCoupon;
 import com.commoncoupon.service.AdminService;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.utils.SecurityUtils;
@@ -48,6 +47,16 @@ public class HomePageController {
 			CommonCoupon commonCoupon = new CommonCoupon();
 			model.addAttribute("commonCoupon", commonCoupon);
 			return "home/home";
+		} catch(Exception e) {
+			logger.error("Unable to load Home page.", e);
+			throw e;
+		}
+	}
+	
+	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
+	public String redirect(Model model) throws Exception{
+		try {
+			return "misc/redirect";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);
 			throw e;
@@ -191,13 +200,13 @@ public class HomePageController {
 	}
 	
 	private Map<String, Object> referenceData() throws Exception {
-		  Map<String, Object> model = new HashMap<String, Object>();
-		  try {
-			  /*List<CustomStyle> cs = defaultDao.getCustomStyles();*/
-			  model.put("customStyles", "");
-		  } catch (Exception e) {
-		   logger.error("Exception at retrieving Fee or Credit reasons: " + e);
-		  }
-		  return model;
-		 }
+	  Map<String, Object> model = new HashMap<String, Object>();
+	  try {
+		  /*List<CustomStyle> cs = defaultDao.getCustomStyles();*/
+		  model.put("customStyles", "");
+	  } catch (Exception e) {
+	   logger.error("Exception at retrieving Fee or Credit reasons: " + e);
+	  }
+	  return model;
+	}
 }

@@ -2,6 +2,7 @@
 <%@ include file="../includes/taglibs.jsp" %>
 <div id="registrationFormDiv">
 	<form:form  commandName="user" id="registrationForm" name="registrationForm" method="post" action="/register" >
+		<span id="error" class="error">${error}</span>
 		<div>			
 			<div class="form-group">
 			<spring:bind path="email">						
@@ -38,8 +39,7 @@
 			</div>				
 			<div class="form-group text-center modal-register-btn">
 				<button class="btn btn-default" type="button" onClick="javascript:submitForm('registrationForm','_finish','registrationFormDiv');">Register</button>			
-			</div>
-			<span id="error" class="error">${error}</span>
+			</div>			
 		</div>	
 	</form:form>
 </div>

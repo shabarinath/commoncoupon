@@ -21,7 +21,7 @@ public class LoginController {
 	@RequestMapping(value="/accessDenied", method = RequestMethod.GET)
 	public String accessDenied(ModelMap model) { 
 		model.addAttribute("error", "true");
-		return "security/accessDenied";
+		return "security/login";
 	}
 	
 	@RequestMapping(value="/getLoginForm", method = RequestMethod.GET)

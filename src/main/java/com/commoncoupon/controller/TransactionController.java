@@ -42,12 +42,12 @@ public class TransactionController {
 	 *
 	 */
 	@RequestMapping(value="/saveTransactionDetails", method = RequestMethod.GET)
-	private String saveTransactionDetails(Model model, @RequestParam  String paymentRequestId, @RequestParam String paymentId) throws Exception {
+	private String saveTransactionDetails(Model model, @RequestParam  String payment_request_id, @RequestParam String payment_id) throws Exception {
 		try {
-			if(paymentRequestId == null || paymentRequestId.length() == 0 || paymentId == null || paymentId.length() == 0) {
+			if(payment_request_id == null || payment_request_id.length() == 0 || payment_id == null || payment_id.length() == 0) {
 				return "error/error";
 			}
-			CommonCoupon couponFromDb = couponService.getUnPaidCommonCouponByPaymentRequestId(paymentRequestId);
+			CommonCoupon couponFromDb = couponService.getUnPaidCommonCouponByPaymentRequestId(payment_request_id);
 			if(couponFromDb == null) {
 				return "error/error";
 			}
@@ -55,7 +55,7 @@ public class TransactionController {
 			couponService.saveOrUpdateCommonCoupon(couponFromDb);
 			
 			//Invoking payment details api from Instamojo and saving details to our DB
-			Transaction transactionDetails = PaymentUtil.getTransactionDetails(paymentRequestId, paymentId);
+			Transaction transactionDetails = PaymentUtil.getTransactionDetails(payment_request_id, payment_id);
 			if(transactionDetails == null) {
 				return "error/error";
 			} 
