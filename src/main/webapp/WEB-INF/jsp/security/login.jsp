@@ -6,15 +6,15 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 			<h2 class="modal-title" id="myModalLabel">Login to Your Account</h2>
 		</div> -->
-		<div class="modal-body login-modal">
-			<c:if test="${not empty error}">
-				<div class="alert alert-danger" id="errorDiv" role="alert">
-					Your login attempt was not successful, Username or Password not valid<!--<br /> Caused :
-					${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} -->
-				</div>
-			</c:if>
+		<div class="modal-body login-modal" id="loginRegisterDiv">
 			<div id='social-icons-conatainer'>
-				<form name="login-form" id="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">
+				<c:if test="${not empty error}">
+					<div class="alert alert-danger" id="errorDiv" role="alert">
+						Your login attempt was not successful, Username or Password not valid<!--<br /> Caused :
+						${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} -->
+					</div>
+				</c:if>
+				<form name="login-form" id="loginForm" action="<c:url value='j_spring_security_check' />" method="POST">					
 					<div>
 						<div class="form-group">								
 							<input name="j_username" required="required" placeholder="Eamil" id="username" type="text" class="form-control login-field"/>
@@ -45,7 +45,7 @@
 	$("#registerButton").click(function(){
 		/*$('#errorDiv').html('');*/
 		doGet('/getRegisterForm',{
-		renderTo:'social-icons-conatainer'
+		renderTo:'loginRegisterDiv'
 		});
 	});
 </script>
