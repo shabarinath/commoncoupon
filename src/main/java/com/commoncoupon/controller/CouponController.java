@@ -149,9 +149,21 @@ public class CouponController {
 		} 
 		if (Utils.isEmpty(commonCoupon.getSender().getEmail())) {
 			result.rejectValue("sender.email","","Cannot be Empty !!");
-		} 
+		} else {
+			Utils util = new Utils();
+			boolean isValidEmailAddress = util.isValidEmail(commonCoupon.getSender().getEmail());
+			if(!isValidEmailAddress) {
+				result.rejectValue("sender.email","","Not a valid Email !!");
+			}
+		}
 		if (Utils.isEmpty(commonCoupon.getRecipient().getEmail())) {
 			result.rejectValue("recipient.email","","Cannot be Empty !!");
+		} else {
+			Utils util = new Utils();
+			boolean isValidEmailAddress = util.isValidEmail(commonCoupon.getRecipient().getEmail());
+			if(!isValidEmailAddress) {
+				result.rejectValue("recipient.email","","Not a valid Email !!");
+			}
 		}
 		return (result.hasFieldErrors() || result.hasErrors());
 	}

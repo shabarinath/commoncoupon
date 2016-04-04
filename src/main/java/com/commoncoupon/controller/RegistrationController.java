@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.UserService;
+import com.commoncoupon.utils.Utils;
 
 /**
  * @author SHABARINATH
@@ -66,9 +67,9 @@ public class RegistrationController {
 			if(user.getEmail().isEmpty()) {
 				result.rejectValue("email","","Cannot be Empty !!");
 			} else {
-				String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-				Boolean isValid = user.getEmail().matches(EMAIL_REGEX);
-				if(!isValid) {
+				Utils util = new Utils();
+				boolean isValidEmailAddress = util.isValidEmail(user.getEmail());
+				if(!isValidEmailAddress) {
 					result.rejectValue("email","","Not a valid Email !!");
 				}
 			}

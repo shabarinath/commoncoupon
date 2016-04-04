@@ -228,4 +228,17 @@ public class Utils {
 		}
 	}
 
+	public boolean isValidEmail(String email) {
+		Boolean isValid = false;
+		try {
+			if(!email.isEmpty()) {
+				String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+				isValid = email.matches(EMAIL_REGEX);
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while validating email reason:", e);
+		}
+		return isValid;
+	}
+
 }
