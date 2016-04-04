@@ -661,3 +661,7 @@ a.btn.trans-border-after-scroll{
     -moz-box-sizing: border-box;
     box-sizing: border-box
 }
+
+.displaynone {
+	display: none;
+}

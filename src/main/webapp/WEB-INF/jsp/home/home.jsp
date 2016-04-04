@@ -42,7 +42,7 @@
 						</div><!-- ./ Leaf 1 -->
 						
 						<!-- Leaf 2 -->
-						<div class="col-xs-12 p_none form_leaf_2" id="leaf_2">
+						<div class="col-xs-12 p_none form_leaf_2 displaynone" id="leaf_2">
 							<div class="col-xs-12 p_none give_ur_details">
 								Give your details
 							</div>
@@ -100,7 +100,7 @@
 						</div><!-- ./ Leaf 2 -->
 						
 						<!-- Leaf 3 -->
-						<div class="col-xs-12 p_none form_leaf_3 " id="leaf_3">
+						<div class="col-xs-12 p_none form_leaf_3 displaynone" id="leaf_3">
 							<div class="col-xs-12 p_none">
 								Give Recipient details
 							</div>
@@ -182,9 +182,27 @@
 		</div><!-- /.how_it_works_panel  -->
  <script>
  $( document ).ready(function() {
-	console.log( "ready!" );
-	$('#leaf_2, #leaf_3').hide();
-	
+	/*if(${hasErrors eq 'true'}) {		
+		if(${category eq 'senderDetails'}) {
+			$('#leaf_1').hide();
+			$('#leaf_2').show();
+			$('#leaf_3').hide();
+			$('#current_leaf_num').html('2');
+		} else if(${category eq 'amountDiv'}){
+			console.log($('#leaf_1').siblings('div'));
+			$('#leaf_1').show();
+			$('#leaf_2, #leaf_3').hide();
+		} else if(${category eq 'recipientDetails'}) {
+			$('#leaf_3').show();
+			$('#leaf_2, #leaf_1').hide();
+		}
+	} else {
+		$('#leaf_2, #leaf_3').hide();
+	} */
+	if(${hasErrors eq 'true'}) {	
+		$('${divId}').siblings('div').hide();	
+		$('${divId}').show();
+	} 
 	/** leaf_1 arrow actions */
 	$('#leaf_1_next_arrow').on( 'click', function(){
 		$('#leaf_1').hide();

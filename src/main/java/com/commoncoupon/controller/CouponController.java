@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,6 +54,21 @@ public class CouponController {
 		try {
 			if (validateFormData(commonCoupon, result)) {
 				model.addAttribute("errors", result.getAllErrors());
+				model.addAttribute("hasErrors", "true");
+				FieldError senderFirstNameError = result.getFieldError("sender.firstName");
+				FieldError senderLastNameError = result.getFieldError("sender.lastName");
+				FieldError senderEmailError = result.getFieldError("sender.email");
+				FieldError senderMobileError = result.getFieldError("sender.mobileNumber");
+				FieldError recipientEmailError = result.getFieldError("recipient.email");
+				FieldError amountError = result.getFieldError("amount");
+				if(amountError != null) {
+					model.addAttribute("divId", "#leaf_1");
+				} else if(senderFirstNameError != null || senderLastNameError!= null
+						|| senderEmailError != null || senderMobileError != null) {
+					model.addAttribute("divId", "#leaf_2");
+				} else if(recipientEmailError != null) {
+					model.addAttribute("divId", "#leaf_3");
+				}
 				return "home/home";
 			}
 			User sender = userDetailsService.getUserByEmail(commonCoupon.getSender().getEmail());
