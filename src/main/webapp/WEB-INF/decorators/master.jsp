@@ -18,6 +18,7 @@
 		<link href="/resources/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/resources/css/app-main.css" rel="stylesheet">
 		<link href="/resources/css/hover.css" rel="stylesheet" media="all">
+		<link href="/resources/css/jquery.loadmask.css" rel="stylesheet" media="all">
 		<!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="/resources/js/ie-emulation-modes-warning.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -120,7 +121,10 @@
 		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>	
 		<script src="/resources/js/jquery.form.js"></script>
 		<script src="/resources/js/core.js"></script>
-		<decorator:body /> 
+		<script src="/resources/js/jquery.loadmask.js"></script>
+		<div id="container">
+			<decorator:body /> 
+		</div>
 		<div class="major_footer_panel">
 			<div class="text_center p_none container">
 				<div class="col-lg-12 p_none">

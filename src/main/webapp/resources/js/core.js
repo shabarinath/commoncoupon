@@ -28,7 +28,7 @@ function post(formId, divName, onCompleteFunction, functionParams, dontBlockDiv)
 function showWaiting(loadDivId) {
 	try{
 		if(loadDivId && $1(loadDivId)){
-			$('#'+loadDivId).mask('Loading... please wait');
+			$('#'+loadDivId).mask('<i class="fa fa-spinner fa-pulse fa-2x fa-spin"></i> Loading... please wait');
 		}
 	}catch(e){}
 };
