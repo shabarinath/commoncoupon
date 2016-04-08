@@ -8,28 +8,35 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
 		<meta name="description" content="">
 		<meta name="author" content="">
+		
 		<!-- Commenting out! Must be added later!! -->
 		<!-- <link rel="icon" href="../../favicon.ico">  -->
+		
 		<title>GiftYourLove</title>
-		<!-- Bootstrap core CSS -->
+		
+		<!-- 3rd party css resources -->
 		<link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/resources/css/font-awesome.min.css" rel="stylesheet">
 		<link href="/resources/css/app-main.css" rel="stylesheet">
 		<link href="/resources/css/hover.css" rel="stylesheet" media="all">
 		<link href="/resources/css/jquery.loadmask.css" rel="stylesheet" media="all">
+		
+		<!-- Custom css addons -->
+		<link href="/resources/css/app-dashboard.css" rel="stylesheet">
+		<link href="/resources/css/app-carousel.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Fjalla+One|Frijole' rel='stylesheet' type='text/css'>
+		
 		<!--[if lt IE 9]><script src="/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="/resources/js/ie-emulation-modes-warning.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
-		<!-- Custom addons for this template -->
-		<link href="/resources/css/app-dashboard.css" rel="stylesheet">
-		<link href="/resources/css/app-carousel.css" rel="stylesheet">
-		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed|Fjalla+One|Frijole' rel='stylesheet' type='text/css'>
+		
 	</head>
 	<body>
 		<div class="navbar-wrapper visible-xs">
@@ -46,23 +53,23 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
-						<li><a href="/" >Buy Our Exclusive Card</a>
-						</li>
-						<li><a href="/products">Redeem</a>
-						</li>
+					<li><a href="/" >Buy Our Exclusive Card</a></li>
+					<li><a href="/products">Redeem</a></li>
 				  </ul>
 				</div>
 			  </div>
 			</nav>
 		</div>
 
-		
-
 
 		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" style="display:none;">
 		    <div class="container-fluid">
 			<div class="navbar-header"><a class="navbar-brand" href="#">GiftYourLove</a>
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+			    	<span class="sr-only">Toggle navigation</span>
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
+			    	<span class="icon-bar"></span>
 			    </button>
 			</div>
 			<div class="collapse navbar-collapse navbar-menubuilder">
@@ -70,10 +77,12 @@
 			      <sec:authorize access="isAnonymous()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
-
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" id="login" onclick="openLoginForm();">Reedeem Coupon / 					Login</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
-				
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" 
+						id="login" onclick="openLoginForm();"> Reedeem Coupon /	Login
+					</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
+						Buy our exclusive e-card
+					</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
@@ -81,7 +90,6 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
-
 				</sec:authorize>
 			    </ul>
 			</div>
@@ -89,16 +97,15 @@
 		</div>
 
 
-
 		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
-
-					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" id="login" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon / 					Login</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">Buy our exclusive e-card</a>
-				
+					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" 
+						id="login" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon /	Login</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
+						Buy our exclusive e-card</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
@@ -106,25 +113,28 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
-
 				</sec:authorize>
 			</div>
 		</div>
-		<!-- Bootstrap core JavaScript
+
+
+		<!-- JavaScript Files
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="/resources/js/bootstrap.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		
 		<script src="/resources/js/ie10-viewport-bug-workaround.js"></script>
 		<script src="/resources/js/jquery.parallaxmouse.min.js"></script>	
 		<script src="/resources/js/jquery.form.js"></script>
 		<script src="/resources/js/core.js"></script>
 		<script src="/resources/js/jquery.loadmask.js"></script>
+		
+		
 		<div id="container">
 			<decorator:body /> 
 		</div>
+		
 		<div class="major_footer_panel">
 			<div class="text_center p_none container">
 				<div class="col-lg-12 p_none">
@@ -154,6 +164,8 @@
 				</div>
 			</div>
 		</div><!-- ./major_footer_panel -->
+		
+		
 		<div class="mini_footer_panel">
 			<div class="text_center p_none container">
 				<div class="col-lg-12 p_none">
@@ -166,14 +178,15 @@
 				</div>
 			</div>
 		</div><!-- ./mini_footer_panel -->
+		
+		
 		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		</div>
+	
 	</body>
 </html>
 <script>
 	function openLoginForm() {		
-		doGet('/getLoginForm',{
-		renderTo:'login-modal'
-		});
+		doGet('/getLoginForm',{	renderTo:'login-modal' });
 	}
 </script>
