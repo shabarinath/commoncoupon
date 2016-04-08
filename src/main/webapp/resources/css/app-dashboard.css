@@ -133,6 +133,7 @@
 	background-image: url("../img/plain-header.png");
     height: 166px;
     background-repeat: no-repeat;
+	padding-top: 12px;
 }
 
 .header-angle-div {
@@ -275,6 +276,35 @@
 }
 
 
+.redeem_coupon_panel{
+	//background: red none repeat scroll 0% 0%; 
+	min-height: 200px; 
+	margin-top: 4%; 
+	color: rgb(255, 255, 255);
+}
+
+.redeem_coupon_panel_form{
+	font-size: 20px;
+	font-weight: 500;
+	//background: rgba(242, 94, 94, 0.3) none repeat scroll 0% 0%;
+	background : rgba(254, 52, 52, 0.3) none repeat scroll 0% 0%;
+	margin-top: 5%;
+	min-height: 235px;
+	border-radius: 2px;
+	//font-family: 'Frijole', cursive;
+	font-family: 'GoodDog', cursive;
+	padding: 4px 20px;
+}
+
+.redeem_coupon_panel_blinking_text{
+    font-family: 'Frijole', cursive !important;
+	font-size: 30px;
+    font-weight: 500;
+	color: #D5D5D5;
+	line-height: 30px;
+}
+
+
 
 /** Custom text box */
 .cus_text_box {
@@ -386,4 +416,3 @@
 	    margin: 30px auto;
 	}
 }
-

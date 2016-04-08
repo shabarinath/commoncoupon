@@ -288,7 +288,7 @@ function ajax(id,options)
 
 $(window).scroll(function() {
     var height = $(window).scrollTop();
-    if(height > 150) {
+    if(height > 60) {
 	$('#menu_before_scroll').hide();
 	$('#custom-after-scroll-bootstrap-menu').show();
     } else {

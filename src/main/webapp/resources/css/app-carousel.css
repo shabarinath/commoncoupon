@@ -237,10 +237,16 @@ body {
 	right: 10px;
 }
 
+
+#custom-after-scroll-bootstrap-menu {
+	height: 67px;
+	padding-top: 12px;
+	box-shadow: 0px 0px 22px 13px rgba(218, 14, 14, 0.5);
+}
 #custom-after-scroll-bootstrap-menu.navbar-default .navbar-brand {
 	color: #FFF;
-margin-top: 7px;
-font-size: 25px;
+	margin-top: 7px;
+	font-size: 25px;
 }
 #custom-after-scroll-bootstrap-menu.navbar-default {
     font-size: 14px;
@@ -277,4 +283,3 @@ font-size: 25px;
 #custom-after-scroll-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: #cd1632;
 }
-

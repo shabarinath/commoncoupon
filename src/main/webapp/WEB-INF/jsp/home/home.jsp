@@ -7,7 +7,7 @@
 	
 		<div class="col-lg-1"></div>
 	
-		<div class="col-lg-5 buy_ecard_panel">
+		<div class="col-lg-5 buy_ecard_panel" style="display:none;">
 			
 			<div class="col-xs-12 p_none buy_ecard_panel_blinking_text">
 				<span style="color: #12A2AF; font-size: 27px;">Buy our exclusive 
@@ -130,8 +130,26 @@
 				</form:form>
 				
 			</div> <!-- ./buy_ecard_panel_form -->
-			
+
 		</div> <!-- ./buy_ecard_panel -->
+		
+		
+		<div class="col-lg-5 redeem_coupon_panel">
+			
+			<div class="col-xs-12 p_none redeem_coupon_panel_blinking_text">
+				<span style="color:yellow;">Woah !!</span> 
+				<span style="color: #12A2AF; font-size: 27px;">you already had e-card, </span> 
+				<span style="font-size: 25px;"> add it to wallet </span>
+			</div>
+			
+			<div class="col-xs-12 p_none redeem_coupon_panel_form">
+				<div class="col-xs-12 p_none form_number_display">
+					
+				</div>
+			</div> <!-- ./redeem_coupon_panel_form -->
+		
+		</div> <!-- ./redeem_coupon_panel -->
+		
 					
 	</div>
 </div> 

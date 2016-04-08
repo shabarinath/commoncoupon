@@ -78,7 +78,7 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" 
-						id="login" onclick="openLoginForm();"> Reedeem Coupon /	Login
+						id="login" onclick="openLoginForm();"> Redeem e-card /	Login
 					</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card
@@ -87,9 +87,9 @@
 				<sec:authorize access="isAuthenticated()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Redeem our e-card </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			    </ul>
 			</div>
@@ -103,16 +103,16 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" 
-						id="login" href="#" data-toggle="modal" data-target="#login-modal">Reedeem Coupon /	Login</a>
+						id="login" href="#" data-toggle="modal" data-target="#login-modal"> Redeem e-card /	Login</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Reedeem Coupon </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" >Buy our exclusive e-card</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Redeem our e-card </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			</div>
 		</div>
