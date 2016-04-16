@@ -288,7 +288,7 @@
 	font-weight: 500;
 	//background: rgba(242, 94, 94, 0.3) none repeat scroll 0% 0%;
 	background : rgba(254, 52, 52, 0.3) none repeat scroll 0% 0%;
-	margin-top: 5%;
+	margin-top: 2%;
 	min-height: 235px;
 	border-radius: 2px;
 	//font-family: 'Frijole', cursive;
@@ -304,6 +304,27 @@
 	line-height: 30px;
 }
 
+.redeem_coupon_panel_form .form_leaf_1 {
+	font-size: 40px;
+}
+
+.redeem_coupon_panel_form .form_leaf_1 .next_arrow {
+	text-align: right; 
+	color: rgb(255, 255, 255); 
+	font-size: 43px; 
+	line-height: 1px;
+	//color: rgba(213, 213, 213, 0.68);
+	color: #fff;
+	padding-top: 6%;
+}
+
+.redeem_coupon_panel_form .form_leaf_1 .enter_card_details {
+	color: #D5D5D5;
+}
+
+.redeem_btn {
+	color: #D5D5D5 !important;
+}
 
 
 /** Custom text box */

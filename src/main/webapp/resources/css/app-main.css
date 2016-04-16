@@ -170,6 +170,10 @@ a:focus {
 	margin: 0 !important;
 }
 
+.font_inherit{
+	font-family: inherit !important;
+}
+
 .b{
 	font-weight: bold;
 }
