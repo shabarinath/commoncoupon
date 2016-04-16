@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.dao.DefaultDao;
@@ -38,7 +39,7 @@ public class HomePageController {
 	@Autowired
 	private DefaultDao defaultDao;
 	
-	@Autowired
+	@Autowired 
 	private CouponService couponService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -54,8 +55,11 @@ public class HomePageController {
 	}
 	
 	@RequestMapping(value = "/redirect", method = RequestMethod.GET)
-	public String redirect(Model model) throws Exception{
+	public String redirect(Model model, @RequestParam("redirectUrl") String redirectUrl) throws Exception{
 		try {
+			if(!redirectUrl.isEmpty()) {
+				model.addAttribute("redirectUrl", redirectUrl);
+			}
 			return "misc/redirect";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);

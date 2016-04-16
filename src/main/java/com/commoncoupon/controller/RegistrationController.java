@@ -30,7 +30,7 @@ public class RegistrationController {
 	private UserService userDetailsService;
 	
 	@RequestMapping(value = "/getRegisterForm", method = RequestMethod.GET)
-	public String dashboard(Model model) throws Exception{
+	public String getRegistrationForm(Model model) throws Exception{
 		try {
 			User user = new User();
 			model.addAttribute("user", user);

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp" %>
 <div id="registrationFormDiv">
-	<form:form  commandName="user" id="registrationForm" name="registrationForm" method="post" action="/register" >
+	<form:form  commandName="user" id="registrationForm" name="registrationForm" method="post" action="/register?_ajax=true" >
 		<span id="error" class="error">${error}</span>
 		<div>			
 			<div class="form-group">

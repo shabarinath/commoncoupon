@@ -187,6 +187,6 @@
 </html>
 <script>
 	function openLoginForm() {		
-		doGet('/getLoginForm',{	renderTo:'login-modal' });
+		doGet('/getLoginForm?_ajax=true',{	renderTo:'login-modal' });
 	}
 </script>

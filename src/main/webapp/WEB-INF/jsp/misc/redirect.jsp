@@ -2,7 +2,9 @@
 <%@ include file="../includes/taglibs.jsp"%>
 <c:choose>
     <c:when test="${not empty redirectUrl}">
-       <c:redirect url="${redirectUrl}"/>
+	<script>
+	   window.location="${redirectUrl}";
+	 </script>
     </c:when>
     <c:otherwise>
 	  <script>
