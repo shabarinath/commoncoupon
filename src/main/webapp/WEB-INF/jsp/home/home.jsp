@@ -142,9 +142,32 @@
 				<span style="font-size: 25px;"> add it to wallet </span>
 			</div>
 			
-			<div class="col-xs-12 p_none redeem_coupon_panel_form">
-				<div class="col-xs-12 p_none form_number_display">
-					
+			<div class="col-xs-10 p_none redeem_coupon_panel_form">
+				<!-- Redeem Leaf 1 -->
+				<div class="col-xs-12 p_none form_leaf_1">
+					<div class="col-xs-12 p_none enter_card_details">
+						Enter e-card details
+					</div>
+					<div class="col-xs-12 p_none" style="margin-top: 4px;">
+						<div class="form-group cus_text_box">
+							<div class="input-group">
+							  <input class="form-control p_l_none" placeholder="code"/>
+							</div>
+						</div>
+						<div class="form-group cus_text_box">
+							<div class="input-group">
+							  <input class="form-control p_l_none" placeholder="password"/>
+							</div>
+						</div>
+					</div>
+				</div><!-- ./ Redeem Leaf 1 -->
+				<div class="col-xs-12 p_none">				
+					<a class="btn trans-border floatright m_none font_inherit redeem_btn hvr-grow-rotate" href="#" data-toggle="modal" data-target="#login-modal">
+						Redeem
+					</a>
+					<a class="btn trans-border floatright m_none font_inherit redeem_btn hvr-grow-rotate" href="#" data-toggle="modal" data-target="#login-modal">
+						Proceed without redeem
+					</a>
 				</div>
 			</div> <!-- ./redeem_coupon_panel_form -->
 		
