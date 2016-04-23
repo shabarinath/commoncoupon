@@ -85,16 +85,26 @@
 					</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
-					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
+					<li class="dropdown pull-right bg_and_border_none" id="userProfileId">
+					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">Admin <b class="caret"></b></a>
+					    <ul class="dropdown-menu">
+						<li><a>Redeem</a></li>
+						<li><a>History</a></li>
+						<li><a>Report issue</a></li>
+						<li class="divider"></li>
+						<li><a href="<c:url value="/j_spring_security_logout"/>" >Logout</a></li>
+					    </ul>
+					</li>	
+					
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Redeem our e-card </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			    </ul>
 			</div>
 		    </div>
 		</div>
+
 
 
 		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
@@ -108,10 +118,18 @@
 						Buy our exclusive e-card</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
-					<a class="btn trans-border floatright hvr-underline-from-left" href="<c:url value="/j_spring_security_logout"/>" >Logout</a>
+					 <li class="dropdown pull-right bg_and_border_none" id="userProfileId">
+					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">Admin <b class="caret"></b></a>
+					    <ul class="dropdown-menu">
+						<li><a>Redeem</a></li>
+						<li><a>History</a></li>
+						<li><a>Report issue</a></li>
+						<li class="divider"></li>
+						<li><a href="<c:url value="/j_spring_security_logout"/>" >Logout</a></li>
+					    </ul>
+					</li>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Redeem our e-card </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			</div>
