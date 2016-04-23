@@ -97,7 +97,7 @@
 					</li>	
 					
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/getvoucher" > Get vouchers </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			    </ul>
@@ -129,7 +129,7 @@
 					    </ul>
 					</li>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Get vouchers </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/getvoucher" > Get vouchers </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			</div>
