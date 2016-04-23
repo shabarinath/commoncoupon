@@ -39,6 +39,8 @@
 		
 	</head>
 	<body>
+	
+		<!-- Exclusive menu for mobile	-->
 		<div class="navbar-wrapper visible-xs">
 			<nav class="custom-bootstrap-menu navbar navbar-default navbar-static-top">
 			  <div class="">
@@ -62,6 +64,7 @@
 		</div>
 
 
+
 		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" style="display:none;">
 		    <div class="container-fluid">
 			<div class="navbar-header"><a class="navbar-brand" href="#">GiftYourLove</a>
@@ -80,13 +83,13 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" 
 						id="login" onclick="openLoginForm();"> Redeem e-card /	Login
 					</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card
 					</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown pull-right bg_and_border_none" id="userProfileId">
-					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">Admin <b class="caret"></b></a>
+					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
 						<li><a>Redeem</a></li>
 						<li><a>History</a></li>
@@ -98,7 +101,7 @@
 					
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="/getvoucher" > Get vouchers </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			    </ul>
 			</div>
@@ -114,12 +117,12 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" 
 						id="login" href="#" data-toggle="modal" data-target="#login-modal"> Redeem e-card /	Login</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					 <li class="dropdown pull-right bg_and_border_none" id="userProfileId">
-					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">Admin <b class="caret"></b></a>
+					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
 						<li><a>Redeem</a></li>
 						<li><a>History</a></li>
@@ -130,7 +133,7 @@
 					</li>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="/getvoucher" > Get vouchers </a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Buy our exclusive e-card</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" > Buy our exclusive e-card</a>
 				</sec:authorize>
 			</div>
 		</div>
@@ -207,4 +210,14 @@
 	function openLoginForm() {		
 		doGet('/getLoginForm?_ajax=true',{	renderTo:'login-modal' });
 	}
+	$(window).scroll(function() {
+	    var height = $(window).scrollTop();
+	    if(height > 60) {
+		$('#menu_before_scroll').hide();
+		$('#custom-after-scroll-bootstrap-menu').show();
+	    } else {
+			$('#custom-after-scroll-bootstrap-menu').hide();
+		$('#menu_before_scroll').show();
+		}
+	});
 </script>

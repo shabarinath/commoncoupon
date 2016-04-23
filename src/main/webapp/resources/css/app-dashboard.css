@@ -449,3 +449,19 @@
 	    margin: 30px auto;
 	}
 }
+
+
+/**
+* GET VOUCHER PAGE css
+*/
+.get_voucher_panel {
+	padding-top: 4.6%;
+	text_align: center;
+}
+
+.had_our_ecard {
+	padding-top: 2%;
+	color: #FF6550;
+	font-size: 29px;
+	font-family: 'Fjalla One', sans-serif;
+}

@@ -669,3 +669,7 @@ a.btn.trans-border-after-scroll{
 .displaynone {
 	display: none;
 }
+
+.text_center{
+	text-align: center;
+}
