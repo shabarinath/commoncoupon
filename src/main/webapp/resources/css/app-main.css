@@ -14,6 +14,44 @@ input, textarea, select {
 
 
 
+
+
+/***********************************
+* Font Faces
+* Already included google fonts in master.jsp - Roboto+Condensed|Fjalla+One|Frijole
+* All available custom fonts:
+* bello-pro
+* belligerent
+* GoodDog
+* matrix-regular
+* 
+* Roboto+Condensed
+* Fjalla+One
+* Frijole - BUY EXCLUSIVE text
+***********************************/
+@font-face {
+    font-family:"bello-pro";
+    src: url("../fonts/Bello-Pro_6555.ttf") /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+    font-family:"belligerent";
+    src: url("../fonts/belligerent.ttf") /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+    font-family:"GoodDog";
+    src: url("../fonts/GoodDog.otf") /* TTF file for CSS3 browsers */
+}
+
+@font-face {
+    font-family:"matrix-regular";
+    src: url("../fonts/MatrixRegularSmallCaps.ttf") /* TTF file for CSS3 browsers */
+}
+
+
+
+
 /*****************
  btn-blue classes  
  *****************/
@@ -205,30 +243,6 @@ a:focus {
 }
 
 
-
-
-/***********************************
-* Font Faces
-***********************************/
-@font-face {
-    font-family:"bello-pro";
-    src: url("../fonts/Bello-Pro_6555.ttf") /* TTF file for CSS3 browsers */
-}
-
-@font-face {
-    font-family:"belligerent";
-    src: url("../fonts/belligerent.ttf") /* TTF file for CSS3 browsers */
-}
-
-@font-face {
-    font-family:"GoodDog";
-    src: url("../fonts/GoodDog.otf") /* TTF file for CSS3 browsers */
-}
-
-@font-face {
-    font-family:"matrix-regular";
-    src: url("../fonts/MatrixRegularSmallCaps.ttf") /* TTF file for CSS3 browsers */
-}
 
 
 

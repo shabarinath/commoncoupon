@@ -285,5 +285,17 @@ $( document ).ready(function() {
 		$('#leaf_2').show();
 		$('#current_leaf_num').html('2');
 	});
+
+	$(window).scroll(function() {
+	    var height = $(window).scrollTop();
+	    if(height > 60) {
+		$('#menu_before_scroll').hide();
+		$('#custom-after-scroll-bootstrap-menu').show();
+	    } else {
+			$('#custom-after-scroll-bootstrap-menu').hide();
+		$('#menu_before_scroll').show();
+		}
+	});
+
 });
 </script>

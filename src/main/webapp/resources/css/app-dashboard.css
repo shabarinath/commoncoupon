@@ -461,7 +461,9 @@
 
 .had_our_ecard {
 	padding-top: 2%;
-	color: #FF6550;
-	font-size: 29px;
+	color: #CD1632;
+	font-size: 24px;
 	font-family: 'Fjalla One', sans-serif;
+	padding-bottom: 2%;
+	letter-spacing: 5px;
 }
