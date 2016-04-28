@@ -18,6 +18,7 @@
 		<intercept-url pattern="/register**" access="hasRole('ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/resources/**" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER')" />
 		<intercept-url pattern="/saveCoupon" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER')" />
+		<intercept-url pattern="/saveTransactionDetails*" access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER')" />
 		<intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
         <intercept-url pattern="/login*" filters="none" />                
 		<form-login login-page="/login" default-target-url="/" authentication-failure-url="/loginfailed?_ajax=true"  
