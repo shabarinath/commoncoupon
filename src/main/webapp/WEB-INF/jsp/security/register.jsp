@@ -43,3 +43,8 @@
 		</div>	
 	</form:form>
 </div>
+<script>
+	$( document ).ready(function() {
+		$("#email").focus();
+	});
+</script>
