@@ -42,6 +42,9 @@
 	</div>
 </div>
 <script>
+	$( document ).ready(function() {
+		$("#username").focus();
+	});
 	$("#registerButton").click(function(){
 		/*$('#errorDiv').html('');*/
 		doGet('/getRegisterForm',{
