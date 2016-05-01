@@ -35,7 +35,7 @@
 								<div class="form-group cus_text_box">
 									<div class="input-group">
 									  <div class="input-group-addon">Rs</div>									
-									  <form:input path="amount" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
+									  <form:input path="amount" type="number" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
 									</div>
 								</div>
 							</div>
@@ -88,7 +88,7 @@
 										<div class="col-xs-6 p_none">  
 											<div class="form-group cus_text_box">
 											  <div class="input-group">											
-												<form:input path="sender.mobileNumber" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Mobile"/>
+												<form:input path="sender.mobileNumber" type="number" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Mobile"/>
 											  </div>
 											</div>
 										</div>
@@ -253,6 +253,7 @@ $( document ).ready(function() {
 	} else {
 		$('#leaf_2, #leaf_3').hide();
 	} */
+	$("#amount").focus();
 	if(${hasErrors eq 'true'}) {	
 		$('${divId}').siblings('div').hide();	
 		$('${divId}').show();
