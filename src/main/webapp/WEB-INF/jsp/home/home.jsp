@@ -214,7 +214,7 @@
 
 
 <div class="how_it_works_panel">
-	<div class="text_center p_none container">
+	<div class="p_none container">
 		<div class="col-lg-12 p_none how_it_works">
 			How It Works
 		</div>
