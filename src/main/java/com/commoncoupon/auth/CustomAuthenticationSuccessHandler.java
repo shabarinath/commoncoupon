@@ -68,7 +68,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         }
  
         if (isUser) {
-            return "/redirect/?_ajax=true&redirectUrl=/dashboard";
+            return "/redirect/?_ajax=true&redirectUrl=/";
         } else if (isAdmin) {
         	return "/adminDashboard";
         } else {
