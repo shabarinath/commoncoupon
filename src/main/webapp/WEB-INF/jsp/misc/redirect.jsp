@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=Shift-JIS" pageEncoding="UTF-8"%>
 <%@ include file="../includes/taglibs.jsp"%>
-<div id="loadingDiv" >
+<div id="loadingDiv" style="display:none;">
 	<div align="center" style="margin-top:8%;">
 		<i class="fa fa-spinner fa-pulse fa-5x fa-spin"></i>
 	</div>
@@ -10,8 +10,8 @@
 		</div>
 	</div>
 	<div align="center" style="margin-top:1%;margin-bottom:25.9%;">
-	  <span style="font-size:20px;">Please wait while we redirect you to payment gateway for processing ....</span><br>
-	  <span style="font-size:20px;">Please do not press stop, Back or Refresh button or Close this window</span>
+	  <span style="font-size:20px;font-family:Verdana;">Please wait while we redirect you to payment gateway for processing ....</span><br>
+	  <span style="font-size:20px;font-family:Verdana;">Please do not press stop, Back or Refresh button or Close this window</span>
 	</div>
 </div>
 <c:if test="${fn:contains(redirectUrl, 'www.instamojo.com')}">
