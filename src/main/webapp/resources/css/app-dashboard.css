@@ -467,3 +467,26 @@
 	padding-bottom: 2%;
 	letter-spacing: 5px;
 }
+
+@media (min-width:1024px){
+	.col-lg-2_8 {
+		width: 24.5%;
+		float: left;
+		position: relative;
+		min-height: 1px;
+	}
+}
+
+.coupons_wrapper_main {
+	padding-top: 13px; 
+	padding-bottom: 13px;
+}
+.coupon_wrapper_single {
+	padding-bottom: 1px;
+}
+.coupon_box {
+	border: 1px solid rgb(204, 204, 204); 
+	height: 190px; 
+	margin: 2px;
+}
+/** GET VOUCHER page css ends	*/

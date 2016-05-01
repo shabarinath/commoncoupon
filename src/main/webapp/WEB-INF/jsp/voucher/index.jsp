@@ -13,20 +13,35 @@
 					Redeem 
 				</div>
 			</div>
-			<div class="col-lg-12 p_none text_center">
-			   <div class="col-lg-12 p_none ">
-				<div class="col-lg-3  p_none" style="border: 1px solid rgb(204, 204, 204); height: 190px; margin: 2px;">
-				</div>			
-				<div style="border: 1px solid rgb(204, 204, 204); height: 190px;" class="col-lg-3 p_none ">
-					E-bay
-				</div>			
-				 <div style="border: 1px solid rgb(204, 204, 204); height: 190px; margin: 2px;" class="col-lg-3 p_none ">
-					Amazon
-				</div>	
-				<div class="col-lg-3  p_none" style="border: 1px solid rgb(204, 204, 204); height: 190px; margin: 2px;">
+			<div class="col-lg-12 p_none text_center coupons_wrapper_main">
+				<div class="col-lg-12 p_none coupon_wrapper_single">
+					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
+						Flipkart
+					</div>			
+					<div class="col-lg-3 p_none col-lg-2_8 coupon_box">
+						E-bay
+					</div>			
+					 <div class="col-lg-3 p_none col-lg-2_8 coupon_box">
+						Amazon
+					</div>	
+					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
+						Mynthra
+					</div>
 				</div>
-			   </div>			
-					
+				<div class="col-lg-12 p_none coupon_wrapper_single">
+					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
+						Flipkart
+					</div>			
+					<div class="col-lg-3 p_none col-lg-2_8 coupon_box">
+						E-bay
+					</div>			
+					 <div class="col-lg-3 p_none col-lg-2_8 coupon_box">
+						Amazon
+					</div>	
+					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
+						Mynthra
+					</div>
+				</div>
 			</div>
 		</div>
 

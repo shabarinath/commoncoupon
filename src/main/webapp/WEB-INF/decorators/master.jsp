@@ -41,7 +41,7 @@
 	<body>
 	
 		<!-- Exclusive menu for mobile	-->
-		<div class="navbar-wrapper visible-xs">
+		<div class="navbar-wrapper visible-xs visible-sm">
 			<nav class="custom-bootstrap-menu navbar navbar-default navbar-static-top">
 			  <div class="">
 				<div class="navbar-header">
@@ -65,7 +65,7 @@
 
 
 
-		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" style="display:none;">
+		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm" role="navigation" style="display:none;">
 		    <div class="container-fluid">
 			<div class="navbar-header"><a class="navbar-brand" href="#">GiftYourLove</a>
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
@@ -110,7 +110,7 @@
 
 
 
-		<div class="nav navbar navbar-fixed-top hidden-xs" id="menu_before_scroll">
+		<div class="nav navbar navbar-fixed-top hidden-xs hidden-sm" id="menu_before_scroll">
 			<div class="header-bg">
 				<sec:authorize access="isAnonymous()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
@@ -157,7 +157,7 @@
 		</div>
 		
 		<div class="major_footer_panel">
-			<div class="text_center p_none container">
+			<div class="p_none container">
 				<div class="col-lg-12 p_none">
 					<div class="col-lg-8 p_none">
 						<ul class="list-inline major_footer_panel_menu_list_ul">
@@ -188,7 +188,7 @@
 		
 		
 		<div class="mini_footer_panel">
-			<div class="text_center p_none container">
+			<div class="p_none container">
 				<div class="col-lg-12 p_none">
 					<div class="col-lg-6 text_left p_none">
 						GiftYourLove &copy; GiftYourLove.com 2015
