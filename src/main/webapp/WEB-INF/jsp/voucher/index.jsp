@@ -15,31 +15,61 @@
 			</div>
 			<div class="col-lg-12 p_none text_center coupons_wrapper_main">
 				<div class="col-lg-12 p_none coupon_wrapper_single">
-					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
-						Flipkart
-					</div>			
-					<div class="col-lg-3 p_none col-lg-2_8 coupon_box">
-						E-bay
-					</div>			
-					 <div class="col-lg-3 p_none col-lg-2_8 coupon_box">
-						Amazon
-					</div>	
-					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
-						Mynthra
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Flip kart</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
+					</div>
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Hover effect 4</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
+					</div>		
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Hover effect 4</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
 					</div>
 				</div>
 				<div class="col-lg-12 p_none coupon_wrapper_single">
-					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
-						Flipkart
-					</div>			
-					<div class="col-lg-3 p_none col-lg-2_8 coupon_box">
-						E-bay
-					</div>			
-					 <div class="col-lg-3 p_none col-lg-2_8 coupon_box">
-						Amazon
-					</div>	
-					<div class="col-lg-3  p_none col-lg-2_8 coupon_box">
-						Mynthra
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Hover effect 4</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
+					</div>
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Hover effect 4</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
+					</div>		
+					<div class="col-lg-4 p_none">
+						<div class="coupon_box hovereffect">
+					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <div class="overlay">
+					           <h2>Hover effect 4</h2>
+					           <a class="info" href="#">link here</a>
+					        </div>
+					    </div>
 					</div>
 				</div>
 			</div>
