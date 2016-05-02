@@ -19,7 +19,9 @@
 						<div class="coupon_box hovereffect border_right_none border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/flipkart.jpg" alt="">
 					        <div class="overlay">
-					           <h2>Flip kart</h2>
+					           <h2>
+			<div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>flipkart</h1></strong><div class="ribbon-stitches-bottom"></div></div>
+						</h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>
@@ -28,7 +30,7 @@
 						<div class="coupon_box hovereffect border_right_none border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/amazon.png" alt="">
 					        <div class="overlay">
-					           <h2>Hover effect 4</h2>
+					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>amazon</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>
@@ -37,7 +39,7 @@
 						<div class="coupon_box hovereffect border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/ebay.jpg" alt="">
 					        <div class="overlay">
-					           <h2>Hover effect 4</h2>
+					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>ebay</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>
@@ -48,7 +50,7 @@
 						<div class="coupon_box hovereffect border_right_none">
 					        <img class="img-responsive" src="/resources/img/mynthra.jpg" alt="">
 					        <div class="overlay">
-					           <h2>Hover effect 4</h2>
+					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>mynthra</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>
@@ -57,7 +59,7 @@
 						<div class="coupon_box hovereffect border_right_none">
 					        <img class="img-responsive" src="/resources/img/sd.jpg" alt="">
 					        <div class="overlay">
-					           <h2>Hover effect 4</h2>
+					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>snap deal</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>
@@ -66,7 +68,7 @@
 						<div class="coupon_box hovereffect">
 					        <img class="img-responsive" src="/resources/img/fp.jpg" alt="">
 					        <div class="overlay">
-					           <h2>Hover effect 4</h2>
+					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>food panda</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
 					           <a class="info" href="#">link here</a>
 					        </div>
 					    </div>

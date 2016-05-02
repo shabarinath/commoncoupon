@@ -526,20 +526,7 @@ position:relative;
 transition:all .4s linear;
 }
 
-.hovereffect h2 {
-text-transform:uppercase;
-color:#fff;
-text-align:center;
-position:relative;
-font-size:17px;
-background:rgba(0,0,0,0.6);
--webkit-transform:translatey(-100px);
--ms-transform:translatey(-100px);
-transform:translatey(-100px);
--webkit-transition:all .2s ease-in-out;
-transition:all .2s ease-in-out;
-padding:10px;
-}
+
 
 .hovereffect a.info {
 text-decoration:none;
@@ -583,4 +570,44 @@ transform:translatey(0);
 -webkit-transition-delay:.2s;
 transition-delay:.2s;
 }
+
+.ribbon {
+   width: 100%;
+   font-size: 18px!important;
+   background: #cd1631;
+   background: -webkit-gradient(linear, left top, left bottom, from(#cd1631), to(#ab2c2c));
+   background: -webkit-linear-gradient(top, #cd1631, #ab2c2c);
+   background: -moz-linear-gradient(top, #cd1631, #ab2c2c);
+   background: -ms-linear-gradient(top, #cd1631, #ab2c2c);
+   background: -o-linear-gradient(top, #cd1631, #ab2c2c);
+   background-image: -ms-linear-gradient(top, #cd1631 0%, #ab2c2c 100%);
+   -webkit-box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   -moz-box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
+   font-family: 'Helvetica Neue',Helvetica, sans-serif;
+   }
+.ribbon h1 {
+	font-size: 20px !important;
+	text-shadow: #d65c5c 0 1px 0;
+	margin: 0px;
+	padding: 5px;
+	color: #fff;
+	font-family: 'Fjalla One', sans-serif;
+	letter-spacing: 3px;
+}
+
+.ribbon-stitches-top {
+   margin-top:2px;
+   border-top: 1px dashed rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+   box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+   }
+.ribbon-stitches-bottom {
+   margin-bottom:2px;
+   border-top: 1px dashed rgba(0, 0, 0, 0.2);
+   -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+   -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+   box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.3);
+   }
 /** GET VOUCHER page css ends	*/
