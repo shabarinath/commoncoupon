@@ -7,6 +7,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
+import com.commoncoupon.domain.CouponsCatalogue;
 import com.commoncoupon.domain.PaymentStatus;
 
 /**
@@ -52,6 +53,13 @@ public class CouponDaoImpl implements CouponDao {
 		if(commonCoupon.size()>0)
 			return commonCoupon.get(0);
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<CouponsCatalogue> getSupportedCouponsList() throws Exception {
+		List<CouponsCatalogue> supportedCouponsList = hibernateTemplate.find("from CouponsCatalogue");
+		return supportedCouponsList;
 	}
 }
 

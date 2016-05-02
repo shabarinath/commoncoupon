@@ -25,10 +25,6 @@ import javax.persistence.TemporalType;
 @DiscriminatorColumn(name = "class_code", discriminatorType = DiscriminatorType.STRING)
 public class Coupon extends Persistent {
 
-	@Column(name="coupon_id", nullable=false)
-	private String couponId;  //Generate rand string as alphanumeric
-	@Column(name="password", nullable=false)
-	private String password;
 	@Column(name="status")
 	private boolean status; //Set whether email or sms sent or not 
 	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
@@ -42,15 +38,9 @@ public class Coupon extends Persistent {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_on")
 	private Date createdOn;
-	@Column(name="expiry_date")
-	private Date expiryDate;
+	@Column(name="is_dispatched")
+	private boolean isDispatched;
 
-	public String getCouponId() {
-		return couponId;
-	}
-	public void setCouponId(String couponId) {
-		this.couponId = couponId;
-	}
 	public boolean isStatus() {
 		return status;
 	}
@@ -62,12 +52,6 @@ public class Coupon extends Persistent {
 	}
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public User getSender() {
 		return sender;
@@ -87,10 +71,10 @@ public class Coupon extends Persistent {
 	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
-	public Date getExpiryDate() {
-		return expiryDate;
+	public boolean isDispatched() {
+		return isDispatched;
 	}
-	public void setExpiryDate(Date expiryDate) {
-		this.expiryDate = expiryDate;
+	public void setDispatched(boolean isDispatched) {
+		this.isDispatched = isDispatched;
 	}
 }
