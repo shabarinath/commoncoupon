@@ -204,6 +204,22 @@ a:focus {
 	padding: 0px;
 }
 
+.border_top_none{
+	border-top: none !important;
+}
+
+.border_bottom_none{
+	border-bottom: none !important;
+}
+
+.border_right_none{
+	border-right: none !important;
+}
+
+.border_left_none{
+	border-left: none !important;
+}
+
 .m_none{
 	margin: 0 !important;
 }

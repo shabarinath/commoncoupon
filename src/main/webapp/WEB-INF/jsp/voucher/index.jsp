@@ -16,8 +16,8 @@
 			<div class="col-lg-12 p_none text_center coupons_wrapper_main">
 				<div class="col-lg-12 p_none coupon_wrapper_single">
 					<div class="col-lg-4 p_none">
-						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+						<div class="coupon_box hovereffect border_right_none border_bottom_none">
+					        <img class="img-responsive" src="/resources/img/flipkart.jpg" alt="">
 					        <div class="overlay">
 					           <h2>Flip kart</h2>
 					           <a class="info" href="#">link here</a>
@@ -25,8 +25,8 @@
 					    </div>
 					</div>
 					<div class="col-lg-4 p_none">
-						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+						<div class="coupon_box hovereffect border_right_none border_bottom_none">
+					        <img class="img-responsive" src="/resources/img/amazon.png" alt="">
 					        <div class="overlay">
 					           <h2>Hover effect 4</h2>
 					           <a class="info" href="#">link here</a>
@@ -34,8 +34,8 @@
 					    </div>
 					</div>		
 					<div class="col-lg-4 p_none">
-						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+						<div class="coupon_box hovereffect border_bottom_none">
+					        <img class="img-responsive" src="/resources/img/ebay.jpg" alt="">
 					        <div class="overlay">
 					           <h2>Hover effect 4</h2>
 					           <a class="info" href="#">link here</a>
@@ -45,8 +45,8 @@
 				</div>
 				<div class="col-lg-12 p_none coupon_wrapper_single">
 					<div class="col-lg-4 p_none">
-						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+						<div class="coupon_box hovereffect border_right_none">
+					        <img class="img-responsive" src="/resources/img/mynthra.jpg" alt="">
 					        <div class="overlay">
 					           <h2>Hover effect 4</h2>
 					           <a class="info" href="#">link here</a>
@@ -54,8 +54,8 @@
 					    </div>
 					</div>
 					<div class="col-lg-4 p_none">
-						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+						<div class="coupon_box hovereffect border_right_none">
+					        <img class="img-responsive" src="/resources/img/sd.jpg" alt="">
 					        <div class="overlay">
 					           <h2>Hover effect 4</h2>
 					           <a class="info" href="#">link here</a>
@@ -64,7 +64,7 @@
 					</div>		
 					<div class="col-lg-4 p_none">
 						<div class="coupon_box hovereffect">
-					        <img class="img-responsive" src="/resources/img/voucher_bg.jpg" alt="">
+					        <img class="img-responsive" src="/resources/img/fp.jpg" alt="">
 					        <div class="overlay">
 					           <h2>Hover effect 4</h2>
 					           <a class="info" href="#">link here</a>
