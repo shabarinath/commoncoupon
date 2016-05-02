@@ -124,11 +124,13 @@ public class CouponController {
 					//Creating Recipient here
 					User recipient = new User();
 					recipient.setEmail(commonCoupon.getRecipient().getEmail());
-					/*UserRole userRole = new UserRole();
-					userRole.setAuthority("userRole");
-					ArrayList<UserRole> userRoles = new ArrayList<UserRole>();
+					//Assigning roles to user
+					UserRole userRole = new UserRole();
+					userRole.setAuthority("ROLE_USER");
+					userRole.setUser(recipient);
+					List<UserRole> userRoles = new ArrayList<UserRole>();
 					userRoles.add(userRole);
-					recipient.setUserRoles(userRoles);*/
+					recipient.setUserRoles(userRoles);
 					commonCoupon.setRecipient(recipient);
 				} else {
 					commonCoupon.setRecipient(recipientFromDb);
