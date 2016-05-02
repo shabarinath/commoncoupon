@@ -190,6 +190,20 @@ CREATE TABLE `transaction` (
   UNIQUE KEY `uk_paymentId` (`payment_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS `coupons_catalogue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `coupons_catalogue` (
+  `id` bigint(100) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL DEFAULT 0,
+  `name` varchar(255) DEFAULT NULL,
+  `image_b_url` text,
+  `image_m_url` text,
+  `image_s_url` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
