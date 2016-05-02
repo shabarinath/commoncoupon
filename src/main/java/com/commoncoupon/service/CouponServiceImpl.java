@@ -1,8 +1,11 @@
 package com.commoncoupon.service;
 
+import java.util.List;
+
 import com.commoncoupon.dao.CouponDao;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
+import com.commoncoupon.domain.CouponsCatalogue;
 
 
 /**
@@ -48,6 +51,11 @@ public class CouponServiceImpl implements CouponService {
 	public CommonCoupon getUnRedeemedCoupon(String couponId, String password)
 			throws Exception {
 		return couponDao.getUnRedeemedCoupon(couponId, password);
+	}
+
+	@Override
+	public List<CouponsCatalogue> getSupportedCouponsList() throws Exception {
+		return couponDao.getSupportedCouponsList();
 	}
 	
 }
