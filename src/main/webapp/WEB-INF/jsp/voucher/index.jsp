@@ -22,7 +22,10 @@
 					           <h2>
 			<div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>flipkart</h1></strong><div class="ribbon-stitches-bottom"></div></div>
 						</h2>
-					           <a class="info" href="#">link here</a>
+					           <span>
+								<a class="info" href="#">link here</a>
+								  <a class="info" href="#">Details</a>
+								</span>
 					        </div>
 					    </div>
 					</div>
