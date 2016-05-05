@@ -51,7 +51,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="#">GiftYourLove</a>
+				  <a class="navbar-brand" href="/">GiftYourLove</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
@@ -67,7 +67,7 @@
 
 		<div id="custom-after-scroll-bootstrap-menu" class="navbar navbar-default navbar-fixed-top hidden-xs hidden-sm" role="navigation" style="display:none;">
 		    <div class="container-fluid">
-			<div class="navbar-header"><a class="navbar-brand" href="#">GiftYourLove</a>
+			<div class="navbar-header"><a class="navbar-brand" href="/">GiftYourLove</a>
 			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
 			    	<span class="sr-only">Toggle navigation</span>
 			    	<span class="icon-bar"></span>
@@ -112,6 +112,7 @@
 
 		<div class="nav navbar navbar-fixed-top hidden-xs hidden-sm" id="menu_before_scroll">
 			<div class="header-bg">
+				<a href="/" style="transform: rotate(346deg); font-size: xx-large; color: rgb(189, 25, 52);" class="navbar-brand">GiftYourLove</a>
 				<sec:authorize access="isAnonymous()">
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
