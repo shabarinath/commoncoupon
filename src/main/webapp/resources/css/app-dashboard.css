@@ -531,20 +531,21 @@ transition:all .4s linear;
 .hovereffect a.info {
 text-decoration:none;
 display:inline-block;
-text-transform:uppercase;
-color:#fff;
-border:1px solid #fff;
-background-color:transparent;
+//text-transform:uppercase;
+color:#d5c9c9;
+//border:1px solid #c5b3b3;
+background-color:#B91400;
 opacity:0;
 filter:alpha(opacity=0);
 -webkit-transition:all .2s ease-in-out;
 transition:all .2s ease-in-out;
-margin:50px 0 0;
-padding:7px 14px;
+margin:5px 0 0;
+padding:1px 11px;
+border-radius: 6px;
 }
 
 .hovereffect a.info:hover {
-box-shadow:0 0 5px #fff;
+box-shadow:0 0 5px #B91400;
 }
 
 .hovereffect:hover img {
@@ -610,4 +611,66 @@ transition-delay:.2s;
    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
    box-shadow: 0px 0px 2px rgba(255, 255, 255, 0.3);
    }
+.overlay span:hover {
+    border-top: 1px solid #fff;
+    border-style: dashed;
+    border-color: red;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    padding-top: 8px;
+}
+.voucher_pickup{
+	width: 70%; 
+	margin: 29px auto; 
+	padding-top: 9px; 
+	-moz-border-top-colors: none; 
+	-moz-border-right-colors: none; 
+	-moz-border-bottom-colors: none; 
+	-moz-border-left-colors: none; 
+	border-image: none; 
+	border-width: 2px medium medium;
+	border-style: dashed none none; 
+	border-color: red -moz-use-text-color -moz-use-text-color;
+}
+.voucher_selectbox{
+	width: 35%;
+	height: 28px;
+	margin-right: 30px;
+}
+.voucher_pick_btn{
+	text-decoration: none;
+	color: #fff;
+	filter: alpha(opacity=0);
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	padding: 6px 20px;
+	background: rgb(205, 22, 50) none repeat scroll 0% 0% !important;
+	width: 40% !important;
+	box-shadow: 0px 0px 5px rgb(205, 22, 50) !important;
+	border: none !important;
+	text-transform:uppercase;
+	font-family: 'Helvetica Neue',Helvetica, sans-serif;
+	box-shadow: 0px 0px 5px rgb(205, 22, 50) !important;
+	border: none !important;
+	text-transform: uppercase;
+	font-family: 'Helvetica Neue',Helvetica, sans-serif;
+	letter-spacing: 4px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.voucher_pick_btn:hover{
+	color:#fff;
+	text-decoration:none;
+	cursor: pointer;
+}
+.voucher_selected_pic {
+	background-image: url('http://localhost/resources/img/flipkart.jpg');
+	/* border-radius: 50%; */
+	overflow: hidden;
+	height: 100%;
+	background-size: cover !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
 /** GET VOUCHER page css ends	*/

@@ -81,7 +81,7 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" 
-						id="login" onclick="openLoginForm();"> Redeem e-card /	Login
+						id="login" onclick="openLoginForm();"> Get Vouchers /	Login
 					</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card
@@ -117,7 +117,7 @@
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" 
-						id="login" href="#" data-toggle="modal" data-target="#login-modal"> Redeem e-card /	Login</a>
+						id="login" href="#" data-toggle="modal" data-target="#login-modal"> Get Vouchers /	Login</a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
 						Buy our exclusive e-card</a>
 				</sec:authorize>
