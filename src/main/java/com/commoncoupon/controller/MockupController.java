@@ -8,23 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Hold resources related to get voucher tab
- * - 
+ * Controller to load html mockups
  */
-
 @Controller
-public class GetVoucherController {
+public class MockupController {
+
+private static final Logger log = LoggerFactory.getLogger(MockupController.class);
 	
-	private static final Logger log = LoggerFactory.getLogger(GetVoucherController.class);
-	
-	@RequestMapping(value = "/getvoucher", method = RequestMethod.GET)
-	public String getVouchers(Model model) throws Exception{
+	@RequestMapping(value = "/mockup/voucherpage", method = RequestMethod.GET)
+	public String showVoucherPageMockup(Model model) throws Exception{
 		try {
-			return "voucher/index";
+			return "mockup/voucher";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
 			throw e;
 		}
 	}
-
+	
 }
+

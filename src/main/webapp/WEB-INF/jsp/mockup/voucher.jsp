@@ -153,45 +153,48 @@
 			  <span style="float: right; margin-right: 16px; color: gray; font-size: 28px; font-family: &quot;GoodDog&quot;; line-height: 23px;">500</span>
 			</div>
 			
-			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 19px; color: rgb(230, 57, 59); font-family: belligerent; border-bottom: 1px solid rgb(204, 204, 204); " class="col-lg-12 p_none "><button style="font-family: &quot;GoodDog&quot;; font-size: 25px; line-height: 26px; float: right; margin-right: -5px; padding-right: 10px; padding-left: 11px;">Proceed</button>
+			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 19px; color: rgb(230, 57, 59); font-family: belligerent; " class="col-lg-12 p_none "><button style="font-family: &quot;GoodDog&quot;; font-size: 25px; line-height: 26px; float: right; margin-right: -5px; padding-right: 10px; padding-left: 11px;">Proceed</button>
 			</div>
+	
+		<!--
+			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
+			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
+			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
+			      Flipkart 
+			  </div>
+			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
+			     500
+			  </div>
+			</div>
+			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
+			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
+			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
+			      Flipkart 
+			  </div>
+			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
+			     500
+			  </div>
+			</div>
+			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
+			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
+			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
+			      Flipkart 
+			  </div>
+			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
+			     500
+			  </div>
+			</div>
+			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
+			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
+			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
+			      Flipkart 
+			  </div>
+			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
+			     500
+			  </div>
+			</div>
+			-->
 
-			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
-			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
-			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
-			      Flipkart 
-			  </div>
-			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
-			     500
-			  </div>
-			</div>
-			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
-			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
-			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
-			      Flipkart 
-			  </div>
-			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
-			     500
-			  </div>
-			</div>
-			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
-			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
-			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
-			      Flipkart 
-			  </div>
-			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
-			     500
-			  </div>
-			</div>
-			<div style="border: 1px solid rgb(204, 204, 204); height: 71px;" class="col-lg-12 p_none">
-			  <div class="col-lg-4 p_none voucher_selected_pic"></div>
-			  <div style="margin-top: 9%;" class="col-lg-5 p_none">
-			      Flipkart 
-			  </div>
-			  <div style="margin-top: 9%;" class="col-lg-3 p_none">
-			     500
-			  </div>
-			</div>
 
 
 		</div>
@@ -205,3 +208,4 @@
 	$('#menu_before_scroll').hide();
 	$('#custom-after-scroll-bootstrap-menu').show();
 </script>
+<script src="/resources/js/voucher.js"></script>
