@@ -19,98 +19,156 @@
 						<div class="coupon_box hovereffect border_right_none border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/flipkart.jpg" alt="">
 					        <div class="overlay">
-					           <h2>
-			<div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>flipkart</h1></strong><div class="ribbon-stitches-bottom"></div></div>
-						</h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           	<h2>
+									<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>flipkart</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+								<div>
+									<!--<div>
+										<a class="info" href="#">Details</a>
+									</div>
+									<div class="voucher_pickup">
+										<select class="voucher_selectbox">
+										  <option>500</option>
+										  <option>1000</option>
+										  <option>1500</option>
+										  <option>2000</option>
+										  <option>5000</option>
+										</select>
+										<a class="voucher_pick_btn">Pick</a>
+									</div>-->
+									<div>
+										<div>
+											<i style="font-size: 76px; color: rgb(205, 22, 49);" class="fa fa-check-circle" aria-hidden="true"></i>
+										</div>
+	 									<div style="color: rgb(255, 255, 255); font-size: 11px; letter-spacing: 4px; font-weight: bold;">
+		 									PICKED
+										</div>
+									</div>
+								</div>
 					        </div>
 					    </div>
-					</div>
+					</div> <!-- ./col-lg-4 -->
 					<div class="col-lg-4 p_none">
 						<div class="coupon_box hovereffect border_right_none border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/amazon.png" alt="">
 					        <div class="overlay">
-					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>amazon</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           <h2>
+							   		<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>amazon</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+					           	<div>
+									<a class="info" href="#">Details</a>
+								</div>
+								<div class="voucher_pickup">
+									<select class="voucher_selectbox">
+									  <option>500</option>
+									  <option>1000</option>
+									  <option>1500</option>
+									  <option>2000</option>
+									  <option>5000</option>
+									</select>
+									<a class="voucher_pick_btn">Pick</a>
+								</div>
 					        </div>
 					    </div>
-					</div>		
+					</div> <!-- ./col-lg-4 -->
 					<div class="col-lg-4 p_none">
 						<div class="coupon_box hovereffect border_bottom_none">
 					        <img class="img-responsive" src="/resources/img/ebay.jpg" alt="">
 					        <div class="overlay">
-					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>ebay</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           	<h2>
+							   		<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>ebay</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+					           	<div>
+									<a class="info" href="#">Details</a>
+								</div>
+								<div class="voucher_pickup">
+									<select class="voucher_selectbox">
+									  <option>500</option>
+									  <option>1000</option>
+									  <option>1500</option>
+									  <option>2000</option>
+									  <option>5000</option>
+									</select>
+									<a class="voucher_pick_btn">Pick</a>
+								</div>
 					        </div>
 					    </div>
-					</div>
+					</div> <!-- ./col-lg-4 -->
 				</div>
 				<div class="col-lg-12 p_none coupon_wrapper_single">
 					<div class="col-lg-4 p_none">
 						<div class="coupon_box hovereffect border_right_none">
 					        <img class="img-responsive" src="/resources/img/mynthra.jpg" alt="">
 					        <div class="overlay">
-					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>mynthra</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           	<h2>
+									<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>mynthra</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+					           	<div>
+									<a class="info" href="#">Details</a>
+								</div>
+								<div class="voucher_pickup">
+									<select class="voucher_selectbox">
+									  <option>500</option>
+									  <option>1000</option>
+									  <option>1500</option>
+									  <option>2000</option>
+									  <option>5000</option>
+									</select>
+									<a class="voucher_pick_btn">Pick</a>
+								</div>
 					        </div>
 					    </div>
-					</div>
+					</div> <!-- ./col-lg-4 -->
 					<div class="col-lg-4 p_none">
 						<div class="coupon_box hovereffect border_right_none">
 					        <img class="img-responsive" src="/resources/img/sd.jpg" alt="">
 					        <div class="overlay">
-					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>snap deal</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           	<h2>
+									<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>snap deal</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+					           	<div>
+									<a class="info" href="#">Details</a>
+								</div>
+								<div class="voucher_pickup">
+									<select class="voucher_selectbox">
+									  <option>500</option>
+									  <option>1000</option>
+									  <option>1500</option>
+									  <option>2000</option>
+									  <option>5000</option>
+									</select>
+									<a class="voucher_pick_btn">Pick</a>
+								</div>
 					        </div>
 					    </div>
 					</div>		
@@ -118,42 +176,55 @@
 						<div class="coupon_box hovereffect">
 					        <img class="img-responsive" src="/resources/img/fp.jpg" alt="">
 					        <div class="overlay">
-					           <h2><div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>food panda</h1></strong><div class="ribbon-stitches-bottom"></div></div></h2>
-					           <div><a class="info" href="#">Details</a></div>
-							<div class="voucher_pickup">
-								<select class="voucher_selectbox">
-								  <option>500</option>
-								  <option>1000</option>
-								  <option>1500</option>
-								  <option>2000</option>
-								  <option>5000</option>
-								</select>
-								<a class="voucher_pick_btn">Pick</a>
-							</div>
+					           	<h2>
+									<div class="ribbon">
+										<div class="ribbon-stitches-top"></div>
+										<strong class="ribbon-content">
+											<h1>food panda</h1>
+										</strong>
+										<div class="ribbon-stitches-bottom"></div>
+									</div>
+								</h2>
+					           	<div>
+									<a class="info" href="#">Details</a>
+								</div>
+								<div class="voucher_pickup">
+									<select class="voucher_selectbox">
+									  <option>500</option>
+									  <option>1000</option>
+									  <option>1500</option>
+									  <option>2000</option>
+									  <option>5000</option>
+									</select>
+									<a class="voucher_pick_btn">Pick</a>
+								</div>
 					        </div>
 					    </div>
 					</div>
-				</div>
+				</div> <!-- ./ col-lg-12 p_none coupon_wrapper_single -->
 			</div>
 		</div>
 
 		<div class="col-lg-3" style="min-height: 300px; margin-top: 3%; padding-right: 0px;">
 
-			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 23px; color: rgb(205, 22, 50); font-family: belligerent; border-bottom: 1px solid rgb(204, 204, 204); font-weight: bold;" class="col-lg-12 p_none ">
+			<div class="col-lg-12 p_none voucher_account_summary">
 				Account summary
 			</div>
 	
-			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 19px; color: rgb(230, 57, 59); font-family: belligerent; border-bottom: 1px solid rgb(204, 204, 204); " class="col-lg-12 p_none ">
+			<div class="col-lg-12 p_none voucher_balance">
 			  Balance
-			  <span style="float: right; margin-right: 16px; color: gray; font-size: 28px; font-family: &quot;GoodDog&quot;; line-height: 23px;">500</span>
+			  <span class="voucher_balance_amount">500</span>
 			</div>
 
-			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 19px; color: rgb(230, 57, 59); font-family: belligerent; border-bottom: 1px solid rgb(204, 204, 204); " class="col-lg-12 p_none ">
+			<div class="col-lg-12 p_none selected_vouchers">
 			  Vouchers
-			  <span style="float: right; margin-right: 16px; color: gray; font-size: 28px; font-family: &quot;GoodDog&quot;; line-height: 23px;">500</span>
+			  <span class="selected_vouchers_amount">500</span>
 			</div>
 			
-			<div style="text-align: left; padding: 7px 7px 7px 25px; font-size: 19px; color: rgb(230, 57, 59); font-family: belligerent; " class="col-lg-12 p_none "><button style="font-family: &quot;GoodDog&quot;; font-size: 25px; line-height: 26px; float: right; margin-right: -5px; padding-right: 10px; padding-left: 11px;">Proceed</button>
+			<div class="col-lg-12 p_none vouchers_buy_btn">
+				<button class="vouchers_buy_btn_style">
+					Proceed
+				</button>
 			</div>
 	
 		<!--

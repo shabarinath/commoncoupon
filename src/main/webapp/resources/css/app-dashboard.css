@@ -673,4 +673,61 @@ transition-delay:.2s;
 	background-position: center center;
 	background-repeat: no-repeat;
 }
+.voucher_account_summary{
+	text-align: left; 
+	padding: 7px 7px 7px 25px; 
+	font-size: 23px; 
+	color: rgb(205, 22, 50); 
+	font-family: belligerent; 
+	border-bottom: 1px solid rgb(204, 204, 204); 
+	font-weight: bold;
+}
+.voucher_balance{
+	text-align: left; 
+	padding: 7px 7px 7px 25px; 
+	font-size: 19px; 
+	color: rgb(230, 57, 59); 
+	font-family: belligerent; 
+	border-bottom: 1px solid rgb(204, 204, 204); 
+}
+.voucher_balance_amount{
+	float: right; 
+	margin-right: 16px; 
+	color: gray; 
+	font-size: 28px; 
+	font-family: 'GoodDog', cursive;
+	line-height: 23px;
+}
+.selected_vouchers{
+	text-align: left; 
+	padding: 7px 7px 7px 25px; 
+	font-size: 19px; 
+	color: rgb(230, 57, 59); 
+	font-family: belligerent; 
+	border-bottom: 1px solid rgb(204, 204, 204); 
+}
+.selected_vouchers_amount{
+	float: right; 
+	margin-right: 16px; 
+	color: gray; 
+	font-size: 28px; 
+	font-family: 'GoodDog', cursive;
+	line-height: 23px;
+}
+.vouchers_buy_btn{
+	text-align: left; 
+	padding: 7px 7px 7px 25px; 
+	font-size: 19px; 
+	color: rgb(230, 57, 59); 
+	font-family: belligerent;
+}
+.vouchers_buy_btn_style{
+	font-family: 'GoodDog', cursive;
+	font-size: 25px; 
+	line-height: 26px; 
+	float: right; 
+	margin-right: -5px; 
+	padding-right: 10px; 
+	padding-left: 11px;
+}
 /** GET VOUCHER page css ends	*/
