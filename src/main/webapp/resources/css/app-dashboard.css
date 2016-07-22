@@ -726,8 +726,13 @@ transition-delay:.2s;
 	font-size: 25px; 
 	line-height: 26px; 
 	float: right; 
-	margin-right: -5px; 
-	padding-right: 10px; 
+	margin-right: 9px; 
+	//padding-right: 10px; 
 	padding-left: 11px;
+}
+.voucher_unpick{
+	font-size: 20px;
+    margin-top: 5px;
+    color: rgba(205, 22, 49, 0.82);
 }
 /** GET VOUCHER page css ends	*/

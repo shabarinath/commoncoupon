@@ -18,7 +18,7 @@ private static final Logger log = LoggerFactory.getLogger(MockupController.class
 	@RequestMapping(value = "/mockup/voucherpage", method = RequestMethod.GET)
 	public String showVoucherPageMockup(Model model) throws Exception{
 		try {
-			return "mockup/voucher";
+			return "mockup/mockvoucher";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
 			throw e;
