@@ -2,8 +2,11 @@
 <%@ include file="../includes/taglibs.jsp"%>
 
 <div class="get_voucher_panel">
-	<div class="text_center p_none container">
-	
+	<div class="text_center p_none container">		
+		<-- Sample iteration -->
+		<c:forEach var="couponsList" items="${couponsListWrapper.couponsList}">
+		   <li>${couponsList.name}</li>
+		</c:forEach>
 		<div class="col-lg-9 p_none text_center">
 			<div class="col-lg-12 p_none had_our_ecard">
 				<div style="font-size: 19px; letter-spacing: 4px;">				
@@ -309,7 +312,7 @@
 	
 			<div class="col-lg-12 p_none voucher_balance">
 			  Wallet
-			  <span class="voucher_balance_amount">2000</span>
+			  <span class="voucher_balance_amount">${walletAmount}</span>
 			  <input class="hidden" id="wallet_amount" value="2000"/>
 			</div>
 

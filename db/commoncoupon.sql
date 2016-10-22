@@ -197,6 +197,7 @@ CREATE TABLE `coupons_catalogue` (
   `id` bigint(100) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL DEFAULT 0,
   `name` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `image_b_url` text,
   `image_m_url` text,
   `image_s_url` text,

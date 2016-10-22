@@ -10,7 +10,7 @@ import java.util.List;
 
 /*
  * This wrapper is used to maintain all supported
- * coupons as list and send as modal attribute to 
+ * thirdparty coupons as list and send as modal attribute to 
  * frontend
  */
 public class CouponsCatalogueWrapper {
