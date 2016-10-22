@@ -17,7 +17,7 @@ public class CouponsCatalogue extends Persistent {
 	
 	@Column(name="name")
 	private String name;
-	@Column(name="name")
+	@Column(name="description")
 	private String description;
 	@Column(name="image_b_url")
 	private String imageUrlBig;

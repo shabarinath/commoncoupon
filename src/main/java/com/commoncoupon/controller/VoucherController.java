@@ -62,17 +62,21 @@ public class VoucherController {
 		try {
 			int checkedOutAmount = 0;
 			for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
+				if(coupon.getAmount() <=0) {
+					model.addAttribute("Error", "Checkedout coupon amount should be > 0");
+					return "voucher/voucher";
+				}
 				checkedOutAmount += coupon.getAmount();
 			}
 			User currentLoggedInUser =  userDetailsService.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
 			if(currentLoggedInUser == null) {
 				model.addAttribute("Error", "Session Expired plz login again !!");
-				return "voucher/index"; 
+				return "voucher/voucher"; 
 			}
 			long walletAmount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
 			if(checkedOutAmount > walletAmount) {
 				model.addAttribute("Error", "Cannot checkout more than wallet amount");
-				return "voucher/index";
+				return "voucher/voucher";
 			}
 			
 			for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
