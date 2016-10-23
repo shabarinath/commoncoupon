@@ -1,5 +1,5 @@
 -- MySQL dump 10.13  Distrib 5.6.26, for Win64 (x86_64)
---
+-- 
 -- Host: localhost    Database: commoncoupon
 -- ------------------------------------------------------
 -- Server version	5.6.26-log
