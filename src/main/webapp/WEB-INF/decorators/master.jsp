@@ -91,7 +91,7 @@
 					<li class="dropdown pull-right bg_and_border_none" id="userProfileId">
 					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
-						<li><a>Redeem</a></li>
+						<li><a href="<c:url value="/dashboard"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>
 						<li class="divider"></li>
@@ -125,7 +125,7 @@
 					 <li class="dropdown pull-right bg_and_border_none" id="userProfileId">
 					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
-						<li><a>Redeem</a></li>
+						<li><a href="<c:url value="/dashboard"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>
 						<li class="divider"></li>
