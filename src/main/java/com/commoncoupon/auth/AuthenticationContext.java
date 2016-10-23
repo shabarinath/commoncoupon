@@ -12,8 +12,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.commoncoupon.controller.ChangePasswordController;
-
 /**
  * 
  * @author Shabarinath.Volam
@@ -22,7 +20,7 @@ import com.commoncoupon.controller.ChangePasswordController;
 
 public final class AuthenticationContext {
 	
-	private static final Logger logger = LoggerFactory.getLogger(ChangePasswordController.class);
+	private static final Logger logger = LoggerFactory.getLogger(AuthenticationContext.class);
 	
 	private AuthenticationContext() {	}
 

@@ -33,9 +33,9 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>	
   	
-	<bean id="adminDao" class="com.commoncoupon.dao.AdminDaoImpl">
+	<!-- <bean id="adminDao" class="com.commoncoupon.dao.AdminDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
+	</bean> -->
 	
 	<bean id="defaultDao" class="com.commoncoupon.dao.DefaultDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"/>
@@ -55,7 +55,7 @@
 		<property name="assembler" ref="assembler"/>
 	</bean>	
 	
-	<bean id="adminService"	class="com.commoncoupon.service.AdminServiceImpl">
+	<!-- <bean id="adminService"	class="com.commoncoupon.service.AdminServiceImpl">
 		<property name="adminDao">
 			<ref bean="adminDao" />
 		</property>
@@ -63,7 +63,7 @@
 		<property name="defaultDao">
 			<ref bean="defaultDao" />
 		</property>
-	</bean>
+	</bean> -->
 	
 	<bean id="CouponService" class="com.commoncoupon.service.CouponServiceImpl" autowire="byType">
 		<property name="CouponDao" ref="CouponDao"/>
