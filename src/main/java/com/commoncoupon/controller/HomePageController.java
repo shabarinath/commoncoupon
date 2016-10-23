@@ -206,7 +206,6 @@ public class HomePageController {
 	private Map<String, Object> referenceData() throws Exception {
 	  Map<String, Object> model = new HashMap<String, Object>();
 	  try {
-		  /*List<CustomStyle> cs = defaultDao.getCustomStyles();*/
 		  model.put("customStyles", "");
 	  } catch (Exception e) {
 	   logger.error("Exception at retrieving Fee or Credit reasons: " + e);
