@@ -6,26 +6,29 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
- * @author SHABARINATH
- * 30-Apr-2016 10:55:53 am 2016 
+ * @author SHABARINATH 30-Apr-2016 10:55:53 am 2016
  */
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="coupons_catalogue")
+@Table(name = "coupons_catalogue")
 public class CouponsCatalogue extends Persistent {
-	
-	@Column(name="name")
+
+	@Column(name = "name")
 	private String name;
-	@Column(name="description")
+
+	@Column(name = "description")
 	private String description;
-	@Column(name="image_b_url")
-	private String imageUrlBig;
-	@Column(name="image_m_url")
-	private String imageUrlMedium;
-	@Column(name="image_s_url")
-	private String imageUrlSmall;
 	
+	@Column(name = "image_b_url")
+	private String imageUrlBig;
+	
+	@Column(name = "image_m_url")
+	private String imageUrlMedium;
+	
+	@Column(name = "image_s_url")
+	private String imageUrlSmall;
+
 	@Transient
 	private long amount;
 
@@ -77,4 +80,3 @@ public class CouponsCatalogue extends Persistent {
 		this.description = description;
 	}
 }
-

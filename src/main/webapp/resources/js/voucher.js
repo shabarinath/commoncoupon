@@ -6,15 +6,12 @@ function flip(cardName){
 	if(selectBoxValue == '' || selectBoxValue <= 0){
 		alert('Please select amount');
 	}
-	if(cardName == 'FLIPKART' || cardName == 'AMAZON' || cardName == 'EBAY' 
-	   	|| cardName == 'MYNTHRA' || cardName == 'SNAPDEAL' || cardName == 'FOODPANDA'){
-		$('#pick_' + cardName).hide();
-		$('#picked_' + cardName).show();
-		$('#selectedamount_' + cardName).html(selectBoxValue);
-		$('#overlay_' + cardName).attr('style','opacity:1');
-		vouchermap[cardName] = selectBoxValue;
-		displayCumulativeAmount();
-	}
+	$('#pick_' + cardName).hide();
+	$('#picked_' + cardName).show();
+	$('#selectedamount_' + cardName).html(selectBoxValue);
+	$('#overlay_' + cardName).attr('style','opacity:1');
+	vouchermap[cardName] = selectBoxValue;
+	displayCumulativeAmount();
 }
 
 function displayCumulativeAmount() {
@@ -26,15 +23,12 @@ function displayCumulativeAmount() {
 }
 
 function unFlip(cardName){
-	if(cardName == 'FLIPKART' || cardName == 'AMAZON' || cardName == 'EBAY' 
-	   	|| cardName == 'MYNTHRA' || cardName == 'SNAPDEAL' || cardName == 'FOODPANDA'){
 		$('#picked_' + cardName).hide();
 		$('#pick_' + cardName).show();
 		$('#selectedamount_' + cardName).html('');
 		$('#overlay_' + cardName).removeAttr('style');
 		delete vouchermap[cardName];
 		displayCumulativeAmount();
-	}
 }
 
 function expandRedeemForm(){

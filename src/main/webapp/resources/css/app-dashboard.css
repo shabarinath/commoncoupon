@@ -483,6 +483,7 @@
 }
 .coupon_wrapper_single {
 	padding-bottom: 1px;
+	border: 1px solid rgb(204, 204, 204); 
 }
 .coupon_box {
 	border: 1px solid rgb(204, 204, 204); 
@@ -586,7 +587,8 @@ transition-delay:.2s;
    -moz-box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
    box-shadow: rgba(000,000,000,0.3) 0 1px 1px;
    font-family: 'Helvetica Neue',Helvetica, sans-serif;
-   }
+   text-transform: lowercase;
+}
 .ribbon h1 {
 	font-size: 20px !important;
 	text-shadow: #d65c5c 0 1px 0;
