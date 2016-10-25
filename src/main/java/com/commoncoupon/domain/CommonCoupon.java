@@ -15,50 +15,52 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * @author SHABARINATH
- * 21-Nov-2015 10:02:15 am 2015 
+ * @author SHABARINATH 21-Nov-2015 10:02:15 am 2015
  */
 
 @SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue(value = "commoncoupon")
 public class CommonCoupon extends Coupon {
-	@Column(name="is_redeemed", columnDefinition="false", nullable=false)
+
+	@Column(name = "is_redeemed", columnDefinition = "false", nullable = false)
 	private boolean isRedeemed;
-	
+
 	/**
 	 * Status of payment for coupon
 	 * <p>
-	 *   <b>Note:</b> By default we set payment status for coupon as NOT_INITIATED and after payment is done we update 
-	 *   the transaction status as FAILED or SUCCESS after transaction is done
+	 * <b>Note:</b> By default we set payment status for coupon as NOT_INITIATED
+	 * and after payment is done we update the transaction status as FAILED or
+	 * SUCCESS after transaction is done
 	 * </p>
 	 */
 	@Enumerated(EnumType.STRING)
-	@Column(name="payment_status", nullable=false)
+	@Column(name = "payment_status", nullable = false)
 	private PaymentStatus paymentStatus;
-	
+
 	/**
-	 * Once we create payment request link using instamojo set paymentrequestId from response here
+	 * Once we create payment request link using instamojo set paymentrequestId
+	 * from response here
 	 */
-	@Column(name="payment_request_id", columnDefinition="false", nullable=false)
+	@Column(name = "payment_request_id", columnDefinition = "false", nullable = false)
 	private String paymentRequestId;
-	
+
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name="redeemed_by")
+	@JoinColumn(name = "redeemed_by")
 	private User redeemedBy;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="redeemed_at")
+	@Column(name = "redeemed_at")
 	private Date redeemedAt;
-	
-	@Column(name="coupon_id", nullable=false)
-	private String couponId;  //Generate rand string as alphanumeric
-	@Column(name="password", nullable=false)
+
+	@Column(name = "coupon_id", nullable = false)
+	private String couponId; // Generate rand string as alphanumeric
+	@Column(name = "password", nullable = false)
 	private String password;
-	
-	@Column(name="expiry_date", nullable=false)
+
+	@Column(name = "expiry_date", nullable = false)
 	private Date expiryDate;
-	
+
 	public String getPaymentRequestId() {
 		return paymentRequestId;
 	}
@@ -98,22 +100,27 @@ public class CommonCoupon extends Coupon {
 	public void setRedeemedAt(Date redeemedAt) {
 		this.redeemedAt = redeemedAt;
 	}
-	
+
 	public String getCouponId() {
 		return couponId;
 	}
+
 	public void setCouponId(String couponId) {
 		this.couponId = couponId;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public Date getExpiryDate() {
 		return expiryDate;
 	}
+
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}

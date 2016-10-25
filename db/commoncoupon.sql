@@ -157,7 +157,6 @@ CREATE TABLE `coupon` (
   `payment_status` varchar(255) DEFAULT NULL,
   `payment_request_id` varchar(255) DEFAULT NULL,
   `is_redeemed` tinyint(1) DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `expiry_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `redeemed_by` bigint(20) DEFAULT NULL,
