@@ -6,6 +6,8 @@ import com.commoncoupon.dao.CouponDao;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.CouponsCatalogue;
+import com.commoncoupon.domain.OtherCoupon;
+import com.commoncoupon.domain.Transaction;
 
 
 /**
@@ -56,6 +58,18 @@ public class CouponServiceImpl implements CouponService {
 	@Override
 	public List<CouponsCatalogue> getSupportedCouponsList() throws Exception {
 		return couponDao.getSupportedCouponsList();
+	}
+
+	@Override
+	public List<OtherCoupon> getOtherCouponsPurchasedByUserId(long userId)
+			throws Exception {
+		return couponDao.getOtherCouponsPurchasedByUserId(userId);
+	}
+
+	@Override
+	public List<Transaction> getTransactionsDoneByUser(long userId)
+			throws Exception {
+		return couponDao.getTransactionsDoneByUser(userId);
 	}
 	
 }

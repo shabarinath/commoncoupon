@@ -174,8 +174,6 @@ CREATE TABLE `transaction` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL DEFAULT 0,
   `amount` bigint(20),
-  buyer_email varchar(255),
-  buyer_name varchar(255),
   buyer_phone varchar(255),
   currency varchar(255),
   fees varchar(255),
@@ -185,6 +183,8 @@ CREATE TABLE `transaction` (
   payment_request_id varchar(255) NOT NULL,
   is_success varchar(50),
   `created_time`  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  buyer_id bigint(20),
+  coupon_id varchar(255),
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_paymentId` (`payment_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;

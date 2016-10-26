@@ -8,3 +8,8 @@ update coupons_catalogue set image_s_url='http://localhost:5353/resources/img/fl
 update coupons_catalogue set image_b_url='http://localhost:5353/resources/img/amazon.png' where name='AMAZON';
 update coupons_catalogue set image_m_url='http://localhost:5353/resources/img/amazon.png' where name='AMAZON';
 update coupons_catalogue set image_s_url='http://localhost:5353/resources/img/amazon.png' where name='AMAZON';
+
+alter table transaction drop column buyer_email;
+alter table transaction drop column buyer_name;
+alter table transaction add column buyer_id bigint(20);
+alter table transaction add column coupon_id varchar(255);

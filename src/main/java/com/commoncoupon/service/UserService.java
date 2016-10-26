@@ -27,5 +27,7 @@ public interface UserService extends UserDetailsService {
 
 	void registerUser(User user) throws Exception;
 
+	User getCurrentLoggedInUser() throws Exception;
+
 }
 

@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.commoncoupon.auth.AuthenticationContext;
 import com.commoncoupon.controller.PasswordEncoder;
 import com.commoncoupon.dao.UserDao;
 import com.commoncoupon.domain.Recipient;
@@ -112,5 +113,11 @@ public class UserDetailsServiceImpl implements UserService {
 		userRoles.add(userRole);
 		user.setUserRoles(userRoles);
 		userDao.saveUser(user);
+	}
+
+	@Override
+	public User getCurrentLoggedInUser() throws Exception {
+		User loggedInUser = userDao.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
+		return loggedInUser;
 	}
 }

@@ -2,8 +2,12 @@ package com.commoncoupon.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,10 +33,10 @@ public class Transaction extends Persistent {
 	
 	@Column(name="amount")
 	private String amount;
-	@Column(name="buyer_email")
+	/*@Column(name="buyer_email")
 	private String buyerEmail;
 	@Column(name="buyer_name")
-	private String buyerName;
+	private String buyerName;*/
 	@Column(name="buyer_phone")
 	private String buyerPhone;
 	@Column(name="currency")
@@ -61,6 +65,14 @@ public class Transaction extends Persistent {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="created_time")
 	private Date createdTime;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "buyer_id")
+	private User buyer;
+	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "coupon_id")
+	private CommonCoupon coupon;
 
 	public String getAmount() {
 		return amount;
@@ -70,13 +82,13 @@ public class Transaction extends Persistent {
 		this.amount = amount;
 	}
 
-	public String getBuyerName() {
+	/*public String getBuyerName() {
 		return buyerName;
 	}
 
 	public void setBuyerName(String buyerName) {
 		this.buyerName = buyerName;
-	}
+	}*/
 
 	public String getBuyerPhone() {
 		return buyerPhone;
@@ -110,13 +122,13 @@ public class Transaction extends Persistent {
 		this.status = status;
 	}
 
-	public String getBuyerEmail() {
+/*	public String getBuyerEmail() {
 		return buyerEmail;
 	}
 
 	public void setBuyerEmail(String buyerEmail) {
 		this.buyerEmail = buyerEmail;
-	}
+	}*/
 
 	public String getPaymentId() {
 		return paymentId;
@@ -156,5 +168,21 @@ public class Transaction extends Persistent {
 
 	public void setSuccess(boolean success) {
 		this.success = success;
+	}
+
+	public User getBuyer() {
+		return buyer;
+	}
+
+	public CommonCoupon getCoupon() {
+		return coupon;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
+	public void setCoupon(CommonCoupon coupon) {
+		this.coupon = coupon;
 	}
 }

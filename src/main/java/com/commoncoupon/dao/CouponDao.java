@@ -5,6 +5,8 @@ import java.util.List;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.CouponsCatalogue;
+import com.commoncoupon.domain.OtherCoupon;
+import com.commoncoupon.domain.Transaction;
 
 /**
  * @author SHABARINATH
@@ -22,6 +24,10 @@ public interface CouponDao {
 	public CommonCoupon getUnRedeemedCoupon(String couponId, String password)  throws Exception;
 
 	public List<CouponsCatalogue> getSupportedCouponsList() throws Exception;
+
+	public List<OtherCoupon> getOtherCouponsPurchasedByUserId(long userId)  throws Exception;
+
+	public List<Transaction> getTransactionsDoneByUser(long userId)  throws Exception;
 
 }
 

@@ -37,11 +37,12 @@ public class PaymentUtil {
 	}
 
 	public static Transaction getTransactionDetails(String paymentRequestId,
-			String paymentId) {
+			String paymentId, CommonCoupon coupon, User buyer) {
 		try {
 			PaymentGatewayClient pgClient = PaymentGatewayClient.getInstance();
 			PaymentSuccessResponseBean paymentCompletionResponseBean = pgClient.getPaymentDetails(paymentId);
-			Transaction transaction = Utils.setBeanPropsToTransactionDetailsToObj(paymentCompletionResponseBean, paymentRequestId);
+			Transaction transaction = Utils.setBeanPropsToTransactionDetailsToObj(paymentCompletionResponseBean, paymentRequestId
+					,coupon, buyer);
 			if(transaction == null) {
 				throw new Exception("Transaction is null");
 			}

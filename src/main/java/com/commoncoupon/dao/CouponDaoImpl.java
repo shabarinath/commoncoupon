@@ -8,7 +8,9 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.Coupon;
 import com.commoncoupon.domain.CouponsCatalogue;
+import com.commoncoupon.domain.OtherCoupon;
 import com.commoncoupon.domain.PaymentStatus;
+import com.commoncoupon.domain.Transaction;
 
 /**
  * @author SHABARINATH
@@ -60,6 +62,22 @@ public class CouponDaoImpl implements CouponDao {
 	public List<CouponsCatalogue> getSupportedCouponsList() throws Exception {
 		List<CouponsCatalogue> supportedCouponsList = hibernateTemplate.find("from CouponsCatalogue");
 		return supportedCouponsList;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<OtherCoupon> getOtherCouponsPurchasedByUserId(long userId)
+			throws Exception {
+		List<OtherCoupon> otherCoupons = hibernateTemplate.find("from OtherCoupon otherCoupon WHERE otherCoupon.sender.id = ? ", userId);
+		return otherCoupons;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Transaction> getTransactionsDoneByUser(long userId)
+			throws Exception {
+		List<Transaction> transactionsList = hibernateTemplate.find("FROM Transaction t WHERE t.buyer.id = ? ", userId);
+		return transactionsList;
 	}
 }
 

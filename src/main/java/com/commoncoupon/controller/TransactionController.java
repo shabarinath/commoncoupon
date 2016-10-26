@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentStatus;
 import com.commoncoupon.domain.Transaction;
+import com.commoncoupon.domain.User;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.PaymentService;
+import com.commoncoupon.service.UserService;
 import com.commoncoupon.utils.PaymentUtil;
 import com.commoncoupon.utils.Utils;
 
@@ -36,6 +38,9 @@ public class TransactionController {
 	@Autowired
 	private PaymentService paymentService;
 	
+	@Autowired
+	private UserService userDetailsService;
+	
 	/**
 	 * After successfull payment user will be redirected to this method
 	 * and here transaction details will be saved
@@ -54,8 +59,16 @@ public class TransactionController {
 			couponFromDb.setPaymentStatus(PaymentStatus.SUCCESS);
 			couponService.saveOrUpdateCommonCoupon(couponFromDb);
 			
+			//Getting logged in user details and setting to transaction
+			User buyer = userDetailsService.getCurrentLoggedInUser();
+			
+			if(buyer == null) {
+				return "error/error";
+			}
+			
 			//Invoking payment details api from Instamojo and saving details to our DB
-			Transaction transactionDetails = PaymentUtil.getTransactionDetails(payment_request_id, payment_id);
+			Transaction transactionDetails = PaymentUtil.getTransactionDetails(payment_request_id, payment_id,couponFromDb
+					,buyer);
 			if(transactionDetails == null) {
 				return "error/error";
 			} 

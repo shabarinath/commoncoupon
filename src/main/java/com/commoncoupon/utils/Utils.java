@@ -22,8 +22,10 @@ import com.commoncoupon.bean.PaymentRequestBean;
 import com.commoncoupon.bean.PaymentRequestResponseBean;
 import com.commoncoupon.bean.PaymentSuccessBean;
 import com.commoncoupon.bean.PaymentSuccessResponseBean;
+import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.Transaction;
+import com.commoncoupon.domain.User;
 import com.commoncoupon.mail.MailServiceLocator;
 import com.commoncoupon.mail.TemplateProcessor;
 
@@ -186,14 +188,16 @@ public class Utils {
 	}
 
 	public static Transaction setBeanPropsToTransactionDetailsToObj(
-			PaymentSuccessResponseBean paymentCompletionResponseBean, String paymentRequestId) {
+			PaymentSuccessResponseBean paymentCompletionResponseBean, String paymentRequestId, CommonCoupon coupon, User buyer) {
 		try {
 			if(paymentCompletionResponseBean != null) {
 				Transaction transactionObj = new Transaction();
 				PaymentSuccessBean  paymentSuccessBean = paymentCompletionResponseBean.getPaymentSuccessBean();
 				transactionObj.setAmount(paymentSuccessBean.getAmount());
-				transactionObj.setBuyerEmail(paymentSuccessBean.getBuyerEmail());
-				transactionObj.setBuyerName(paymentSuccessBean.getBuyerName());
+				transactionObj.setBuyer(buyer);
+				transactionObj.setCoupon(coupon);
+				/*transactionObj.setBuyerEmail(paymentSuccessBean.getBuyerEmail());
+				transactionObj.setBuyerName(paymentSuccessBean.getBuyerName());*/
 				transactionObj.setBuyerPhone(paymentSuccessBean.getBuyerPhone());
 				transactionObj.setTransactionCreateTime(paymentSuccessBean.getCreatedAt());
 				transactionObj.setCurrency(paymentSuccessBean.getCurrency());
