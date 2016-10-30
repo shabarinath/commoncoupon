@@ -27,7 +27,7 @@ import com.commoncoupon.service.UserService;
 @Controller
 public class ProfileAndHistoryController {
 	
-private static final Logger log = LoggerFactory.getLogger(VoucherController.class);
+private static final Logger log = LoggerFactory.getLogger(ProfileAndHistoryController.class);
 	
 	@Autowired
 	private CouponService couponService;
@@ -44,7 +44,7 @@ private static final Logger log = LoggerFactory.getLogger(VoucherController.clas
 				return "error/error";
 			}
 			model.addAttribute("user", currentLoggedinUser);
-			return "";
+			return "profile/profile";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
 			throw e;
@@ -68,10 +68,10 @@ private static final Logger log = LoggerFactory.getLogger(VoucherController.clas
 			long userId = currentLoggedinUser.getId();
 			if(type.equalsIgnoreCase("otherCouponsPurchaseHistory")) {
 				List<OtherCoupon> otherCouponsBought = couponService.getOtherCouponsPurchasedByUserId(userId);
-				model.addAttribute("otherCouponsBought", otherCouponsBought);
+				model.addAttribute("transactions", otherCouponsBought);
 			} else if (type.equalsIgnoreCase("commonCouponsPurchaseHistory")) {
 				List<Transaction> commonCouponsPurchased = couponService.getTransactionsDoneByUser(userId);
-				model.addAttribute("commonCouponsPurchased", commonCouponsPurchased);
+				model.addAttribute("transactions", commonCouponsPurchased);
 			} 
 			//Later if required we can add below
 			/*else if(type.equalsIgnoreCase("commonCouponsSentHistory")) {
@@ -79,7 +79,7 @@ private static final Logger log = LoggerFactory.getLogger(VoucherController.clas
 			} else if(type.equalsIgnoreCase("commonCouponsReceivedHistory")) {
 				
 			}*/
-			return "";
+			return "profile/transactions";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
 			throw e;

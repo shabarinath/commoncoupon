@@ -64,6 +64,9 @@ public class User extends Persistent{
 	@Transient
 	private transient String confirmPassword;
 	
+	@Transient
+	private transient String fullName;
+	
 	/**
 	 * Amount present in user wallet
 	 *
@@ -218,5 +221,18 @@ public class User extends Persistent{
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	
+
+	public String getFullName() {
+		String fullName ="";
+		String fistName = this.firstName;
+		String lastName = this.lastName;
+		if(fistName != null && !fistName.isEmpty()) {
+			fistName = fistName.substring(0, 1).toUpperCase() + fistName.substring(1);
+		}
+		if(lastName != null && !lastName.isEmpty()) {
+			lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+		}
+		fullName = fistName.concat(" ").concat(lastName);
+		return fullName;
+	}
 }
