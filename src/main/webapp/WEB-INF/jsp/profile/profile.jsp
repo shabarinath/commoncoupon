@@ -37,14 +37,11 @@
 			<div style="border:2px soolid red;">
 				<div class="panel-heading">
 				<ul class="nav nav-tabs">
-					<li class="active">
-						<a data-toggle="tab" href="#transactionsList" onClick="loadTrnasactions('allTransactions')"><h4>All Transactions</h4></a>
-					</li>
-					<li>
+					<li  class="active">
 						<a data-toggle="tab" href="#transactionsList" id="commonCouponsPurchased" onClick="loadTrnasactions('commonCouponsPurchaseHistory')"><h4>Common Coupons Purchased</h4></a>
 					</li>	
 					<li>
-						<a data-toggle="tab" href="#transactionsList" id="otherCouponsPurchased" onClick="loadTrnasactions('otherCouponsBought')"><h4>Other Coupons Purchased</h4></a>
+						<a data-toggle="tab" href="#transactionsList" id="otherCouponsPurchased" onClick="loadTrnasactions('otherCouponsPurchaseHistory')"><h4>Other Coupons Purchased</h4></a>
 					</li>					
 				</ul>
 			</div>
@@ -207,11 +204,12 @@
 </div>
 <script type="text/javascript">
 
-		function loadTrnasactions(type) {
-			get("/transactionHistory?type="+type+"&ajax=true",'transactionsList');
-		}
+	function loadTrnasactions(type) {
+		get("/transactionHistory?type="+type+"&ajax=true",'transactionsList');
+	}
 		
-		$(document).ready(function() {
+	$(document).ready(function() {
+		
 		var $btnSets = $('#responsive'),
 		$btnLinks = $btnSets.find('a');
 	 
@@ -223,9 +221,7 @@
 			$("div.user-menu>div.user-menu-content").removeClass("active");
 			$("div.user-menu>div.user-menu-content").eq(index).addClass("active");
 		});
-	});
-
-	$( document ).ready(function() {
+		
 		$('#custom-after-scroll-bootstrap-menu').show();
 		$('#menu_before_scroll').hide();
 		$("[rel='tooltip']").tooltip();    
@@ -238,5 +234,7 @@
 				$(this).find('.caption').slideUp(250); //.fadeOut(205)
 			}
 		); 
+		
+		get("/transactionHistory?type=commonCouponsPurchaseHistory&ajax=true",'transactionsList');
 	});
 </script>
