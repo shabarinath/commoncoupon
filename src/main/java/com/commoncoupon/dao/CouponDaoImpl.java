@@ -68,7 +68,7 @@ public class CouponDaoImpl implements CouponDao {
 	@SuppressWarnings("unchecked")
 	public List<OtherCoupon> getOtherCouponsPurchasedByUserId(long userId)
 			throws Exception {
-		List<OtherCoupon> otherCoupons = hibernateTemplate.find("from OtherCoupon otherCoupon WHERE otherCoupon.sender.id = ? ", userId);
+		List<OtherCoupon> otherCoupons = hibernateTemplate.find("FROM OtherCoupon oc WHERE oc.sender.id = ? ORDER BY oc.createdOn DESC", userId);
 		return otherCoupons;
 	}
 
@@ -76,7 +76,7 @@ public class CouponDaoImpl implements CouponDao {
 	@Override
 	public List<Transaction> getTransactionsDoneByUser(long userId)
 			throws Exception {
-		List<Transaction> transactionsList = hibernateTemplate.find("FROM Transaction t WHERE t.buyer.id = ? ", userId);
+		List<Transaction> transactionsList = hibernateTemplate.find("FROM Transaction t WHERE t.buyer.id = ? ORDER BY t.createdTime DESC", userId);
 		return transactionsList;
 	}
 }

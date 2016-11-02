@@ -14,8 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.commoncoupon.auth.AuthenticationContext;
 import com.commoncoupon.controller.PasswordEncoder;
 import com.commoncoupon.dao.UserDao;
-import com.commoncoupon.domain.Recipient;
-import com.commoncoupon.domain.Sender;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.domain.UserRole;
 
@@ -70,7 +68,7 @@ public class UserDetailsServiceImpl implements UserService {
 		this.assembler = assembler;
 	}
 
-	@Override
+	/*@Override
 	public void saveSender(Sender sender) throws Exception {
 		userDao.saveSender(sender);
 	}
@@ -78,7 +76,7 @@ public class UserDetailsServiceImpl implements UserService {
 	@Override
 	public void saveRecipient(Recipient recipient) throws Exception {
 		userDao.saveRecipient(recipient);
-	}
+	}*/
 
 	@Override
 	public Object get(@SuppressWarnings("rawtypes") Class clazz, long id) throws Exception {

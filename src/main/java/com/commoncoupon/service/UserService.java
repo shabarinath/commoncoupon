@@ -2,8 +2,6 @@ package com.commoncoupon.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.commoncoupon.domain.Recipient;
-import com.commoncoupon.domain.Sender;
 import com.commoncoupon.domain.User;
 
 /**
@@ -13,9 +11,9 @@ import com.commoncoupon.domain.User;
 
 public interface UserService extends UserDetailsService {
 
-	void saveSender(Sender sender) throws Exception;
+/*	void saveSender(Sender sender) throws Exception;
 
-	void saveRecipient(Recipient recipient) throws Exception;
+	void saveRecipient(Recipient recipient) throws Exception;*/
 
 	Object get(@SuppressWarnings("rawtypes") Class clazz, long id) throws Exception;
 

@@ -10,7 +10,7 @@
 						<h3>Welcome, ${user.fullName}</h3>
 						<h4 class="white"><i class="fa fa-mobile login-field-icon"></i> ${user.mobileNumber}</h4>
 						<h4 class="white"><i class="fa fa-envelope login-field-icon"></i> ${user.email}</h4>
-						<button type="button" class="btn btn-labeled btn-info" href="#">
+						<button type="button" onClick="loadProfileForm()" class="btn btn-labeled btn-info" href="#">
 						<span class="btn-label"><i class="fa fa-pencil"></i></span>Update</button>
 					</div>
 				</div>
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 		<div class="col-md-4 user-menu user-pad ">
-			<div class="user-menu-content active">
+			<div id="profileContentDiv" class="user-menu-content active">
 				<h3>
 					Recent Interactions
 				</h3>
@@ -122,7 +122,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="user-menu-content">
+			 <!-- <div class="user-menu-content">
 				<h3>
 					Your Inbox
 				</h3>
@@ -198,7 +198,7 @@
 							<span class="btn-label"><i class="fa fa-bell-o"></i></span>A WORK IN PROGRESS
 					</button></center>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
@@ -207,7 +207,11 @@
 	function loadTrnasactions(type) {
 		get("/transactionHistory?type="+type+"&ajax=true",'transactionsList');
 	}
-		
+	
+	function loadProfileForm() {
+		get("/loadProfileForm",'profileContentDiv');
+	}
+	
 	$(document).ready(function() {
 		
 		var $btnSets = $('#responsive'),

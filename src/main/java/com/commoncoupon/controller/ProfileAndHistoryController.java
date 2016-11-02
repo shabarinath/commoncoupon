@@ -7,9 +7,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.commoncoupon.auth.AuthenticationContext;
 import com.commoncoupon.constants.Constants;
@@ -18,6 +21,7 @@ import com.commoncoupon.domain.Transaction;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.UserService;
+import com.commoncoupon.utils.Utils;
 
 /**
  * @author SHABARINATH
@@ -25,6 +29,7 @@ import com.commoncoupon.service.UserService;
  */
 
 @Controller
+@SessionAttributes("user")
 public class ProfileAndHistoryController {
 	
 private static final Logger log = LoggerFactory.getLogger(ProfileAndHistoryController.class);
@@ -34,6 +39,47 @@ private static final Logger log = LoggerFactory.getLogger(ProfileAndHistoryContr
 	
 	@Autowired
 	private UserService userDetailsService;
+	
+	@RequestMapping(value = "/saveProfile", method = RequestMethod.POST)
+	public String saveProfile(@ModelAttribute User user, BindingResult result, Model model) throws Exception {
+		try {
+			if (validateFormData(user, result)) {
+				return "profile/userProfileForm";
+			}
+			User currentLoggedinUser = userDetailsService.getCurrentLoggedInUser();
+			currentLoggedinUser.setFirstName(user.getFirstName());
+			currentLoggedinUser.setLastName(user.getLastName());
+			PasswordEncoder passEn = new PasswordEncoder();
+			currentLoggedinUser.setPassword(passEn.encodePassword(user.getPassword(), null));
+			userDetailsService.saveUser(currentLoggedinUser);
+		}catch(Exception e) {
+			log.error("Exception occured while saving profile reason: ", e);
+		}
+		model.addAttribute("msg", "Account Details Update Successfully !!");
+		return "home/success";
+	}
+	
+	private boolean validateFormData(User user, BindingResult result) throws Exception {
+		if (Utils.isEmpty(user.getFirstName())) {
+			result.rejectValue("firstName","","First Name is mandatory");
+		}
+		if (Utils.isEmpty(user.getLastName())) {
+			result.rejectValue("lastName","","Last Name is mandatory");
+		} 
+		if(!Utils.isEmpty(user.getCurrentPassword()) && Utils.isEmpty(user.getPassword())) {
+			result.rejectValue("password", "", "Please Enter Password");
+		}
+		if(Utils.isEmpty(user.getCurrentPassword()) && !Utils.isEmpty(user.getPassword())) {
+			result.rejectValue("currentPassword", "", "Please Enter Password");
+		} else if(!Utils.isEmpty(user.getCurrentPassword()) && !Utils.isEmpty(user.getPassword())) {
+			PasswordEncoder passEn = new PasswordEncoder();
+			User currentLoggedInUser = userDetailsService.getCurrentLoggedInUser();
+			if(!passEn.isPasswordValid(currentLoggedInUser.getPassword(), user.getCurrentPassword(), null)) {
+				result.rejectValue("currentPassword", "", "Incorrect Password !!");
+			}
+		}
+		return (result.hasFieldErrors() || result.hasErrors());
+	}
 	
 	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public String getProfileDetails(Model model) throws Exception{
@@ -45,6 +91,22 @@ private static final Logger log = LoggerFactory.getLogger(ProfileAndHistoryContr
 			}
 			model.addAttribute("user", currentLoggedinUser);
 			return "profile/profile";
+		} catch(Exception e) {
+			log.error("Unable to load Get Vouchers Page.", e);
+			throw e;
+		}
+	}
+	
+	@RequestMapping(value = "/loadProfileForm", method = RequestMethod.GET)
+	public String getProfileForm(Model model) throws Exception{
+		try {
+			User currentLoggedinUser = userDetailsService.getCurrentLoggedInUser();
+			if(currentLoggedinUser == null) {
+				model.addAttribute("error", Constants.SESSION_EXPIRED);
+				return "error/error";
+			}
+			model.addAttribute("user", currentLoggedinUser);
+			return "profile/userProfileForm";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
 			throw e;

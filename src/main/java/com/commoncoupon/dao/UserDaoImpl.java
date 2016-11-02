@@ -5,8 +5,6 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.commoncoupon.domain.Recipient;
-import com.commoncoupon.domain.Sender;
 import com.commoncoupon.domain.User;
 
 
@@ -33,6 +31,7 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public User getUserByEmail(String email) {
 		String queryString = "from User user where user.email=?";
@@ -40,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 		return users != null && users.iterator().hasNext() ? users.iterator().next() : null;
 	}
 
-	@Override
+	/*@Override
 	public void saveSender(Sender sender) throws Exception {
 		hibernateTemplate.saveOrUpdate(sender);
 	}
@@ -48,7 +47,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void saveRecipient(Recipient recipient) throws Exception {
 		hibernateTemplate.saveOrUpdate(recipient);
-	}
+	}*/
 
 	@Override
 	public void saveUser(User user) throws Exception {

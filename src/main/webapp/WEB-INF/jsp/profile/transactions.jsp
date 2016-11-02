@@ -15,6 +15,7 @@
 								<th>Order No</th>
 							</c:otherwise>
 						</c:choose>
+						<th>Date</th>
 						<th>Price</th>
 						<th>Status</th>
 					</tr>
@@ -25,7 +26,8 @@
 							<c:forEach var="transaction" items="${transactions}" varStatus="loop">							
 								<tr>
 									<th scope="row">${loop.count}</th>							
-								<td>${transaction.companyName}</td>									
+									<td>${transaction.companyName}</td>						
+									<td><fmt:formatDate pattern="dd-MM-yyyy" value="${transaction.createdOn}" /></td>					
 									<td><i class="fa fa-inr"></i> ${transaction.amount} /-</td>
 									<td>
 										<span style="margin-left:4px;" class="${transaction.isDispatched() ? 'succ' : 'errortrans'}">&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -38,6 +40,7 @@
 								<tr>
 									<th scope="row">${loop.count}</th>
 									<td>${transaction.paymentId}</td>
+									<td><fmt:formatDate pattern="dd-MM-yyyy" value="${transaction.createdTime}" /></td>
 									<td><i class="fa fa-inr"></i> ${transaction.coupon.amount} /-</td>
 									<td>
 										<span style="margin-left:4px;" class="${transaction.success ? 'succ' : 'errortrans'}">&nbsp;&nbsp;&nbsp;&nbsp;</span>
