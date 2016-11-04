@@ -1,0 +1,13 @@
+TODO
+==============================
+Forgot password flow
+User profile UI changes
+Adding coupon redemption in profile
+email templates changes
+Back button in register popup
+Homepage final changes
+Coupon redeemption automation
+
+
+COMPLETED
+==============================
