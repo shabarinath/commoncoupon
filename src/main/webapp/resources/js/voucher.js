@@ -54,7 +54,6 @@ function validateAndSubmitVoucherForm(){
 		alert('Please select atleast one voucher');
 		return false;
 	}
-	alert(walletAmount +'--'+ vouchers_amount);
 	if(walletAmount < vouchers_amount){
 		alert('Your wallet doesnt have enough balance');
 		return false;
