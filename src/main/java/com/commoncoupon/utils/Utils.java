@@ -287,7 +287,7 @@ public class Utils {
 	public static void sendOTPDetailsMail(String fullName, int otp, String email) {
 		try {
 			Map<String, Object> resetPasswordData = new HashMap<String, Object>();
-			resetPasswordData.put("OTP", otp);
+			resetPasswordData.put("OTP", String.valueOf(otp));
 			resetPasswordData.put("ExpiryMinutes", Constants.OTP_EXPIRY_MINUTES);
 			resetPasswordData.put("UserName", fullName);
 			sendMail(resetPasswordData, "PasswordReset.ftl", email, otp+" - Verification code for password reset");
