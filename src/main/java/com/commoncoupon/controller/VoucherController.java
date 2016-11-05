@@ -60,22 +60,25 @@ public class VoucherController {
 	@RequestMapping(value = "/saveVoucher", method = RequestMethod.POST)
 	public String saveVoucher(@ModelAttribute("couponsListWrapper")CouponsCatalogueWrapper couponsListWrapper, Model model) throws Exception {
 		try {
-			int checkedOutAmount = 0;
-			for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
-				if(coupon.getAmount() <=0) {
-					model.addAttribute("Error", "Checkedout coupon amount should be > 0");
-					return "voucher/voucher";
-				}
-				checkedOutAmount += coupon.getAmount();
-			}
 			User currentLoggedInUser =  userDetailsService.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
 			if(currentLoggedInUser == null) {
 				model.addAttribute("Error", "Session Expired plz login again !!");
 				return "voucher/voucher"; 
 			}
+			
 			long walletAmount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
+			int checkedOutAmount = findCummulativeAmtIfVoucherSelected(couponsListWrapper);
+			
+			if(checkedOutAmount <= 0) {
+				model.addAttribute("Error", "Select atleast one coupon to proceed");
+				model.addAttribute("walletAmount", walletAmount);
+				return "voucher/voucher";
+			}
+			
 			if(checkedOutAmount > walletAmount) {
-				model.addAttribute("Error", "Cannot checkout more than wallet amount");
+				model.addAttribute("Error", "Cannot proceed as the voucher(s) amount "
+						+ "is more than your wallet amount. Please Redeem to load money into your wallet");
+				model.addAttribute("walletAmount", walletAmount);
 				return "voucher/voucher";
 			}
 			
@@ -95,8 +98,15 @@ public class VoucherController {
 		}catch(Exception e) {
 			log.error("Exception occured in purchaseCoupons reason:", e);
 		}
-		return "voucher/index"; //TODO: Need Success Page here
+		return "voucher/success";
 	}
-	
+
+	private int findCummulativeAmtIfVoucherSelected(CouponsCatalogueWrapper couponsListWrapper) {
+		int amount = 0;
+		for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
+			amount += coupon.getAmount();
+		}
+		return amount;
+	}
 	
 }
