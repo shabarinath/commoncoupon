@@ -60,7 +60,7 @@
 												</div>
 												<div class="voucher_pickup">
 													<form:select path="couponsList[${couponStatus.index}].amount" cssClass="voucher_selectbox" id="select_${couponIdentifier}">
-													  <form:option value="0">Amt</form:option>
+													  <form:option value="0">-------</form:option>
 													  <form:option value="500">500</form:option>
 													  <form:option value="1000">1000</form:option>
 													  <form:option value="1500">1500</form:option>
@@ -98,7 +98,7 @@
 			<div class="col-lg-12 p_none voucher_balance">
 			  Wallet
 			  <span class="voucher_balance_amount">${walletAmount}</span>
-			  <input class="hidden" id="wallet_amount" value="2000"/>
+			  <input class="hidden" id="wallet_amount" value="${walletAmount}"/>
 			</div>
 			<div class="col-lg-12 p_none selected_vouchers">
 			  Vouchers
@@ -112,7 +112,7 @@
 				</div>
 			</c:if>
 			<div class="col-lg-12 p_none vouchers_buy_btn">
-				<button class="vouchers_buy_btn_style" onClick="javascript:submitForm('couponsListWrapperForm','_finish','container');">
+				<button class="vouchers_buy_btn_style" onClick="javascript:validateAndSubmitVoucherForm();">
 					Proceed
 				</button>
 			</div>

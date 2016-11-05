@@ -5,6 +5,7 @@ function flip(cardName){
 	var selectBoxValue = $('#select_' + cardName).val();
 	if(selectBoxValue == '' || selectBoxValue <= 0){
 		alert('Please select amount');
+		return false;
 	}
 	$('#pick_' + cardName).hide();
 	$('#picked_' + cardName).show();
@@ -37,4 +38,26 @@ function expandRedeemForm(){
 
 function closeRedeemForm(){
 	$('#redeemForm').hide();
+}
+
+function validateAndSubmitVoucherForm(){
+	var walletAmount = parseFloat(wallet_amount);
+	if(walletAmount == '' || walletAmount == ' ' || walletAmount <= 0 ){
+		alert('No amount in your wallet, please do redeem to get some balance into your wallet');
+		return false;
+	}
+	var vouchers_amount = 0;
+	$.map( vouchermap, function( value, index ) {
+		vouchers_amount = (parseFloat(vouchers_amount) + parseFloat(value));
+	});
+	if(vouchers_amount <= 0){
+		alert('Please select atleast one voucher');
+		return false;
+	}
+	alert(walletAmount +'--'+ vouchers_amount);
+	if(walletAmount < vouchers_amount){
+		alert('Your wallet doesnt have enough balance');
+		return false;
+	}
+	submitForm('couponsListWrapperForm','_finish','container');
 }
