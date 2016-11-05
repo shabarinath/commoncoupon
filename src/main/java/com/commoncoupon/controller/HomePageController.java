@@ -62,7 +62,7 @@ public class HomePageController {
 			supportedCoupons.add("FLIPKART");
 			supportedCoupons.add("MYNTRA");
 			supportedCoupons.add("SHOPCLUES");
-			model.addAttribute("supportedCoupons", supportedCoupons);
+			model.addAttribute("commonCoupon", new CommonCoupon());
 			return "home/dashboard";
 		} catch(Exception e) {
 			logger.error("Unable to load Home page.", e);

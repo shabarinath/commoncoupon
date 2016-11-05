@@ -23,8 +23,8 @@
 			<div class="row overview">
 				<div class="col-md-4 user-pad text-center">
 					<h3>Wallet Amount</h3>
-					<h4><i class="fa fa-inr" aria-hidden="true"></i>${user.amount}</h4>
-					<span><a href="">Having coupon? Redeem Now</a></span>
+					<h4><i class="fa fa-inr" aria-hidden="true"></i><span id="walletAmount">${user.amount}</span></h4>
+					<span><a href="javascript:void(0);" onClick="loadRedeemForm();">Having coupon? Redeem Now</a></span>
 				</div>
 				<div class="col-md-4 user-pad text-center">
 					<h3>FOLLOWING</h3>
@@ -56,12 +56,12 @@
 		</div>
 		<div class="col-md-1 user-menu-btns  user-details">
 			<div class="btn-group-vertical square" id="responsive">
-				<a href="#" class="btn btn-block btn-default active">
-				  <i class="fa fa-bell-o fa-3x"></i>
-				</a>
-				<a href="#" class="btn btn-default">
+				<a href="javascript:void(0);" onClick="loadRedeemForm();"  class="btn btn-default active">
 				  <i class="fa fa-money fa-3x" aria-hidden="true"></i>
 				</a>
+				<a href="javascript:void(0);" onClick="loadProfileForm();" class="btn btn-block btn-default">
+				 <i class="fa fa-cog fa-3x" ></i>
+				</a>				
 				<a href="#" class="btn btn-default">
 				  <i class="fa fa-laptop fa-3x"></i>
 				</a>
@@ -86,8 +86,12 @@
 		get("/loadProfileForm",'profileContentDiv');
 	}
 	
+	function loadRedeemForm() {
+		get("/dashboard",'profileContentDiv');
+	}	
+	
 	$(document).ready(function() {
-		get("/loadProfileForm",'profileContentDiv');
+		get("/dashboard",'profileContentDiv');
 		var $btnSets = $('#responsive'),
 		$btnLinks = $btnSets.find('a');
 	 
