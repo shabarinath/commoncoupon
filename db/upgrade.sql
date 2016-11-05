@@ -13,3 +13,7 @@ alter table transaction drop column buyer_email;
 alter table transaction drop column buyer_name;
 alter table transaction add column buyer_id bigint(20);
 alter table transaction add column coupon_id varchar(255);
+
+
+alter table users add column otp bigint(10);
+alter table users add column otp_expiry timestamp null;

@@ -27,7 +27,7 @@
 							
 						<button class="btn btn-default modal-login-btn" type="button" onClick="javascript:submitForm('loginForm','','loginDiv');">Login</button>	
 						<div class="text-center">
-							<a href="/changePassword" style="color: #fff;">Lost your password?</a>
+							<a href="javascript:void(0);" id="forgotPassword" style="color: #fff;">Lost your password?</a>
 						</div>
 						<div class="form-group text-center modal-register-btn">
 							<input class="btn btn-default" id="registerButton" value="New User Register"/>
@@ -48,6 +48,12 @@
 	$("#registerButton").click(function(){
 		/*$('#errorDiv').html('');*/
 		doGet('/getRegisterForm',{
+		renderTo:'loginRegisterDiv'
+		});
+	});
+	$("#forgotPassword").click(function(){
+		/*$('#errorDiv').html('');*/
+		doGet('/forgotPassword',{
 		renderTo:'loginRegisterDiv'
 		});
 	});

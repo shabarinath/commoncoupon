@@ -5,7 +5,7 @@
 		Successsssssss !!
 	</c:when>
 	<c:otherwise>
-		<div align="center" style="margin-top:50%;">
+		<div align="center" >
 			<h4 style="color: #42f471;">${msg}</h4>
 		</div>
 	</c:otherwise>

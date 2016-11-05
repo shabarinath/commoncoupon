@@ -738,3 +738,8 @@ transition-delay:.2s;
     color: rgba(205, 22, 49, 0.82);
 }
 /** GET VOUCHER page css ends	*/
+
+.reset_password {
+    color: rgb(255, 255, 255);
+	margin-bottom: 6px;
+}

@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
@@ -22,6 +25,7 @@ import com.commoncoupon.bean.PaymentRequestBean;
 import com.commoncoupon.bean.PaymentRequestResponseBean;
 import com.commoncoupon.bean.PaymentSuccessBean;
 import com.commoncoupon.bean.PaymentSuccessResponseBean;
+import com.commoncoupon.constants.Constants;
 import com.commoncoupon.domain.CommonCoupon;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.Transaction;
@@ -244,5 +248,51 @@ public class Utils {
 		}
 		return isValid;
 	}
+	
+	/*
+	 * This method generates 
+	 * 5 digit random number
+	 */
+	public static int generateOTP() {
+		ArrayList<Integer> numbers = new ArrayList<Integer>();
+	    for(int i = 0; i < 10; i++){
+	        numbers.add(i);
+	    }
 
+	    Collections.shuffle(numbers);
+
+	    String otp = "";
+	    for(int i = 0; i < 5; i++){
+	        otp += numbers.get(i).toString();
+	    }
+	    return Integer.parseInt(otp);
+	}
+	
+	public static void main(String argv[]) throws Exception {
+		Utils.generateOTP();
+		System.out.println(getOTPExpiryTimestamp());
+	}
+	
+	public static Date getOTPExpiryTimestamp() {
+		Calendar cal  = Calendar.getInstance();
+		cal.add(Calendar.MINUTE, Constants.OTP_EXPIRY_MINUTES);
+		return cal.getTime();
+	}
+	
+	public static Date getCurrentTimestamp() {
+		Calendar cal  = Calendar.getInstance();
+		return cal.getTime();
+	}
+
+	public static void sendOTPDetailsMail(String fullName, int otp, String email) {
+		try {
+			Map<String, Object> resetPasswordData = new HashMap<String, Object>();
+			resetPasswordData.put("OTP", otp);
+			resetPasswordData.put("ExpiryMinutes", Constants.OTP_EXPIRY_MINUTES);
+			resetPasswordData.put("UserName", fullName);
+			sendMail(resetPasswordData, "PasswordReset.ftl", email, otp+" - Verification code for password reset");
+		}catch(Exception e) {
+			logger.error("Exception occured in sendOTPDetailsMail method reason: ", e);
+		}
+	}
 }

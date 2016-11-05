@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.commoncoupon.constants.Constants;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.UserService;
 import com.commoncoupon.utils.Utils;
@@ -89,6 +90,118 @@ public class RegistrationController {
 			logger.error("Exception occured in validateFormData() reason: ", e);
 		}
 		return (result.hasFieldErrors() || result.hasErrors());
+	}
+	
+	@RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
+	public String getForgotPasswordForm(Model model) throws Exception{
+		try {
+			User user = new User();
+			model.addAttribute("user", user);
+			return "security/forgotPassword";
+		} catch(Exception e) {
+			logger.error("Exception occured in forgotPassword reason: ", e);
+			throw e;
+		}
+	}
+	
+	@RequestMapping(value = "/forgotPassword", method = RequestMethod.POST)
+	public String forgotPassword(@ModelAttribute User user, BindingResult result, Model model) throws Exception{
+		try {
+			if(validatePasswordResetForm(user, result)) {
+				return "security/forgotPassword";
+			}
+			User userFromEmail = userDetailsService.getUserByEmail(user.getEmail());
+			int otp = Utils.generateOTP();
+			userFromEmail.setOtp(otp);
+			userFromEmail.setOtpExpiry(Utils.getOTPExpiryTimestamp());
+			//Sending OTP details to mail
+			Utils.sendOTPDetailsMail(userFromEmail.getFullName(), otp, user.getEmail());
+			userDetailsService.saveUser(userFromEmail);
+			model.addAttribute("user", new User());
+			model.addAttribute("userEmail", user.getEmail());
+			return "security/resetPasswordWithOTP";
+		} catch(Exception e) {
+			logger.error("Exception occured in forgotPassword reason: ", e);
+			throw e;
+		}
+	}
+	
+	/*
+	 * This method is called from
+	 * resetPassword with OTP form
+	 */
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
+	public String resetPassword(@ModelAttribute User user, BindingResult result, Model model) throws Exception{
+		try {
+			if(validatePasswordResetWithOTPForm(user, result)) {
+				return "security/resetPasswordWithOTP";
+			}
+			User userFromEmail = userDetailsService.getUserByEmail(user.getEmail());
+			//Resetting
+			userFromEmail.setOtp(null);
+			userFromEmail.setOtpExpiry(null);
+			PasswordEncoder passEn = new PasswordEncoder();
+			userFromEmail.setPassword(passEn.encodePassword(user.getPassword(), null));
+			userDetailsService.saveUser(userFromEmail);
+			model.addAttribute(Constants.SUCCESS_PAGE_MSG, "Password Change Sucessfully, Plz login with new Password");
+			return "home/success";
+		} catch(Exception e) {
+			logger.error("Exception occured in forgotPassword reason: ", e);
+			throw e;
+		}
+	}
+
+	private boolean validatePasswordResetWithOTPForm(User user,
+			BindingResult result) throws Exception {
+		try {
+			if (Utils.isEmpty(user.getEmail())) {
+				result.rejectValue("email","","Unable to process your request !!");
+			}
+			if(user.getOtp() == null || user.getOtp() <=0) {
+				result.rejectValue("otp","","OTP Required");
+			} else if(!Utils.isEmpty(user.getEmail())) {
+				User userByEmail = userDetailsService.getUserByEmail(user.getEmail());
+				if(userByEmail != null) {
+					if(!user.getOtp().equals(userByEmail.getOtp())) {
+						result.rejectValue("otp","","Invalid OTP");
+					} else if(user.getOtp().equals(userByEmail.getOtp())) {
+						if(Utils.getCurrentTimestamp().after(userByEmail.getOtpExpiry())) {
+							result.rejectValue("otp","","OTP Expired");
+						}
+					}
+				}
+			}
+			if(Utils.isEmpty(user.getPassword())) {
+				result.rejectValue("password","","Required");
+			}
+			if(Utils.isEmpty(user.getConfirmPassword())) {
+				result.rejectValue("confirmPassword","","Required");
+			}
+			return (result.hasFieldErrors() || result.hasErrors());
+		}catch(Exception e) {
+			logger.error("Exception occured while validating validatePasswordResetWithOTPForm");
+			throw e;
+		}
+	}
+
+	private boolean validatePasswordResetForm(User user, BindingResult result) throws Exception {
+		try {
+			if (Utils.isEmpty(user.getEmail())) {
+				result.rejectValue("email","","Email is mandatory");
+			} else if(!Utils.isEmpty(user.getEmail())) {
+				User userByEmail = userDetailsService.getUserByEmail(user.getEmail());
+				if(userByEmail == null) {
+					result.rejectValue("email","","Invalid Email !!");
+				}
+				if(userByEmail !=null && !userByEmail.getActive()) {
+					result.rejectValue("email","","Account is not active !!");
+				}
+			}
+			return (result.hasFieldErrors() || result.hasErrors());
+		}catch(Exception e) {
+			logger.error("Exception occured while validating password rest form");
+			throw e;
+		}
 	}
 
 }
