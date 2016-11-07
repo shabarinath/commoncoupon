@@ -41,22 +41,33 @@ function closeRedeemForm(){
 }
 
 function validateAndSubmitVoucherForm(){
-	var walletAmount = parseFloat(wallet_amount);
-	if(walletAmount == '' || walletAmount == ' ' || walletAmount <= 0 ){
-		alert('No amount in your wallet, please do redeem to get some balance into your wallet');
-		return false;
-	}
+	cleanUpErrorDisplayDiv();
 	var vouchers_amount = 0;
 	$.map( vouchermap, function( value, index ) {
 		vouchers_amount = (parseFloat(vouchers_amount) + parseFloat(value));
 	});
 	if(vouchers_amount <= 0){
-		alert('Please select atleast one voucher');
+		displayError('Please select atleast one voucher');
+		return false;
+	}
+	var walletAmount = parseFloat(wallet_amount);
+	if(walletAmount == '' || walletAmount == ' ' || walletAmount <= 0 ){
+		displayError('No amount in your wallet, please do redeem to get some balance into your wallet');
 		return false;
 	}
 	if(walletAmount < vouchers_amount){
-		alert('Your wallet doesnt have enough balance');
+		displayError('Selected voucher(s) amount is more than your wallet amount. Please do redeem to get some balance into your wallet');
 		return false;
 	}
 	submitForm('couponsListWrapperForm','_finish','container');
+}
+
+function cleanUpErrorDisplayDiv(){
+	$('#errorDisplayDivText').html('');
+	$('#errorDisplayDiv').hide();
+}
+
+function displayError(msg){
+	$('#errorDisplayDivText').html(' ' + msg + ' ');
+	$('#errorDisplayDiv').show();
 }

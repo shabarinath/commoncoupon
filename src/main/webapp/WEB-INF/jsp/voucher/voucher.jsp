@@ -9,7 +9,7 @@
 					Had our e-card ? 
 				</div>
 				<div>
-					<span onclick="expandRedeemForm();" style="cursor:pointer;">Redeem</span>
+					<span onclick="expandRedeemForm();" style="cursor:pointer;" id="redeemBtn">[ Redeem ]</span>
 				</div>
 			</div>
 			<div class="col-lg-12">
@@ -104,13 +104,13 @@
 			  Vouchers
 			  <span class="selected_vouchers_amount" id="vouchers_amount_display">0</span>
 			</div>
-			<c:if test="${not empty Error}">
-				<div class="col-lg-12 p_none">
-					<p style="font-size: 12px; padding: 7px; margin-top: 5px;" class="bg-danger">
+			<div class="col-lg-12 p_none" style="display: none;" id="errorDisplayDiv">
+				<p style="font-size: 12px; padding: 7px; margin-top: 5px;" class="bg-danger" id="errorDisplayDivText">
+					<c:if test="${not empty Error}">
 						${Error}
-					</p>
-				</div>
-			</c:if>
+					</c:if>
+				</p>
+			</div>
 			<div class="col-lg-12 p_none vouchers_buy_btn">
 				<button class="vouchers_buy_btn_style" onClick="javascript:validateAndSubmitVoucherForm();">
 					Proceed

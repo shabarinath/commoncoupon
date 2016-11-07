@@ -737,6 +737,14 @@ transition-delay:.2s;
     margin-top: 5px;
     color: rgba(205, 22, 49, 0.82);
 }
+
+#redeemBtn:hover {
+	background-color: yellow;
+	color: white;
+	background: #CD1632;
+	padding: 3px 5px 3px 5px;
+	border-radius: 7px;
+}
 /** GET VOUCHER page css ends	*/
 
 .reset_password {
