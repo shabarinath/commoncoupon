@@ -40,6 +40,7 @@
 							<form:hidden path="couponsList[${couponStatus.index}].imageUrlBig"/>
 							<form:hidden path="couponsList[${couponStatus.index}].imageUrlMedium"/>
 							<form:hidden path="couponsList[${couponStatus.index}].imageUrlSmall"/>
+							<form:hidden path="couponsList[${couponStatus.index}].voucherPicked" id="checkbox_${couponIdentifier}"/>
 							<div class="col-lg-4 p_none">
 								<div class="coupon_box hovereffect border_right_none border_bottom_none">
 							        <img class="img-responsive" src="${coupon.imageUrlBig}" alt="">
@@ -104,7 +105,7 @@
 			  Vouchers
 			  <span class="selected_vouchers_amount" id="vouchers_amount_display">0</span>
 			</div>
-			<div class="col-lg-12 p_none" style="display: none;" id="errorDisplayDiv">
+			<div class="col-lg-12 p_none" style="${not empty Error ? '' : 'display: none;'}" id="errorDisplayDiv">
 				<p style="font-size: 12px; padding: 7px; margin-top: 5px;" class="bg-danger" id="errorDisplayDivText">
 					<c:if test="${not empty Error}">
 						${Error}

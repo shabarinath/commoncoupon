@@ -1,5 +1,6 @@
 package com.commoncoupon.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -67,8 +68,15 @@ public class VoucherController {
 			}
 			
 			long walletAmount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
-			int checkedOutAmount = findCummulativeAmtIfVoucherSelected(couponsListWrapper);
 			
+			List<CouponsCatalogue> pickedVouchers = filterOutPickedAndUnpickedVouchers(couponsListWrapper);
+			if(pickedVouchers.size() <= 0){
+				model.addAttribute("Error", "Select atleast one coupon to proceed");
+				model.addAttribute("walletAmount", walletAmount);
+				return "voucher/voucher";
+			}
+			
+			int checkedOutAmount = findCummulativeAmtIfVoucherSelected(pickedVouchers);
 			if(checkedOutAmount <= 0) {
 				model.addAttribute("Error", "Select atleast one coupon to proceed");
 				model.addAttribute("walletAmount", walletAmount);
@@ -82,7 +90,7 @@ public class VoucherController {
 				return "voucher/voucher";
 			}
 			
-			for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
+			for(CouponsCatalogue coupon: pickedVouchers) {
 				if(coupon.getAmount() > 0) {
 					OtherCoupon otherCoupon = new OtherCoupon();
 					otherCoupon.setCompanyName(coupon.getName());
@@ -101,9 +109,19 @@ public class VoucherController {
 		return "voucher/success";
 	}
 
-	private int findCummulativeAmtIfVoucherSelected(CouponsCatalogueWrapper couponsListWrapper) {
-		int amount = 0;
+	private List<CouponsCatalogue> filterOutPickedAndUnpickedVouchers(CouponsCatalogueWrapper couponsListWrapper) {
+		List<CouponsCatalogue> pickedVouchersList = new ArrayList<CouponsCatalogue>();
 		for(CouponsCatalogue coupon: couponsListWrapper.getCouponsList()) {
+			if(coupon.getVoucherPicked() == 1){
+				pickedVouchersList.add(coupon);
+			}
+		}
+		return pickedVouchersList;
+	}
+
+	private int findCummulativeAmtIfVoucherSelected(List<CouponsCatalogue> pickedVouchers) {
+		int amount = 0;
+		for(CouponsCatalogue coupon: pickedVouchers) {
 			amount += coupon.getAmount();
 		}
 		return amount;

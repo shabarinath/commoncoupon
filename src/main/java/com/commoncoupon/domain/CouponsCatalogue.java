@@ -31,6 +31,9 @@ public class CouponsCatalogue extends Persistent {
 
 	@Transient
 	private long amount;
+	
+	@Transient
+	private long voucherPicked;
 
 	public String getName() {
 		return name;
@@ -79,4 +82,14 @@ public class CouponsCatalogue extends Persistent {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public long getVoucherPicked() {
+		return voucherPicked;
+	}
+
+	public void setVoucherPicked(long voucherPicked) {
+		this.voucherPicked = voucherPicked;
+	}
+
+
 }

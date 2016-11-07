@@ -12,6 +12,7 @@ function flip(cardName){
 	$('#selectedamount_' + cardName).html(selectBoxValue);
 	$('#overlay_' + cardName).attr('style','opacity:1');
 	vouchermap[cardName] = selectBoxValue;
+	$('#checkbox_' + cardName).val(1);
 	displayCumulativeAmount();
 }
 
@@ -29,6 +30,7 @@ function unFlip(cardName){
 		$('#selectedamount_' + cardName).html('');
 		$('#overlay_' + cardName).removeAttr('style');
 		delete vouchermap[cardName];
+		$('#checkbox_' + cardName).val(0);
 		displayCumulativeAmount();
 }
 
