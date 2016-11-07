@@ -342,6 +342,7 @@
 /** Custom text box */
 .cus_text_box {
 	font-size: 25px;
+	margin-bottom: 0px;
 }
 
 .cus_text_box .input-group-addon{

@@ -32,12 +32,13 @@
 						</div>
 						<spring:bind path="amount">
 							<div class="col-xs-8 p_none" style="margin-top: 20px;">
-								<div class="form-group cus_text_box">
+								<div class="form-group cus_text_box" style="margin-bottom: -2px;">
 									<div class="input-group">
 									  <div class="input-group-addon">Rs</div>									
 									  <form:input path="amount" type="number" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
 									</div>
 								</div>
+								<div style="font-size: 16px; text-align: right;">Required *</div>
 							</div>
 						</spring:bind>
 						<div class="col-xs-4 p_none next_arrow">
@@ -61,6 +62,7 @@
 												<form:input path="sender.firstName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="First Name"/>
 											  </div>
 											</div>
+											<div style="font-size: 16px; text-align: right;">Required *</div>
 										</div>
 									</spring:bind>
 									<spring:bind path="sender.lastName">
@@ -70,6 +72,7 @@
 												<form:input path="sender.lastName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Last Name"/>
 											  </div>
 											</div>
+											<div style="font-size: 16px; text-align: right;">Required *</div>
 										</div>
 									</spring:bind>
 								</div>
@@ -82,6 +85,7 @@
 												<form:input path="sender.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
 											  </div>
 											</div>
+											<div style="font-size: 16px; text-align: right;">Required *</div>
 										</div>
 									</spring:bind>
 									<spring:bind path="sender.mobileNumber">
@@ -91,6 +95,7 @@
 												<form:input path="sender.mobileNumber" type="number" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Mobile"/>
 											  </div>
 											</div>
+											<div style="font-size: 16px; text-align: right;">Required *</div>
 										</div>
 									</spring:bind>
 								</div>
@@ -115,6 +120,7 @@
 										<form:input path="recipient.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
 									</div>
 								</div>
+								<div style="font-size: 16px; text-align: right;">Required *</div>
 							</div>
 						</spring:bind>
 						<div class="col-xs-4 p_none next_arrow">							
@@ -154,11 +160,13 @@
 							  <input class="form-control p_l_none" placeholder="code"/>
 							</div>
 						</div>
+						<div style="font-size: 16px; text-align: right;">Required *</div>
 						<div class="form-group cus_text_box">
 							<div class="input-group">
 							  <input class="form-control p_l_none" placeholder="password"/>
 							</div>
 						</div>
+						<div style="font-size: 16px; text-align: right;">Required *</div>
 					</div>
 				</div><!-- ./ Redeem Leaf 1 -->
 				<div class="col-xs-12 p_none">				
