@@ -57,11 +57,6 @@ public class HomePageController {
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model) throws Exception{
 		try {
-			List<String> supportedCoupons = new ArrayList<String>();
-			supportedCoupons.add("AMAZON");
-			supportedCoupons.add("FLIPKART");
-			supportedCoupons.add("MYNTRA");
-			supportedCoupons.add("SHOPCLUES");
 			model.addAttribute("commonCoupon", new CommonCoupon());
 			return "home/dashboard";
 		} catch(Exception e) {
