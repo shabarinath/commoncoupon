@@ -53,15 +53,4 @@ public class HomePageController {
 			throw e;
 		}
 	}
-	
-	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String dashboard(Model model) throws Exception{
-		try {
-			model.addAttribute("commonCoupon", new CommonCoupon());
-			return "home/dashboard";
-		} catch(Exception e) {
-			logger.error("Unable to load Home page.", e);
-			throw e;
-		}
-	}
 }

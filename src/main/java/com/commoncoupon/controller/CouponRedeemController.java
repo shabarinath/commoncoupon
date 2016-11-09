@@ -41,6 +41,18 @@ public class CouponRedeemController {
 	@Autowired
 	private PaymentService paymentService;
 	
+
+	@RequestMapping(value = "/redeemCoupon", method = RequestMethod.GET)
+	public String dashboard(Model model) throws Exception{
+		try {
+			model.addAttribute("commonCoupon", new CommonCoupon());
+			return "home/redeemCouponForm";
+		} catch(Exception e) {
+			logger.error("Unable to load Home page.", e);
+			throw e;
+		}
+	}
+	
 	@RequestMapping(value = "/redeemCommonCoupon", method = RequestMethod.POST)
 	public String redeemCommonCoupon(@ModelAttribute CommonCoupon commonCoupon, BindingResult result, Model model) throws Exception {
 		if(AuthenticationContext.getLoggedInUserEmail().isEmpty()) {
@@ -52,7 +64,7 @@ public class CouponRedeemController {
 			}
 			if (validateRedemptionForm(commonCoupon, result)) {
 				model.addAttribute("errors", result.getAllErrors());
-				return "home/dashboard";
+				return "home/redeemCouponForm";
 			}
 			String couponId = commonCoupon.getCouponId();
 			String password = commonCoupon.getPassword();
@@ -74,10 +86,10 @@ public class CouponRedeemController {
 				model.addAttribute("walletAmount", userWalletAmount);
 				couponService.saveOrUpdateCommonCoupon(couponFromDB);
 				model.addAttribute("isRedeemSuccess", "true");
-				return "home/dashboard";
+				return "home/redeemCouponForm";
 			} else {
 				model.addAttribute("invalidCoupon", "Invalid Coupon Details or Already redeemed!!!");
-				return "home/dashboard";
+				return "home/redeemCouponForm";
 			}
 		}catch(Exception e) {
 			logger.error("Exception occured in redeemCommonCoupon method reason: ", e);

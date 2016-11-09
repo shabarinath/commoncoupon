@@ -87,11 +87,11 @@
 	}
 	
 	function loadRedeemForm() {
-		get("/dashboard",'profileContentDiv');
+		get("/redeemCoupon",'profileContentDiv');
 	}	
 	
 	$(document).ready(function() {
-		get("/dashboard",'profileContentDiv');
+		get("/redeemCoupon",'profileContentDiv');
 		var $btnSets = $('#responsive'),
 		$btnLinks = $btnSets.find('a');
 	 
