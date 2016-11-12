@@ -1,6 +1,7 @@
 package com.commoncoupon.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.commoncoupon.auth.AuthenticationContext;
+import com.commoncoupon.constants.Constants;
 import com.commoncoupon.domain.CouponsCatalogue;
 import com.commoncoupon.domain.CouponsCatalogueWrapper;
 import com.commoncoupon.domain.OtherCoupon;
 import com.commoncoupon.domain.User;
 import com.commoncoupon.service.CouponService;
 import com.commoncoupon.service.UserService;
+import com.commoncoupon.utils.Configuration;
+import com.commoncoupon.utils.Utils;
 
 @Controller
 public class VoucherController {
@@ -61,7 +65,7 @@ public class VoucherController {
 	@RequestMapping(value = "/saveVoucher", method = RequestMethod.POST)
 	public String saveVoucher(@ModelAttribute("couponsListWrapper")CouponsCatalogueWrapper couponsListWrapper, Model model) throws Exception {
 		try {
-			User currentLoggedInUser =  userDetailsService.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
+			User currentLoggedInUser =  userDetailsService.getCurrentLoggedInUser();
 			if(currentLoggedInUser == null) {
 				model.addAttribute("Error", "Session Expired plz login again !!");
 				return "voucher/voucher"; 
@@ -103,6 +107,15 @@ public class VoucherController {
 			walletAmount = walletAmount - checkedOutAmount;
 			currentLoggedInUser.setAmount(walletAmount);
 			userDetailsService.saveUser(currentLoggedInUser);
+			
+			/* Sending notificaion mails to Admins when someone buys
+			 * vouchers to proceed for manual processing
+			 */
+			String adminEmails = Configuration.getProperty(Constants.AMIN_EMAILS);
+			if(null != adminEmails && adminEmails.length() > 0) {
+				Utils.sendVoucherPurchaseNotificationMailToAdmins(adminEmails, currentLoggedInUser.getFullName(), 
+						pickedVouchers);
+			}
 		}catch(Exception e) {
 			log.error("Exception occured in purchaseCoupons reason:", e);
 		}

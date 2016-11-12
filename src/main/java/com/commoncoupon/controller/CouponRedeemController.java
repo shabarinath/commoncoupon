@@ -71,7 +71,7 @@ public class CouponRedeemController {
 			CommonCoupon couponFromDB = couponService.getUnRedeemedCoupon(couponId, password);
 			if(couponFromDB != null) {
 				//User currentLoggedInUser = userDetailsService.getUserById(AuthenticationContext.getCurrentUserId());
-				User currentLoggedInUser = userDetailsService.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
+				User currentLoggedInUser = userDetailsService.getCurrentLoggedInUser();
 				long couponAmount = couponFromDB.getAmount();
 				couponFromDB.setRedeemed(Boolean.TRUE);
 				couponFromDB.setRedeemedBy(currentLoggedInUser);

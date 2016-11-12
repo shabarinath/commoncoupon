@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.TimeZone;
@@ -27,6 +29,7 @@ import com.commoncoupon.bean.PaymentSuccessBean;
 import com.commoncoupon.bean.PaymentSuccessResponseBean;
 import com.commoncoupon.constants.Constants;
 import com.commoncoupon.domain.CommonCoupon;
+import com.commoncoupon.domain.CouponsCatalogue;
 import com.commoncoupon.domain.PaymentRequestResponse;
 import com.commoncoupon.domain.Transaction;
 import com.commoncoupon.domain.User;
@@ -293,6 +296,21 @@ public class Utils {
 			sendMail(resetPasswordData, "PasswordReset.ftl", email, otp+" - Verification code for password reset");
 		}catch(Exception e) {
 			logger.error("Exception occured in sendOTPDetailsMail method reason: ", e);
+		}
+	}
+
+	public static void sendVoucherPurchaseNotificationMailToAdmins(String adminEmails,
+			String fullName, List<CouponsCatalogue> pickedVouchers) {
+		try {
+			List<String> adminEmailsList =  Arrays.asList(adminEmails.split(","));
+			for(String adminEmail : adminEmailsList) {
+				Map<String, Object> voucherPurchaseData = new HashMap<String, Object>();
+				voucherPurchaseData.put("purchasedCouponsList", pickedVouchers);
+				voucherPurchaseData.put("UserName", fullName);
+				sendMail(voucherPurchaseData, "VoucherPurchaseNotificationToAdmins.ftl", adminEmail,  "Alert New Voucher Purchase Notification !!!");
+			}
+		}catch(Exception e) {
+			logger.error("Exception occured while sending notification mails to admin reason: ", e);
 		}
 	}
 }

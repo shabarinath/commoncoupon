@@ -9,5 +9,6 @@ public class Constants {
 	public static final String SESSION_EXPIRED = "Session Expired!! Plz login and try again";
 	public static final String SUCCESS_PAGE_MSG = "msg";
 	public static final int OTP_EXPIRY_MINUTES = 8;
+	public static final String AMIN_EMAILS = "admin.emails";
 }
 
