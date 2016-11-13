@@ -244,6 +244,13 @@
 	font-size: 23px;
 }
 
+.coupon_required_field {
+	font-size: 18px; 
+	text-align: right; 
+	letter-spacing: 3px; 
+	margin-top: 1px;
+}
+
 /** Leaf 1 css */
 .buy_ecard_panel_form .form_leaf_1 {
 	font-size: 40px;

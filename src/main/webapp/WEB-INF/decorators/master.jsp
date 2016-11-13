@@ -38,7 +38,7 @@
 		<![endif]-->
 		
 	</head>
-	<body>
+	<body class="body">
 	
 		<!-- Exclusive menu for mobile	-->
 		<div class="navbar-wrapper visible-xs visible-sm">

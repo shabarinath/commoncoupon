@@ -23,7 +23,7 @@
 					<span id="current_leaf_num">1</span>/3
 				</div>
 				
-				<form:form  commandName="commonCoupon" id="msform" name="couponForm" method="post" action="/saveCoupon">
+				<form:form commandName="commonCoupon" id="msform" name="couponForm" method="post" action="/saveCoupon">
 					
 					<!-- Leaf 1 -->
 					<div class="col-xs-12 p_none form_leaf_1 " id="leaf_1">
@@ -35,10 +35,10 @@
 								<div class="form-group cus_text_box" style="margin-bottom: -2px;">
 									<div class="input-group">
 									  <div class="input-group-addon">Rs</div>									
-									  <form:input path="amount" type="number" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
+									  <form:input id="amount" path="amount" type="number" cssClass="form-control ${status.error ? 'errorInput' : ''}" placeholder="INR" value="${amount}"/>
 									</div>
 								</div>
-								<div style="font-size: 16px; text-align: right;">Required *</div>
+								<div class="coupon_required_field" id="amountValidationDiv"></div>
 							</div>
 						</spring:bind>
 						<div class="col-xs-4 p_none next_arrow">
@@ -59,20 +59,20 @@
 										<div class="col-xs-6 p_none" style="padding-right: 15px;">  
 											<div class="form-group cus_text_box">
 											  <div class="input-group">												
-												<form:input path="sender.firstName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="First Name"/>
+												<form:input id="firstName" path="sender.firstName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="First Name"/>
 											  </div>
 											</div>
-											<div style="font-size: 16px; text-align: right;">Required *</div>
+											<div class="coupon_required_field" id="firstNameValidationDiv"></div>
 										</div>
 									</spring:bind>
 									<spring:bind path="sender.lastName">
 										<div class="col-xs-6 p_none">  
 											<div class="form-group cus_text_box">
 											  <div class="input-group">										
-												<form:input path="sender.lastName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Last Name"/>
+												<form:input id="lastName" path="sender.lastName" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Last Name"/>
 											  </div>
 											</div>
-											<div style="font-size: 16px; text-align: right;">Required *</div>
+											<div class="coupon_required_field" id="lastNameValidationDiv"></div>
 										</div>
 									</spring:bind>
 								</div>
@@ -82,20 +82,20 @@
 										<div class="col-xs-6 p_none" style="padding-right: 15px;">  
 											<div class="form-group cus_text_box">
 											  <div class="input-group">												
-												<form:input path="sender.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
+												<form:input id="email" path="sender.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
 											  </div>
 											</div>
-											<div style="font-size: 16px; text-align: right;">Required *</div>
+											<div class="coupon_required_field" id="emailValidationDiv"></div>
 										</div>
 									</spring:bind>
 									<spring:bind path="sender.mobileNumber">
 										<div class="col-xs-6 p_none">  
 											<div class="form-group cus_text_box">
 											  <div class="input-group">											
-												<form:input path="sender.mobileNumber" type="number" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Mobile"/>
+												<form:input id="mobileNumber" path="sender.mobileNumber" type="number" cssClass="form-control p_none specialClsOverride ${status.error ? 'errorInput' : ''}" placeholder="Mobile"/>
 											  </div>
 											</div>
-											<div style="font-size: 16px; text-align: right;">Required *</div>
+											<div class="coupon_required_field" id="mobileValidationDiv"></div>
 										</div>
 									</spring:bind>
 								</div>
@@ -117,16 +117,14 @@
 							<div class="col-xs-8 p_none" style="margin-top: 20px;">
 								<div class="form-group cus_text_box">
 									<div class="input-group">
-										<form:input path="recipient.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
+										<form:input id="recipientEmail" path="recipient.email" cssClass="form-control p_none ${status.error ? 'errorInput' : ''}" placeholder="Email"/>
 									</div>
 								</div>
-								<div style="font-size: 16px; text-align: right;">Required *</div>
+								<div class="coupon_required_field" id="recipientEmailValidationDiv"></div>
 							</div>
 						</spring:bind>
 						<div class="col-xs-4 p_none next_arrow">							
-							<button type="submit" class="removeButtonBorder" style="padding:0;">
-								<i class="fa fa-arrow-circle-o-right" id="leaf_3_next_arrow"></i>
-							</button>
+							<i class="fa fa-arrow-circle-o-right" id="leaf_3_next_arrow"></i>
 							<br/>
 							<i class="fa fa-arrow-circle-o-left"  id="leaf_3_previous_arrow"></i>
 							
@@ -160,13 +158,13 @@
 							  <input class="form-control p_l_none" placeholder="code"/>
 							</div>
 						</div>
-						<div style="font-size: 16px; text-align: right;">Required *</div>
+						<div class="coupon_required_field"></div>
 						<div class="form-group cus_text_box">
 							<div class="input-group">
 							  <input class="form-control p_l_none" placeholder="password"/>
 							</div>
 						</div>
-						<div style="font-size: 16px; text-align: right;">Required *</div>
+						<div class="coupon_required_field"></div>
 					</div>
 				</div><!-- ./ Redeem Leaf 1 -->
 				<div class="col-xs-12 p_none">				
@@ -244,30 +242,13 @@
 
 <script>
 $( document ).ready(function() {
-	/*if(${hasErrors eq 'true'}) {		
-		if(${category eq 'senderDetails'}) {
-			$('#leaf_1').hide();
-			$('#leaf_2').show();
-			$('#leaf_3').hide();
-			$('#current_leaf_num').html('2');
-		} else if(${category eq 'amountDiv'}){
-			console.log($('#leaf_1').siblings('div'));
-			$('#leaf_1').show();
-			$('#leaf_2, #leaf_3').hide();
-		} else if(${category eq 'recipientDetails'}) {
-			$('#leaf_3').show();
-			$('#leaf_2, #leaf_1').hide();
-		}
-	} else {
-		$('#leaf_2, #leaf_3').hide();
-	} */
-	$("#amount").focus();
-	if(${hasErrors eq 'true'}) {	
-		$('${divId}').siblings('div').hide();	
-		$('${divId}').show();
-	} 
+	$('#amount').focus();
+
 	/** leaf_1 arrow actions */
 	$('#leaf_1_next_arrow').on( 'click', function(){
+		if(isAmountInvalid()){
+			return false;
+		}
 		$('#leaf_1').hide();
 		$('#leaf_2').show();
 		$('#current_leaf_num').html('2');
@@ -275,6 +256,13 @@ $( document ).ready(function() {
 	
 	/** leaf_2 arrow actions */
 	$('#leaf_2_next_arrow').on( 'click', function(){
+		var fnInvlaidFlag = isFirstNameInvalid();
+		var lnInvlaidFlag = isLastNameInvalid();
+		var emailInvlaidFlag = isEmailInvalid();
+		var mobileInvlaidFlag = isMobileInvalid();
+		if( fnInvlaidFlag || lnInvlaidFlag || emailInvlaidFlag || mobileInvlaidFlag ){
+			return false;
+		}
 		$('#leaf_1').hide();
 		$('#leaf_2').hide();
 		$('#leaf_3').show();
@@ -288,21 +276,131 @@ $( document ).ready(function() {
 	});
 	
 	/** leaf 3 arrow actions*/
+	$('#leaf_3_next_arrow').on( 'click', function(){
+		var recipientEmailInvalidFlag = isRecipientEmailInvalid();
+		if(recipientEmailInvalidFlag){
+			return false;
+		}
+		submitForm('msform','_finish','container');
+	});
 	$('#leaf_3_previous_arrow').on( 'click', function(){
 		$('#leaf_1').hide();
 		$('#leaf_3').hide();
 		$('#leaf_2').show();
 		$('#current_leaf_num').html('2');
 	});
+	
+	function isAmountInvalid(){
+		$('#amountValidationDiv').html('');
+		var box_value = $('#amount').val();
+		if(findIfEmpty(box_value)){
+			$('#amountValidationDiv').html('Required *');
+			return true;
+		}
+		var couponAmount = parseFloat(box_value);
+		if(couponAmount < 500){
+			$('#amountValidationDiv').html('must be atleast Rs.500');
+			return true;
+		}
+		return false;
+	}
+	
+	function isFirstNameInvalid(){
+		$('#firstNameValidationDiv').html('');
+		var fn = $('#firstName').val();
+		if(findIfEmpty(fn)){
+			$('#firstNameValidationDiv').html('Required *');
+			return true;
+		}
+		if(findLength(fn) < 4){
+			$('#firstNameValidationDiv').html('min size is 4 chars');
+			return true;
+		}
+	}
+	
+	function isLastNameInvalid(){
+		$('#lastNameValidationDiv').html('');
+		var ln = $('#lastName').val();
+		if(findIfEmpty(ln)){
+			$('#lastNameValidationDiv').html('Required *');
+			return true;
+		}
+		if(findLength(ln) < 4){
+			$('#lastNameValidationDiv').html('min size is 2 char');
+			return true;
+		}
+	}
+	
+	function isEmailInvalid(){
+		$('#emailValidationDiv').html('');
+		var email = $('#email').val();
+		if(findIfEmpty(email)){
+			$('#emailValidationDiv').html('Required *');
+			return true;
+		}
+		if(!isEmail(email)){
+			$('#emailValidationDiv').html('invalid email');
+			return true;
+		}
+	}
+	
+	function isMobileInvalid(){
+		$('#mobileValidationDiv').html('');
+		var mobValue = $('#mobileNumber').val();
+		if(findIfEmpty(mobValue)){
+			$('#mobileValidationDiv').html('Required *');
+			return true;
+		}
+		if(validatePhone(mobValue) == false){
+			$('#mobileValidationDiv').html('invalid number');
+			return true;
+		}
+	}
+	
+	function isRecipientEmailInvalid(){
+		$('#recipientEmailValidationDiv').html('');
+		var recipientEmailValue = $('#recipientEmail').val();
+		if(findIfEmpty(recipientEmailValue)){
+			$('#recipientEmailValidationDiv').html('Required *');
+			return true;
+		}
+		if(!isEmail(recipientEmailValue)){
+			$('#recipientEmailValidationDiv').html('invalid email');
+			return true;
+		}
+	}
+	
+	function findLength(value){
+		return $.trim(value).length;
+	}
+	
+	function findIfEmpty(value){
+		if(!$.trim(value).length) { 
+			return true;
+		}
+		return false;
+	}
+	
+	function isEmail(email) {
+		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		return regex.test(email);
+	}
+	
+	function validatePhone(field) {
+	    if (field.match(/^\d{10}/)) {
+	         return true;
+	    }
+	    return false;
+	}
 
 	$(window).scroll(function() {
 	    var height = $(window).scrollTop();
 	    if(height > 60) {
-		$('#menu_before_scroll').hide();
-		$('#custom-after-scroll-bootstrap-menu').show();
+			$('#menu_before_scroll').hide();
+			$('#custom-after-scroll-bootstrap-menu').show();
 	    } else {
 			$('#custom-after-scroll-bootstrap-menu').hide();
-		$('#menu_before_scroll').show();
+			$('#menu_before_scroll').show();
 		}
 	});
 
