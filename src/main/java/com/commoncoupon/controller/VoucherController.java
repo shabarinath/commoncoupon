@@ -1,7 +1,6 @@
 package com.commoncoupon.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -108,10 +107,12 @@ public class VoucherController {
 			currentLoggedInUser.setAmount(walletAmount);
 			userDetailsService.saveUser(currentLoggedInUser);
 			
-			/* Sending notificaion mails to Admins when someone buys
+			/* 
+			 * Sending notificaion mails to Admins when someone buys
 			 * vouchers to proceed for manual processing
+			 * @TODO: keep this logic in a thread. Add new util class for mail sending.
 			 */
-			String adminEmails = Configuration.getProperty(Constants.AMIN_EMAILS);
+			String adminEmails = Configuration.getProperty(Constants.ADMIN_EMAILS);
 			if(null != adminEmails && adminEmails.length() > 0) {
 				Utils.sendVoucherPurchaseNotificationMailToAdmins(adminEmails, currentLoggedInUser.getFullName(), 
 						pickedVouchers);
