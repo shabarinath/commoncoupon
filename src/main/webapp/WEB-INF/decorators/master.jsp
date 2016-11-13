@@ -78,12 +78,12 @@
 			<div class="collapse navbar-collapse navbar-menubuilder">
 			    <ul class="nav navbar-nav navbar-right">
 			      <sec:authorize access="isAnonymous()">
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal" 
 						id="login" onclick="openLoginForm();"> Get Vouchers /	Login
 					</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" >
 						Buy our exclusive e-card
 					</a>
 				</sec:authorize>
@@ -115,11 +115,11 @@
 			<div class="header-bg">
 				<a href="/" style="transform: rotate(346deg); font-size: xx-large; color: rgb(189, 25, 52);" class="navbar-brand">GiftYourLove</a>
 				<sec:authorize access="isAnonymous()">
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> How it works</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="#" data-toggle="modal" data-target="#login-modal"> Who we are </a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > How it works</a>
+					<a class="btn trans-border floatright hvr-underline-from-left" href="#" > Who we are </a>
 					<a class="btn trans-border floatright hvr-underline-from-left" onclick="openLoginForm();" 
 						id="login" href="#" data-toggle="modal" data-target="#login-modal"> Get Vouchers /	Login</a>
-					<a class="btn trans-border floatright hvr-underline-from-left" href="/" data-toggle="modal" data-target="#login-modal">
+					<a class="btn trans-border floatright hvr-underline-from-left" href="/" >
 						Buy our exclusive e-card</a>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">

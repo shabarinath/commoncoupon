@@ -20,7 +20,14 @@
 			<div class="col-xs-12 p_none buy_ecard_panel_form">
 				
 				<div class="col-xs-12 p_none form_number_display">
-					<span id="current_leaf_num">1</span>/3
+					<div class="col-xs-8 p_none " style="text-align: left; font-size: 18px; letter-spacing: 3px;">
+						<c:if test="${hasErrors}">
+							*Please fill all the mandatory fields
+						</c:if>
+					</div>
+					<div class="col-xs-4 p_none">
+						<span id="current_leaf_num">1</span>/3
+					</div>
 				</div>
 				
 				<form:form commandName="commonCoupon" id="msform" name="couponForm" method="post" action="/saveCoupon">
