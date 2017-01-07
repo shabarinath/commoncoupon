@@ -2,14 +2,16 @@ TODO
 ==============================
 
 User profile UI changes
-Adding coupon redemption in profile
 email templates changes
 Back button in register popup
 Homepage final changes
 Coupon redeemption automation
 Buying other coupons UI
+Enabling paytm wallet in payment gateway
+Images across portal
 
 
 COMPLETED
 ==============================
 Forgot password flow
+Adding coupon redemption in profile
