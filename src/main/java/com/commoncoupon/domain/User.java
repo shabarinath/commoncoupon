@@ -78,7 +78,7 @@ public class User extends Persistent{
 	 * </p>
 	 */
 	@Column(name="amount",nullable=false)
-	private long amount;
+	private float amount;
 	
 	/**
 	 * Method saves all success payments against user
@@ -184,11 +184,19 @@ public class User extends Persistent{
 		this.confirmPassword = confirmPassword;
 	}
 
-	public long getAmount() {
+	/*public long getAmount() {
 		return amount;
 	}
 
 	public void setAmount(long amount) {
+		this.amount = amount;
+	}*/
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
 

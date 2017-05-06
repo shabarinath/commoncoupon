@@ -1,4 +1,6 @@
 var wallet_amount = $('#wallet_amount').val();
+var isCouponRedeemptionChargesEnabled = $('#isCouponRedeemptionChargesEnabled').val();	
+var totalAmountIncludingCharges="";
 var vouchermap = new Object();
 
 function flip(cardName){
@@ -20,8 +22,19 @@ function displayCumulativeAmount() {
 	var vouchers_cummulative_amount = 0;
 	$.map( vouchermap, function( value, index ) {
 		vouchers_cummulative_amount = (parseFloat(vouchers_cummulative_amount) + parseFloat(value));
-	});
+	});	
+	if(isCouponRedeemptionChargesEnabled != '' &&  isCouponRedeemptionChargesEnabled =='Y') {
+		calculateTotalAmountIncludingServiceCharge(vouchers_cummulative_amount);
+	}
 	$('#vouchers_amount_display').html(vouchers_cummulative_amount);
+}
+
+function calculateTotalAmountIncludingServiceCharge(vouchersCummulativeAmount) {
+	var redeemptionChargesPercent = $('#redeemptionChargesInPercent').val();
+	var serviceChargeAmount = (parseFloat(vouchersCummulativeAmount) * parseFloat(redeemptionChargesPercent))/100;
+	totalAmountIncludingCharges=parseFloat(serviceChargeAmount)+parseFloat(vouchersCummulativeAmount);
+	$('#totalAmountIncludingCharges').html(totalAmountIncludingCharges+" /-");
+	$('#summaryDetails').html("("+vouchersCummulativeAmount +" + "+redeemptionChargesPercent+"% charge = "+totalAmountIncludingCharges+" /-)");
 }
 
 function unFlip(cardName){
@@ -56,6 +69,12 @@ function validateAndSubmitVoucherForm(){
 	if(walletAmount == '' || walletAmount == ' ' || walletAmount <= 0 ){
 		displayError('No amount in your wallet, please do redeem to get some balance into your wallet');
 		return false;
+	}
+	if(isCouponRedeemptionChargesEnabled != '' &&  isCouponRedeemptionChargesEnabled =='Y') {
+		if(walletAmount < totalAmountIncludingCharges) {
+			displayError('Selected voucher(s) amount is more than your wallet amount. Please recharge your wallet');
+			return false;
+		}
 	}
 	if(walletAmount < vouchers_amount){
 		displayError('Selected voucher(s) amount is more than your wallet amount. Please do redeem to get some balance into your wallet');

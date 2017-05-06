@@ -78,7 +78,7 @@ public class CouponRedeemController {
 				Calendar cal  = Calendar.getInstance();
 				/*cal.add(Calendar.YEAR, +1);*/
 				couponFromDB.setRedeemedAt(cal.getTime());
-				long userWalletAmount = currentLoggedInUser.getAmount();
+				float userWalletAmount = currentLoggedInUser.getAmount();
 				userWalletAmount = userWalletAmount + couponAmount;
 				currentLoggedInUser.setAmount(userWalletAmount);
 				userDetailsService.saveUser(currentLoggedInUser);

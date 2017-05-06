@@ -105,6 +105,15 @@
 			  Vouchers
 			  <span class="selected_vouchers_amount" id="vouchers_amount_display">0</span>
 			</div>
+			<c:if test="${isCouponRedeemptionChargesEnabled eq 'Y'}">
+				<input type="hidden" id="isCouponRedeemptionChargesEnabled" value='${isCouponRedeemptionChargesEnabled}'/>
+				<input type="hidden" id="redeemptionChargesInPercent" value='${redeemptionChargesInPercent}'/>
+				<div class="col-lg-12 p_none selected_vouchers">
+				  Total Amount:
+				  <span class="selected_vouchers_amount" id="totalAmountIncludingCharges">0</span>				  
+				  <div class="total_amount_info_class" align="center" id="summaryDetails"></div>
+				</div>
+			</c:if>
 			<div class="col-lg-12 p_none" style="${not empty Error ? '' : 'display: none;'}" id="errorDisplayDiv">
 				<p style="font-size: 12px; padding: 7px; margin-top: 5px;" class="bg-danger" id="errorDisplayDivText">
 					<c:if test="${not empty Error}">
@@ -124,6 +133,6 @@
 
 <script>
 	$('#menu_before_scroll').hide();
-	$('#custom-after-scroll-bootstrap-menu').show();
+	$('#custom-after-scroll-bootstrap-menu').show();	
 </script>
 <script src="/resources/js/voucher.js"></script>

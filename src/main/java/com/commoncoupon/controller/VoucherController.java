@@ -42,8 +42,17 @@ public class VoucherController {
 			catalogueWrapper.setCouponsList(supportedCouponsList);
 			model.addAttribute("couponsListWrapper", catalogueWrapper);
 			User currentLoggedInUser =  userDetailsService.getUserByEmail(AuthenticationContext.getLoggedInUserEmail());
-			long amount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
+			float amount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
 			model.addAttribute("walletAmount", amount);
+			String isCouponRedeemptionChargesEnabled = Configuration.getProperty(Constants.IS_COUPON_REDEEMPTION_CHARGES_ENABLED);
+			if(isCouponRedeemptionChargesEnabled != null && !isCouponRedeemptionChargesEnabled.isEmpty()
+					&& isCouponRedeemptionChargesEnabled.equalsIgnoreCase("Y")) {
+				String redeemptionChargesInPercent = Configuration.getProperty(Constants.COUPON_REDEMPTION_CHARGES_PERCENT);
+				if(redeemptionChargesInPercent != null && !redeemptionChargesInPercent.isEmpty()) {
+					model.addAttribute("isCouponRedeemptionChargesEnabled", isCouponRedeemptionChargesEnabled);
+					model.addAttribute("redeemptionChargesInPercent", redeemptionChargesInPercent);
+				}
+			}
 			return "voucher/voucher";
 		} catch(Exception e) {
 			log.error("Unable to load Get Vouchers Page.", e);
@@ -70,7 +79,7 @@ public class VoucherController {
 				return "voucher/voucher"; 
 			}
 			
-			long walletAmount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
+			float walletAmount = currentLoggedInUser != null ? currentLoggedInUser.getAmount() : 0;
 			
 			List<CouponsCatalogue> pickedVouchers = filterOutPickedAndUnpickedVouchers(couponsListWrapper);
 			if(pickedVouchers.size() <= 0){
@@ -79,7 +88,7 @@ public class VoucherController {
 				return "voucher/voucher";
 			}
 			
-			int checkedOutAmount = findCummulativeAmtIfVoucherSelected(pickedVouchers);
+			float checkedOutAmount = findCummulativeAmtIfVoucherSelected(pickedVouchers);
 			if(checkedOutAmount <= 0) {
 				model.addAttribute("Error", "Select atleast one coupon to proceed");
 				model.addAttribute("walletAmount", walletAmount);
@@ -101,6 +110,14 @@ public class VoucherController {
 					otherCoupon.setRecipient(currentLoggedInUser);
 					otherCoupon.setAmount(coupon.getAmount());
 					couponService.saveCoupon(otherCoupon);
+				}
+			}
+			String isRedeemptionChargesEnabled = Configuration.getProperty(Constants.IS_COUPON_REDEEMPTION_CHARGES_ENABLED);
+			if(isRedeemptionChargesEnabled != null && !isRedeemptionChargesEnabled.isEmpty() 
+					&& isRedeemptionChargesEnabled.equalsIgnoreCase("Y")) {
+				float redeemptionPercent = Float.parseFloat(Configuration.getProperty(Constants.COUPON_REDEMPTION_CHARGES_PERCENT));
+				if(redeemptionPercent > 0) {
+					checkedOutAmount = checkedOutAmount+((checkedOutAmount*redeemptionPercent)/100); 
 				}
 			}
 			walletAmount = walletAmount - checkedOutAmount;
