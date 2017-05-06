@@ -34,7 +34,10 @@ function calculateTotalAmountIncludingServiceCharge(vouchersCummulativeAmount) {
 	var serviceChargeAmount = (parseFloat(vouchersCummulativeAmount) * parseFloat(redeemptionChargesPercent))/100;
 	totalAmountIncludingCharges=parseFloat(serviceChargeAmount)+parseFloat(vouchersCummulativeAmount);
 	$('#totalAmountIncludingCharges').html(totalAmountIncludingCharges+" /-");
-	$('#summaryDetails').html("("+vouchersCummulativeAmount +" + "+redeemptionChargesPercent+"% charge = "+totalAmountIncludingCharges+" /-)");
+	$('#summaryDetails').html("("+vouchersCummulativeAmount +" + "+redeemptionChargesPercent+"% charge = "+totalAmountIncludingCharges+" /-)");	
+	if(vouchersCummulativeAmount ==0) {
+		$('#summaryDetails').hide();
+	}
 }
 
 function unFlip(cardName){
