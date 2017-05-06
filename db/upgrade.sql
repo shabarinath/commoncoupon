@@ -17,3 +17,4 @@ alter table transaction add column coupon_id varchar(255);
 
 alter table users add column otp bigint(10);
 alter table users add column otp_expiry timestamp null;
+alter table users modify column amount float;

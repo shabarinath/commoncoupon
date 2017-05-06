@@ -10,5 +10,7 @@ public class Constants {
 	public static final String SUCCESS_PAGE_MSG = "msg";
 	public static final int OTP_EXPIRY_MINUTES = 8;
 	public static final String ADMIN_EMAILS = "admin.emails";
+	public static final String IS_COUPON_REDEEMPTION_CHARGES_ENABLED = "enable.coupon.redeemption.charges";
+	public static final String COUPON_REDEMPTION_CHARGES_PERCENT = "redeemption.charges.percent";
 }
 

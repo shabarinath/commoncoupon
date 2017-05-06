@@ -64,7 +64,7 @@ CREATE TABLE `users` (
   `account_locked` tinyint(1) NOT NULL DEFAULT '0',
   `account_expired` tinyint(1) NOT NULL DEFAULT '0',
   `credentials_expired` tinyint(1) NOT NULL DEFAULT '0',
-   amount bigint(100) default 0,
+   amount float default 0,
   `mobile_number` bigint(20),
   `type` varchar(31) NOT NULL,
   PRIMARY KEY (`id`),
