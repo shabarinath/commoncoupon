@@ -712,3 +712,11 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
+
+
+/**************************
+ Coupon buying success page
+ **************************/
+.coupon_buy_success_bg{
+	background: url("../img/coupon_buy_success.png") !important;
+}
