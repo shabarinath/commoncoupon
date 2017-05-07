@@ -102,6 +102,17 @@ public class VoucherController {
 				return "voucher/voucher";
 			}
 			
+			String isRedeemptionChargesEnabled = Configuration.getProperty(Constants.IS_COUPON_REDEEMPTION_CHARGES_ENABLED);
+			float redeemptionPercent =0;
+			if(isRedeemptionChargesEnabled != null && !isRedeemptionChargesEnabled.isEmpty() 
+					&& isRedeemptionChargesEnabled.equalsIgnoreCase("Y")) {
+				redeemptionPercent = Float.parseFloat(Configuration.getProperty(Constants.COUPON_REDEMPTION_CHARGES_PERCENT));
+				if(redeemptionPercent > 0) {
+					float serviceChargeAmount  = (checkedOutAmount*redeemptionPercent)/100;
+					checkedOutAmount = checkedOutAmount+(serviceChargeAmount); 
+				}
+			}
+			
 			for(CouponsCatalogue coupon: pickedVouchers) {
 				if(coupon.getAmount() > 0) {
 					OtherCoupon otherCoupon = new OtherCoupon();
@@ -109,15 +120,12 @@ public class VoucherController {
 					otherCoupon.setSender(currentLoggedInUser);
 					otherCoupon.setRecipient(currentLoggedInUser);
 					otherCoupon.setAmount(coupon.getAmount());
+					if(isRedeemptionChargesEnabled != null && !isRedeemptionChargesEnabled.isEmpty() 
+							&& isRedeemptionChargesEnabled.equalsIgnoreCase("Y")) {
+						float serviceChargeAmount  = (coupon.getAmount()*redeemptionPercent)/100;
+						otherCoupon.setServiceChargeAmount(serviceChargeAmount);
+					}
 					couponService.saveCoupon(otherCoupon);
-				}
-			}
-			String isRedeemptionChargesEnabled = Configuration.getProperty(Constants.IS_COUPON_REDEEMPTION_CHARGES_ENABLED);
-			if(isRedeemptionChargesEnabled != null && !isRedeemptionChargesEnabled.isEmpty() 
-					&& isRedeemptionChargesEnabled.equalsIgnoreCase("Y")) {
-				float redeemptionPercent = Float.parseFloat(Configuration.getProperty(Constants.COUPON_REDEMPTION_CHARGES_PERCENT));
-				if(redeemptionPercent > 0) {
-					checkedOutAmount = checkedOutAmount+((checkedOutAmount*redeemptionPercent)/100); 
 				}
 			}
 			walletAmount = walletAmount - checkedOutAmount;

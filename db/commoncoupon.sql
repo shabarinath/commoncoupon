@@ -162,6 +162,7 @@ CREATE TABLE `coupon` (
   `redeemed_by` bigint(20) DEFAULT NULL,
   `redeemed_at` datetime DEFAULT NULL,
   `is_dispatched` tinyint(1) DEFAULT NULL,
+  `service_charge_amount` float NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_couponId` (`coupon_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
