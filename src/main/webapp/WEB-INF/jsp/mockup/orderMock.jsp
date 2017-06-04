@@ -10,11 +10,11 @@
 		  <li class=""><a aria-expanded="false" data-toggle="tab" href="#menu2">Redeemed</a></li>
 		</ul>
 		
-		<div class="tab-content">
+		<div class="tab-content" style="margin-top: 10px;">
 		  <div id="home" class="table-responsive tab-pane fade active in ">
 		    <table class="table table-hover">
 			    <thead>
-			      <tr>
+			      <tr class="info">
 			        <th>#</th>
 			        <th>Description</th>
 			        <th>Status</th>
@@ -62,7 +62,7 @@
 		  <div id="menu1" class="table-responsive tab-pane fade">
 		    <table class="table table-hover">
 			    <thead>
-			      <tr>
+			      <tr class="info">
 			        <th>#</th>
 			        <th>Description</th>
 			        <th>Status</th>
@@ -94,7 +94,7 @@
 		  <div id="menu2" class="table-responsive tab-pane fade">
 		   <table class="table table-hover">
 			    <thead>
-			      <tr>
+			      <tr class="info">
 			        <th>#</th>
 			        <th>Description</th>
 			        <th>Status</th>

@@ -45,5 +45,15 @@ private static final Logger log = LoggerFactory.getLogger(MockupController.class
 		}
 	}
 	
+	@RequestMapping(value = "/mockup/redeemMock", method = RequestMethod.GET)
+	public String showRedeemPageMockup(Model model) throws Exception{
+		try {
+			return "mockup/redeemMock";
+		} catch(Exception e) {
+			log.error("Unable to load Get Vouchers Page.", e);
+			throw e;
+		}
+	}
+	
 }
 

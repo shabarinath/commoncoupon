@@ -56,7 +56,7 @@
 				<div id="navbar" class="navbar-collapse collapse">
 				  <ul class="nav navbar-nav">
 					<li><a href="/" >Buy Our Exclusive Card</a></li>
-					<li><a href="/products">Redeem</a></li>
+					<li><a href="/mockup/redeemMock">Redeem</a></li>
 				  </ul>
 				</div>
 			  </div>
@@ -94,7 +94,7 @@
 					    <li><a href="<c:url value="/profile"/>">Profile</a></li>
 					    <li><a href="<c:url value="/mockup/profileMock"/>">ProfileNew</a></li>
 					    <li><a href="<c:url value="/mockup/orderMock"/>">Transactions</a></li>
-						<li><a href="<c:url value="/profile"/>">Redeem</a></li>
+						<li><a href="<c:url value="/mockup/redeemMock"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>
 						<li class="divider"></li>
@@ -131,7 +131,7 @@
 					    <li><a href="<c:url value="/profile"/>">Profile</a></li>
 					    <li><a href="<c:url value="/mockup/profileMock"/>">ProfileNew</a></li>
 					    <li><a href="<c:url value="/mockup/orderMock"/>">Transactions</a></li>
-						<li><a href="<c:url value="/profile"/>">Redeem</a></li>
+						<li><a href="<c:url value="/mockup/redeemMock"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>
 						<li class="divider"></li>
