@@ -92,6 +92,8 @@
 					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
 					    <li><a href="<c:url value="/profile"/>">Profile</a></li>
+					    <li><a href="<c:url value="/mockup/profileMock"/>">ProfileNew</a></li>
+					    <li><a href="<c:url value="/mockup/orderMock"/>">Transactions</a></li>
 						<li><a href="<c:url value="/profile"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>
@@ -127,6 +129,8 @@
 					    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn trans-border user_pic">User <b class="caret"></b></a>
 					    <ul class="dropdown-menu">
 					    <li><a href="<c:url value="/profile"/>">Profile</a></li>
+					    <li><a href="<c:url value="/mockup/profileMock"/>">ProfileNew</a></li>
+					    <li><a href="<c:url value="/mockup/orderMock"/>">Transactions</a></li>
 						<li><a href="<c:url value="/profile"/>">Redeem</a></li>
 						<li><a>History</a></li>
 						<li><a>Report issue</a></li>

@@ -25,5 +25,25 @@ private static final Logger log = LoggerFactory.getLogger(MockupController.class
 		}
 	}
 	
+	@RequestMapping(value = "/mockup/orderMock", method = RequestMethod.GET)
+	public String showOrdersPageMockup(Model model) throws Exception{
+		try {
+			return "mockup/orderMock";
+		} catch(Exception e) {
+			log.error("Unable to load Get Vouchers Page.", e);
+			throw e;
+		}
+	}
+	
+	@RequestMapping(value = "/mockup/profileMock", method = RequestMethod.GET)
+	public String showProfilePageMockup(Model model) throws Exception{
+		try {
+			return "mockup/mockprofile";
+		} catch(Exception e) {
+			log.error("Unable to load Get Vouchers Page.", e);
+			throw e;
+		}
+	}
+	
 }
 

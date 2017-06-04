@@ -755,6 +755,19 @@ transition-delay:.2s;
 }
 /** GET VOUCHER page css ends	*/
 
+.cus_text_box .input-group-addon .black {
+	color: black !important;
+}
+
+.cus_text_box .form-control .black {
+	color: black !important;
+}
+
+.profile_text_box_override{
+	color: black !important;
+	border-bottom: 1px solid black !important;
+}
+
 .reset_password {
     color: rgb(255, 255, 255);
 	margin-bottom: 6px;
